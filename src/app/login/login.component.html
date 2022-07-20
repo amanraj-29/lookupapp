@@ -1,0 +1,51 @@
+<div class="content-align-middle dp-flex">
+    <!-- <form [formGroup]="formGroup" (ngSubmit)="loginProcess()" novalidate>
+            <ul>
+                <div *ngIf="errormgs" disabled class="errorlogin">
+                    <img src="/assets/Warning ICON.png" width="20px" height="20px" />
+                    <span>
+                        <h2 class="errormessage">{{message}}</h2>
+                    </span>
+                </div>
+                <br>
+                <div class="enterMail"
+                    *ngIf="formGroup.controls['email'].invalid && (formGroup.controls['email'].dirty || formGroup.controls['email'].touched)">
+                    <div *ngIf="formGroup.controls['email'].errors">
+                        Please enter Email
+                    </div>
+                </div>
+                <br>
+                <input placeholder="Email" formControlName="email" required email class="formGroup">
+            </ul>
+
+
+
+
+
+
+            <ul>
+                <input placeholder="Password" type="password" formControlName="password" required class="formGroup">
+            </ul>
+
+            <ul class="center">
+                <button class="button" type="submit">Log In</button>
+            </ul>
+        </form> -->
+    <form class="" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+        <div>
+            <div class="large-input pad-0" appearance="fill">
+                <input  type="text" placeholder="Email" formControlName="email" email="">
+            </div>
+        </div>
+        <div>
+            <div class="large-input pad-0" appearance="fill">
+                <input type="password" placeholder="Password" formControlName="password">
+            </div>
+        </div>
+
+        <div class="example-button-row text-center">
+            <button class="common-btn" mat-button color="primary">Log in</button>
+        </div>
+
+    </form>
+</div>

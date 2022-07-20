@@ -1,0 +1,58 @@
+@import '../../../assets/scss/variables';
+
+.container{
+    padding: 20px;
+}
+table {
+    width: 100%;
+  }
+
+.header-bg{
+    background-color: #507bc5;
+    color: #fff;
+    font-family: "Gilroy-Bold";
+}
+.button-bg{
+    background-color: nth($blue-shade , 2 );
+    padding: 7px;
+    border-style: hidden;
+    border-radius: 5px;
+    font-size: 12px;
+    color: #fff;
+    cursor: pointer;
+}
+.row-bg{
+    background-color: #fff;
+}
+.heading{
+    font-size: 22px;
+    color: #fff;
+}
+.heading-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.alerts{
+    display: flex;
+    align-items: center;
+}
+.alert-text{
+    color: #fff;
+    margin-right: 5px;
+}
+.alert-button{
+    border-radius: 12px;
+    width:50px;
+    height: 20px;
+    border-style: hidden;
+    font-size: 15pz;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.back-button{
+    background-color: nth($white-shade , 1 );
+    color:  nth($orange-shades , 1 );
+    padding: 5px 10px 5px 10px;
+    border-style: none;
+}

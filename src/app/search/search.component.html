@@ -1,0 +1,22 @@
+<div class="content-align-middle dp-flex">
+    
+
+    <form [formGroup]="formGroup" (ngSubmit)="search()">
+        <div class="text-center search-text">
+            <h2 class="pad-b-10">{{email}}</h2>
+            <h3 class="pad-b-10" >Welcome</h3>
+            <p class="pad-b-10"><b>Enter Account / Mobile Number</b></p>
+        </div>
+        <div>
+           
+                <input class="formGroup" type="Search"  formControlName="search" placeholder="number/account" required>
+       
+        </div>
+
+
+        <div class="example-button-row text-center">
+            <button type="submit" class="common-btn" mat-button color="primary" >Search</button>
+        </div>
+
+    </form>
+</div>

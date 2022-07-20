@@ -1,0 +1,31 @@
+<div class="dashboard-bar text-center" d-align-center>
+    <form class="dp-flex " [formGroup]="formGroup" (ngSubmit)="searchnum()">
+        <div>
+            <p class="pad-b-10"><b>Enter Account / Mobile Number</b></p>
+            <div class="large-input pad-0">
+                <input class="formGroup" type="Search" id="search" formControlName="search" placeholder="IMEI" required>
+            </div>
+        </div>
+
+
+        <div class="example-button-row text-center">
+            <button type="submit" class="common-btn" mat-button color="primary" >Search</button>
+        </div>
+
+    </form>
+</div>
+<div class="tab-container wd-100">
+<button [routerLink]="'./billing'" routerLinkActive="active" class="inr-tab" (click)="searchnum()">Billing Details</button>
+<button [routerLink]="'./deviceRateList'" routerLinkActive="active" class="inr-tab before" (click)="searchdeviceandrateplan()">Device and Rate Plans</button>
+<!-- <button [routerLink]="'./deviceRateDetails'" routerLinkActive="active" class="inr-tab">Agreement Details</button> -->
+</div>
+<!-- <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="First" [routerLink]="'./billing'">Billing Details</mat-tab>
+    <mat-tab label="Second" [routerLink]="'./deviceRateList'">Device and Rates List</mat-tab>
+    <mat-tab label="Third" [routerLink]="'./deviceRateDetails'">Device and Rates Details</mat-tab>
+  </mat-tab-group> -->
+
+
+ 
+<router-outlet></router-outlet>
+

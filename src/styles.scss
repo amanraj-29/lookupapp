@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import './assets/scss/base';
+@import './assets/scss/common';
+@import './assets/scss/variables';
+
+body{
+    font-family: "Gilroy-Bold", "Gilroy-SemiBold", "Gilroy-Regular";
+}
+
+// @font-face {
+//     font-family: Gilroy-Regular;
+//     src: url('assets/fonts/Gilroy-Regular.otf') format("opentype");
+//     font-weight: normal;
+//     font-display: swap;
+//   }
+  
+//   @font-face {
+//     font-family: Gilroy-Bold;
+//     src: url('assets/fonts/Gilroy-Bold.otf') format("opentype");
+//     font-weight: bold;
+//     font-display: swap;
+//   }
+  
+//   @font-face {
+//     font-family: Gilroy-SemiBold;
+//     src: url('assets/fonts/Gilroy-SemiBold.otf') format("opentype");
+//     font-display: swap;
+//   }
