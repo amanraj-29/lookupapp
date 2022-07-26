@@ -8,7 +8,7 @@ export interface deviceRatesState{
     Billing_Account_Name: string;
     phone_number: number;
     Effective_Date: string;
-    status: string;
+    Action_Needed: string;
     device ?: string;
 }
 

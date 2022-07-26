@@ -27,7 +27,7 @@ const ELEMENT_DATA: any[] = [
 })
 export class DevicesRatesListComponent implements OnInit {
 
-  displayedColumns: string[] = ['Billing_Account_Name', 'phone_number', 'Effective_Date', 'status', 'device', 'button'];
+  displayedColumns: string[] = ['Billing_Account_Name', 'phone_number', 'Effective_Date', 'Action_Needed', 'device', 'button'];
   dataSource = new MatTableDataSource<deviceRatesState>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator)

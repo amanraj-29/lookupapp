@@ -21,7 +21,8 @@ const routes:Routes=[
     },
     {
       path:'deviceRateList',component:DevicesRatesListComponent
-    },{
+    },
+    {
       path:'deviceRateDetails',component:DeviceRateDetailsComponent
     }
   ]
