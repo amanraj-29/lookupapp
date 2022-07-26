@@ -45,5 +45,9 @@
             color: nth($white-shade , 1 );
 
         }
+
+        .logout-btn.pointer {
+            cursor: pointer;
+          }
     }
 }

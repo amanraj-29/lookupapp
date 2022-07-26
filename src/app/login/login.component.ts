@@ -47,8 +47,11 @@ export class LoginComponent implements OnInit {
         }
         if (result.success == 0) {
           // this.formGroup.reset();
-          this.message = 'Your email or password is invalid. Please try again.';
+          this.message = 'Credentials are invalid. Please try again.';
           this.errormgs = true;
+          setTimeout(() => {
+            this.errormgs = false;
+          }, 3000);
         }
       });
     }

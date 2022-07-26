@@ -1,51 +1,91 @@
 <div class="content-align-middle dp-flex">
-    <!-- <form [formGroup]="formGroup" (ngSubmit)="loginProcess()" novalidate>
-            <ul>
-                <div *ngIf="errormgs" disabled class="errorlogin">
-                    <img src="/assets/Warning ICON.png" width="20px" height="20px" />
-                    <span>
-                        <h2 class="errormessage">{{message}}</h2>
-                    </span>
-                </div>
-                <br>
-                <div class="enterMail"
-                    *ngIf="formGroup.controls['email'].invalid && (formGroup.controls['email'].dirty || formGroup.controls['email'].touched)">
-                    <div *ngIf="formGroup.controls['email'].errors">
-                        Please enter Email
-                    </div>
-                </div>
-                <br>
-                <input placeholder="Email" formControlName="email" required email class="formGroup">
-            </ul>
-
-
-
-
-
-
-            <ul>
-                <input placeholder="Password" type="password" formControlName="password" required class="formGroup">
-            </ul>
-
-            <ul class="center">
-                <button class="button" type="submit">Log In</button>
-            </ul>
-        </form> -->
-    <form class="" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
-        <div>
-            <div class="large-input pad-0" appearance="fill">
-                <input  matInput type="text" placeholder="Email" formControlName="email" email="">
-            </div>
+  <form
+    class=""
+    [formGroup]="formGroup"
+    (ngSubmit)="formGroup.valid && loginProcess()"
+  >
+    <ul>
+      <div *ngIf="errormgs" disabled class="errorlogin">
+        <img src="/assets/Warning ICON.png" width="20px" height="20px" />
+        <span
+          ><h2 class="errormessage">{{ message }}</h2></span
+        >
+      </div>
+      <br />
+      <div
+        class="errorlogin"
+        *ngIf="
+          formGroup.controls['email'].invalid &&
+          (formGroup.controls['email'].dirty ||
+            formGroup.controls['email'].touched)
+        "
+      >
+        <div *ngIf="formGroup.controls['email'].errors">
+          <div class="enterMail">
+            <img
+              src="/assets/Warning ICON.png"
+              width="20px"
+              height="20px"
+              class="errImg"
+            />
+            <br>
+            <span><h2 class="errormessage">Please Enter Email</h2></span>
+          </div>
         </div>
-        <div>
-            <div class="large-input pad-0" appearance="fill">
-                <input matInput type="password" placeholder="Password" formControlName="password">
-            </div>
-        </div>
+      </div>
+      <br />
 
-        <div class="example-button-row text-center">
-            <button class="common-btn" mat-button color="primary">Log in</button>
+      <div
+        class="errorlogin"
+        *ngIf="
+          formGroup.controls['password'].invalid &&
+          (formGroup.controls['password'].dirty ||
+            formGroup.controls['password'].touched)
+        "
+      >
+        <div *ngIf="formGroup.controls['password'].errors">
+          <div class="enterMail">
+            <img
+              src="/assets/Warning ICON.png"
+              width="20px"
+              height="20px"
+              class="errImg"
+            />
+            <br>
+            <span><h2 class="errormessage">Please Enter Password</h2></span>
+          </div>
         </div>
+      </div>
+      <br>
+      <mat-form-field class="large-input pad-0" appearance="fill">
+        <input
+          matInput
+          type="text"
+          placeholder="Email"
+          formControlName="email"
+          email=""
+        />
+      </mat-form-field>
+    </ul>
 
-    </form>
+    <mat-form-field class="large-input pad-0" appearance="fill">
+      <input
+        matInput
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+    </mat-form-field>
+
+    <div class="example-button-row text-center">
+      <button
+        class="common-btn"
+        mat-button
+        color="primary"
+        [disabled]="formGroup.invalid"
+      >
+        Log in
+      </button>
+    </div>
+  </form>
 </div>
