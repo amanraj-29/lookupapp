@@ -1,7 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { ApisService } from './apis.service';
+
+export interface deviceRatesState{
+    Billing_Account_Name: string;
+    phone_number: number;
+    Effective_Date: string;
+    status: string;
+    device ?: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +29,12 @@ export class UtilitiesService {
   getData(){
     return this.masterArray
   }
+  deviceRatesSubject:BehaviorSubject<any>= new BehaviorSubject(null);
+  deviceRatesObservable$:Observable<any>=this.deviceRatesSubject.asObservable();
 
-
-
+dispatchDeviceRates(data:any){
+  this.deviceRatesSubject.next(data);
+}
 
 
   jwtTimeInterval() {

@@ -33,6 +33,9 @@ export class DashboardComponent implements OnInit {
   ) {
     this.email = sessionStorage.getItem('userData');
     this.searchednumber = sessionStorage.getItem('searchedNumber');
+    if(this.searchednumber){
+      this.searchdeviceandrateplan();
+    }
   }
 
   ngOnInit(): void {
@@ -45,23 +48,23 @@ export class DashboardComponent implements OnInit {
         Validators.minLength(4),
         Validators.maxLength(15),
       ]),
-      page: new FormControl(`1`),
+      page: new FormControl(1),
     });
   }
 
   searchdeviceandrateplan() {
-    if (this.formGroup.valid) {
+    let num=(this.formGroup && this.formGroup.value)? this.formGroup.value:{search:this.searchednumber};
       this.apiService
-        .deviceandrateplan(this.formGroup.value)
+        .deviceandrateplan(num)
         .subscribe((result) => {
           console.log(result)
-          this.masterArray =new Array<any>(result.result)
+          this.masterArray =result.result;
           console.log("masterArray parent",this.masterArray)
           this.util.setData(this.masterArray)
          // this.apiService.setDataInLocalStorage('DeviceAndRatePlanData', result);
           //this.router.navigate(['../dashboard'],{relativeTo:this.actRoute});
         });
-    }
+    
   }
 
   searchnum() {
