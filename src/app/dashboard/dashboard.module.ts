@@ -9,6 +9,12 @@ import { SharedModule } from '../shared/shared.module';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatChipsModule} from '@angular/material/chips';
+import { LoaderComponent } from '../shared/components/loader/loader.component';
+import { LoaderService } from '../shared/services/loader.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptor } from '../shared/services/loader-interceptor.service';
+
+
 
 const routes:Routes=[
 {
@@ -34,7 +40,8 @@ const routes:Routes=[
     DashboardComponent,
     BillingDetailsComponent,
     DevicesRatesListComponent,
-    DeviceRateDetailsComponent
+    DeviceRateDetailsComponent,
+   LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -43,6 +50,13 @@ const routes:Routes=[
     MatPaginatorModule,
     MatChipsModule,
     RouterModule.forChild(routes)
+  ],
+  providers:[
+    LoaderService,
+    {
+      provide:HTTP_INTERCEPTORS,useClass:LoaderInterceptor,multi:true
+    }
   ]
+
 })
 export class DashboardModule { }

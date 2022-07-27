@@ -15,15 +15,12 @@ import { UtilitiesService } from '../shared/services/utilities.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-
-  
-
   searchednumber: any;
   email: any;
   formGroup!: FormGroup;
   search: any;
   masterArray!: Array<any>;
-  
+
   constructor(
     private router: Router,
     private actRoute: ActivatedRoute,
@@ -33,7 +30,7 @@ export class DashboardComponent implements OnInit {
   ) {
     this.email = sessionStorage.getItem('userData');
     this.searchednumber = sessionStorage.getItem('searchedNumber');
-    if(this.searchednumber){
+    if (this.searchednumber) {
       this.searchdeviceandrateplan();
     }
   }
@@ -51,27 +48,41 @@ export class DashboardComponent implements OnInit {
       page: new FormControl(1),
     });
   }
+  Space(e: any) {
+    var maxLength = 15;
+    if (
+      e.target.value.length >= maxLength &&
+      ((e.keyCode >= 48 && e.keyCode <= 57) ||
+        (e.keyCode >= 96 && e.keyCode <= 105))
+    ) {
+      e.preventDefault();
+    }
+  }
+  searchDetailAndRatePlan() {
+    this.searchdeviceandrateplan();
+    this.searchnum();
+  }
 
   searchdeviceandrateplan() {
-    let num=(this.formGroup && this.formGroup.value)? this.formGroup.value:{search:this.searchednumber};
-      this.apiService
-        .deviceandrateplan(num)
-        .subscribe((result) => {
-          console.log(result)
-          this.masterArray =result.result;
-          console.log("masterArray parent",this.masterArray)
-          this.util.setData(this.masterArray)
-         // this.apiService.setDataInLocalStorage('DeviceAndRatePlanData', result);
-          //this.router.navigate(['../dashboard'],{relativeTo:this.actRoute});
-        });
-    
+    let num =
+      this.formGroup && this.formGroup.value
+        ? this.formGroup.value
+        : { search: this.searchednumber };
+    this.apiService.deviceandrateplan(num).subscribe((result) => {
+      console.log(result);
+      this.masterArray = result.result;
+      console.log('masterArray parent', this.masterArray);
+      this.util.setData(this.masterArray);
+      // this.apiService.setDataInLocalStorage('DeviceAndRatePlanData', result);
+      //this.router.navigate(['../dashboard'],{relativeTo:this.actRoute});
+    });
   }
 
   searchnum() {
     if (this.formGroup.valid) {
       this.apiService.datasearch(this.formGroup.value).subscribe((result) => {
-        console.log(result)
-        this.router.navigate(['../dashboard'], { relativeTo: this.actRoute });
+        console.log("inside dashboard search",result);
+       // this.router.navigate(['../dashboard'], { relativeTo: this.actRoute });
       });
     }
   }

@@ -1,39 +1,46 @@
+@import "../../assets/scss/variables";
 
-@import '../../assets/scss/variables';
-
-.tab-container{
-    height:50px;
-    background-color: nth($orange-shades , 1 );
-    .inr-tab{
-        height: inherit;
-        padding: 0px 10px;
-        background-color: transparent;
-        border: 0;
-        color: #fff;
-        padding-left: 25px;
-        padding-right: 25px;
-        &.active{
-            background-color:  nth($orange-shades ,2 );
-            position:relative;
-        }
-        &.active:after{
-            // z-index: 99999;
-            // position: absolute;
-            // width: 0;
-            // height: 0;
-            // left: -50px;
-            // border-left: 50px solid transparent;
-            // border-right: 50px solid transparent;
-            // border-bottom: 61px solid rgb(244, 109, 6);
-            // top: -1px;
-                content:"";
-                border-style: solid;
-                border-width: 10px 10px 10px 10px;
-                transform:rotate(-90deg);
-                border-color: transparent  nth($orange-shades , 2 ) transparent transparent;
-                position: absolute;
-                bottom: -20px;
-                right:calc(50% - 10px);
-        }
+.tab-container {
+  height: 50px;
+  background-color: nth($orange-shades, 1);
+  .inr-tab {
+    height: inherit;
+    padding: 0px 10px;
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    padding-left: 25px;
+    padding-right: 25px;
+    &.active {
+      background-color: nth($orange-shades, 2);
+      position: relative;
     }
+    &.active:after {
+      // z-index: 99999;
+      // position: absolute;
+      // width: 0;
+      // height: 0;
+      // left: -50px;
+      // border-left: 50px solid transparent;
+      // border-right: 50px solid transparent;
+      // border-bottom: 61px solid rgb(244, 109, 6);
+      // top: -1px;
+      content: "";
+      border-style: solid;
+      border-width: 10px 10px 10px 10px;
+      transform: rotate(-90deg);
+      border-color: transparent nth($orange-shades, 2) transparent transparent;
+      position: absolute;
+      bottom: -20px;
+      right: calc(50% - 10px);
+    }
+  }
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  pointer-events: none;
 }

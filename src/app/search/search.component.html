@@ -9,8 +9,9 @@
 
     <div class="text-center"
         *ngIf="formGroup.controls['search'].invalid && (formGroup.controls['search'].dirty || formGroup.controls['search'].touched)">
-       
+        <div *ngIf="formGroup.controls['search'].errors">
           Must be of 15-17 digit
+          </div>
         
     </div>
     <div>
@@ -24,7 +25,7 @@
           type="number"
           placeholder="Phone/Account number"
           formControlName="search"
-         
+          (keydown)="Space($event)"
         />
         
       </mat-form-field>
@@ -37,9 +38,12 @@
         mat-button
         color="primary"
         [disabled]="formGroup.invalid"
+       
       >
         Search
       </button>
     </div>
   </form>
+
+  <app-loader></app-loader>
 </div>

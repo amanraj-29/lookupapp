@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,12 +12,16 @@ import { SharedModule } from './shared/shared.module';
 import { MatTableModule } from '@angular/material/table';
 import {MatTableDataSource} from '@angular/material/table';
 
+import { LoaderService } from './shared/services/loader.service';
+import { LoaderInterceptor } from './shared/services/loader-interceptor.service';
+import { LoaderComponent } from './shared/components/loader/loader.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SearchComponent
+    SearchComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,11 @@ import {MatTableDataSource} from '@angular/material/table';
     MatPaginatorModule,
     MatTableModule,
   ],
-  providers: [],
+  providers: [LoaderService,
+   
+    {
+      provide:HTTP_INTERCEPTORS,useClass:LoaderInterceptor,multi:true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
