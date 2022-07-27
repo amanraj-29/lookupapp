@@ -82,6 +82,20 @@ export class DashboardComponent implements OnInit {
     if (this.formGroup.valid) {
       this.apiService.datasearch(this.formGroup.value).subscribe((result) => {
         console.log("inside dashboard search",result);
+        this.apiService.setDataInLocalStorage('Billing_Account_Name',result.result[0].Billing_Account_Name);
+this.apiService.setDataInLocalStorage('curr_srv_accs_nbr',result.result[0].curr_srv_accs_nbr);
+this.apiService.setDataInLocalStorage('Libility_Type',result.result[0].Libility_Type);
+this.apiService.setDataInLocalStorage('Billing_Address_1',result.result[0].Billing_Address_1);
+this.apiService.setDataInLocalStorage('Billing_Address_2',result.result[0].Billing_Address_2);
+this.apiService.setDataInLocalStorage('City',result.result[0].City);
+this.apiService.setDataInLocalStorage('Effective_Date',result.result[0].Effective_Date);
+this.apiService.setDataInLocalStorage('Service_ID',result.result[0].Service_ID);
+this.apiService.setDataInLocalStorage('Account_Type',result.result[0].Account_Type);
+this.apiService.setDataInLocalStorage('Account_Email',result.result[0].Account_Email);
+this.apiService.setDataInLocalStorage('Account_start_date',result.result[0].Account_start_date);
+this.apiService.setDataInLocalStorage('Billing_Cycle',result.result[0].Billing_Cycle);
+this.apiService.setDataInLocalStorage('Billing_Close_Date',result.result[0].Billing_Close_Date);
+        
        // this.router.navigate(['../dashboard'], { relativeTo: this.actRoute });
       });
     }
