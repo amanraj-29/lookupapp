@@ -1,63 +1,79 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ApisService } from '../shared/services/apis.service';
 import { HttpClient } from '@angular/common/http';
-
-
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
 })
-
-
 export class SearchComponent implements OnInit {
-  
   formGroup!: FormGroup;
   email: any;
- 
-  
-  constructor(private router:Router,private actRoute:ActivatedRoute
-    ,  private apiService:ApisService,private http:HttpClient) {
+  failureSearchMessage: any = null;
+
+  constructor(
+    private router: Router,
+    private actRoute: ActivatedRoute,
+    private apiService: ApisService,
+    private http: HttpClient
+  ) {
     this.email = sessionStorage.getItem('userData');
-   }
+  }
 
-  
-
-   ngOnInit(): void {
+  ngOnInit(): void {
     this.initForm();
   }
 
   initForm() {
     this.formGroup = new FormGroup({
-      search: new FormControl('', [Validators.minLength(4),Validators.maxLength(15)]),
-    })}
+      search: new FormControl('', [
+        Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(15),
+        Validators.pattern('^[0-9]*$'),
+      ]),
+    });
+  }
 
-    
-   search(){
-    
-    if (this.formGroup.valid) {
-      this.
-        apiService.datasearch(this.formGroup.value)
-        .subscribe((result) => {
-          console.log(this.formGroup.value)
-          console.log(result)
-        
-        
-
-          this.apiService.setDataInLocalStorage('searchedNumber', this.formGroup.value.search);
-      
-          
-         
-         this.router.navigate(['../dashboard'],{relativeTo:this.actRoute});
-
-          
-         
-          
-        }
-        )
-      }
+  Space(e: any) {
+    var maxLength = 15;
+    if (
+      e.target.value.length >= maxLength &&
+      ((e.keyCode >= 48 && e.keyCode <= 57) ||
+        (e.keyCode >= 96 && e.keyCode <= 105))
+    ) {
+      e.preventDefault();
     }
   }
+
+  search() {
+    if (this.formGroup.valid) {
+      this.apiService.datasearch(this.formGroup.value).subscribe((result) => {
+        if (result.success) {
+          console.log(this.formGroup.value);
+          console.log('length of data received', result);
+
+          this.apiService.setDataInLocalStorage(
+            'searchedNumber',
+            this.formGroup.value.search
+          );
+
+          this.router.navigate(['../dashboard'], { relativeTo: this.actRoute });
+        }
+
+        if (!result.success) {
+          this.failureSearchMessage = 'Search Not found';
+          console.log('search not found');
+        }
+      });
+    }
+  }
+}
