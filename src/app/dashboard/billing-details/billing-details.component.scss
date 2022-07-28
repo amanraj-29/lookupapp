@@ -1,6 +1,42 @@
 .bottom-container{
 display: flex;
+justify-content: space-between;
 }
 .left-container{
-    width: 45%;
+    width: 48%;
+}
+.bg-container{
+    padding: 20px 20px 50px 20px;
+}
+.card-head{
+    background-color: #4473c5;
+    padding: 7px 0 7px 25px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.card-heading{
+    color: #fff;
+    font-size: 20px;
+}
+.card-container{
+    display: flex;
+    background-color: #fff;
+    padding: 5px 0 5px 25px;
+    height: 290px;
+}
+.heading{
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.detail{
+    font-size: 15px;
+}
+.card1{
+    margin-right: 45px;
+}
+.main-heading{
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 10px;
 }
