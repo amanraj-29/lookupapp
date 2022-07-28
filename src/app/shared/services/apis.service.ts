@@ -30,7 +30,10 @@ baseUrl:String='localhost:4000/';
     console.log(' deviceandrateplan');
     return this.http.post(`${this.baseUrl}getstatus`, data);
   }
-
+  deviceDetails(id: any): Observable<any> {
+    console.log(' deviceandrateplan');
+    return this.http.get(`${this.baseUrl}devicedetails/${id}`);
+  }
 
 
   revokeToken(){

@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,6 +11,7 @@ import { SearchComponent } from './search/search.component';
 import { SharedModule } from './shared/shared.module';
 import { MatTableModule } from '@angular/material/table';
 import {MatTableDataSource} from '@angular/material/table';
+import { InterceptorService } from './shared/services/interceptor.service';
 
 
 
@@ -29,7 +30,9 @@ import {MatTableDataSource} from '@angular/material/table';
     MatPaginatorModule,
     MatTableModule,
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,useClass:InterceptorService,multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

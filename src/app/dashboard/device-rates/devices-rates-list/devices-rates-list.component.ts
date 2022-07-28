@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UtilitiesService,deviceRatesState } from 'src/app/shared/services/utilities.service';
 
 
@@ -36,7 +37,7 @@ export class DevicesRatesListComponent implements OnInit {
   displayStyle = "none";
   displayStyle1 = "block";
 
-  constructor(private util : UtilitiesService) { }
+  constructor(private util : UtilitiesService,private router:Router,private actRoute:ActivatedRoute) { }
 
   @Input() masterArray! : any[];
 
@@ -54,9 +55,12 @@ export class DevicesRatesListComponent implements OnInit {
     
   }
 
-  nextscreen(){
-this.displayStyle = "block"
-this.displayStyle1 = "none"
+  nextscreen(item:any){
+// this.displayStyle = "block"
+// this.displayStyle1 = "none"
+this.router.navigate([`../details/${item.sno}`],{
+  relativeTo:this.actRoute
+})
   }
   back(){
     this.displayStyle = "none"

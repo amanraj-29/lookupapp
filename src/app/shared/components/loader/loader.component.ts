@@ -11,12 +11,12 @@ import { LoaderService } from '../../services/loader.service';
 })
 export class LoaderComponent implements OnInit {
 
-  loading: boolean = false;
+  loading: boolean = false; 
 
   constructor(private loaderService: LoaderService) {
 
     this.loaderService.isLoading.subscribe((v) => {
-     // console.log(v);
+     console.log('loader:',v);
       this.loading = v;
     });
 
