@@ -10,8 +10,8 @@
     </div>
     
     <div>
-        <div class="mat-elevation-z8">
-            <table mat-table [dataSource]="dataSource">
+        <div class="mat-elevation-z8" *ngIf="(isLoaded && dataSource.data && dataSource.data.length>0)">
+            <table mat-table [dataSource]="dataSource" >
           
               <!-- Billing_Account_Name Column -->
               <ng-container matColumnDef="Billing_Account_Name">
@@ -58,17 +58,16 @@
                            aria-label="Select page of periodic elements">
             </mat-paginator> -->
           </div>
-                    
+          <ng-container  *ngIf="(isLoaded && dataSource.data && dataSource.data.length===0)">
+            No Data Available for searched number
+          </ng-container>
+          <!-- isLoaded:{{isLoaded}} -->
+          <ng-container  *ngIf="!isLoaded">
+            Loading Data...
+          </ng-container>
     </div>
   
    
 </div>
 
 
-
-<!-- <div class="container"  [ngStyle]="{'display':displayStyle}" >
-    <button class="back-button" (click) = "back()">Back</button>
-    <div>
-        <h1>Jose Lopez</h1>
-    </div>
-</div> -->

@@ -15,7 +15,7 @@ export class InterceptorService implements HttpInterceptor{
   constructor(private auth:ApisService,private loaderService:LoaderService,private utils:UtilitiesService) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    let token=sessionStorage.getItem('authToken')? 'Bearer '+sessionStorage.getItem('authToken'):'';
+    let token=sessionStorage.getItem('auth_token')? 'Bearer '+sessionStorage.getItem('auth_token'):'';
 
   this.loaderService.showLoader(); 
     return next.handle(req.clone({setHeaders:{'authorization':token}})).pipe(

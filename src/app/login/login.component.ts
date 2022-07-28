@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
          // this.utils.callTimeInterval();
           // setInterval(() =>this.apiService.jwtTimeInterval , environment.sessionExpiryTime * 60 * 1000)
           this.utils.setSessionStorage('userData', result.email);
+          this.utils.setSessionStorage('auth_token',result.token);
           // this.utils.setSessionStorage('Employee_First_Name',result.employeeFname);
           // this.utils.setSessionStorage('Employee_Last_Name',result.employeeLname);
           this.router.navigate(['search']);

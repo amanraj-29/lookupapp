@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { ApisService } from '../shared/services/apis.service';
 import { HttpClient } from '@angular/common/http';
+import { UtilitiesService } from '../shared/services/utilities.service';
 
 @Component({
   selector: 'app-search',
@@ -23,7 +24,8 @@ export class SearchComponent implements OnInit {
     private router: Router,
     private actRoute: ActivatedRoute,
     private apiService: ApisService,
-    private http: HttpClient
+    private http: HttpClient,
+    private utils: UtilitiesService
   ) {
     this.email = sessionStorage.getItem('userData');
   }
@@ -58,33 +60,13 @@ export class SearchComponent implements OnInit {
     if (this.formGroup.valid) {
       this.apiService.datasearch(this.formGroup.value).subscribe((result) => {
         if (result.success) {
-          console.log(this.formGroup.value);
-          console.log('length of data received', result);
-
+          // console.log(this.formGroup.value);
+          // console.log('length of data received', result);
+          this.utils.dispatchBillingData(result.result[0]);
           this.apiService.setDataInLocalStorage(
             'searchedNumber',
             this.formGroup.value.search
           );
-
-this.apiService.setDataInLocalStorage('Billing_Account_Name',result.result[0].Billing_Account_Name);
-this.apiService.setDataInLocalStorage('curr_srv_accs_nbr',result.result[0].curr_srv_accs_nbr);
-this.apiService.setDataInLocalStorage('Libility_Type',result.result[0].Libility_Type);
-this.apiService.setDataInLocalStorage('Billing_Address_1',result.result[0].Billing_Address_1);
-this.apiService.setDataInLocalStorage('Billing_Address_2',result.result[0].Billing_Address_2);
-this.apiService.setDataInLocalStorage('City',result.result[0].City);
-this.apiService.setDataInLocalStorage('Effective_Date',result.result[0].Effective_Date);
-this.apiService.setDataInLocalStorage('Service_ID',result.result[0].Service_ID);
-this.apiService.setDataInLocalStorage('Account_Type',result.result[0].Account_Type);
-this.apiService.setDataInLocalStorage('Account_Email',result.result[0].Account_Email);
-this.apiService.setDataInLocalStorage('Account_start_date',result.result[0].Account_start_date);
-this.apiService.setDataInLocalStorage('Billing_Cycle',result.result[0].Billing_Cycle);
-this.apiService.setDataInLocalStorage('Billing_Close_Date',result.result[0].Billing_Close_Date);
-
-
-
-
-       
-
           this.router.navigate(['../dashboard'], { relativeTo: this.actRoute });
         }
 

@@ -21,6 +21,18 @@ export class UtilitiesService {
   constructor(private apiService: ApisService, private router: Router) { }
   /**This method is used to revoke the jwt token for every specified minutes */
 
+  billingSubject:BehaviorSubject<any>= new BehaviorSubject(null);
+  billingObservable$:Observable<any>=this.billingSubject.asObservable();
+  dispatchBillingData(data:any){
+    this.billingSubject.next(data);
+  }
+
+  deviceRatesSubject:BehaviorSubject<any>= new BehaviorSubject(null);
+  deviceRatesObservable$:Observable<any>=this.deviceRatesSubject.asObservable();
+
+  dispatchDeviceRates(data:any){
+    this.deviceRatesSubject.next(data);
+  }
   setData(data: any[]){
     this.masterArray=data
   }
@@ -29,12 +41,7 @@ export class UtilitiesService {
   getData(){
     return this.masterArray
   }
-  deviceRatesSubject:BehaviorSubject<any>= new BehaviorSubject(null);
-  deviceRatesObservable$:Observable<any>=this.deviceRatesSubject.asObservable();
 
-dispatchDeviceRates(data:any){
-  this.deviceRatesSubject.next(data);
-}
 
 
   jwtTimeInterval() {

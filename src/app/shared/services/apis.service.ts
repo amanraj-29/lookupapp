@@ -12,7 +12,6 @@ baseUrl:String='localhost:4000/';
     this.baseUrl=environment.BASE_URL;
    }
   login(data: any): Observable<any> {
-    console.log(data);
     return this.http.post(`${this.baseUrl}login`, data);
   }
 
@@ -21,17 +20,14 @@ baseUrl:String='localhost:4000/';
   }
 
   datasearch(data: any): Observable<any> {
-    console.log('data check');
     return this.http.post(`${this.baseUrl}accountinfo`, data);
   }
 
 
   deviceandrateplan(data: any): Observable<any> {
-    console.log(' deviceandrateplan');
-    return this.http.post(`${this.baseUrl}getstatus`, data);
+    return this.http.post(`${this.baseUrl}getDeviceRatesList`, data);
   }
   deviceDetails(id: any): Observable<any> {
-    console.log(' deviceandrateplan');
     return this.http.get(`${this.baseUrl}devicedetails/${id}`);
   }
 
