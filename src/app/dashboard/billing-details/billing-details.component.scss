@@ -5,6 +5,28 @@ justify-content: space-between;
 .left-container{
     width: 48%;
 }
+.heading-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.alerts{
+    display: flex;
+    align-items: center;
+}
+.alert-text{
+    color: #fff;
+    margin-right: 5px;
+}
+.alert-button{
+    border-radius: 12px;
+    width:50px;
+    height: 20px;
+    border-style: hidden;
+    font-size: 15pz;
+    margin-right: 5px;
+    cursor: pointer;
+}
 .bg-container{
     padding: 20px 20px 50px 20px;
 }
@@ -21,8 +43,11 @@ justify-content: space-between;
 .card-container{
     display: flex;
     background-color: #fff;
-    padding: 5px 0 5px 25px;
+    padding: 5px 40px 5px 25px;
     height: 290px;
+    justify-content: space-between;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 .heading{
     font-size: 18px;

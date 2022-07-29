@@ -1,6 +1,50 @@
+<!-- deviceDetails:{{ deviceDetails | json }}
 
-<button (click)="goBack()">< Back</button>
+<span>{{ deviceDetails?.Billing_Account_Name }}</span> -->
 
-deviceDetails:{{deviceDetails|json}}
+<!-- deviceDetails:{ "Billing_Account_Name": "JOHN MARRERO", "dvc_make": "Samsung",
+"dvc_model": "SM-A125U", "dvc_nbr": "3550691768", "curr_srv_accs_nbr":
+"7876441638", "Libility_Type": "PREPAY", "Effective_Date": "2020-02-09",
+"Service_ID": "Liberty ATT Prepaid", "Account_Type": "I", "Account_Email": "",
+"Account_start_date": "", "Rate_Plan_name": "GP77" } JOHN MARRERO -->
 
-<span>{{deviceDetails?.Billing_Account_Name}}</span>
+<div class="bg-container">
+  <button (click)="goBack()" class="back-but">< Back</button>
+  <div class="card-head">
+    <h2  class="card-heading">{{deviceDetails?.Billing_Account_Name}}</h2>
+  </div>
+  <div class="card-container">
+    <div class="card1">
+      <h2 class="heading">CTN</h2>
+      <p class="detail">{{ deviceDetails?.curr_srv_accs_nbr }}</p>
+      <h2 class="heading">Effective Date</h2>
+      <p class="detail">{{ deviceDetails?.Effective_Date }}</p>
+      <h2 class="heading">Migration Status</h2>
+      <p class="detail">NA</p>
+      <h2 class="heading">Subscriber Email</h2>
+      <p class="detail">{{ deviceDetails?.acct_email_addr || 'NA' }}</p>
+      <h2 class="heading">IMEI</h2>
+      <p class="detail">{{ deviceDetails?.dvc_nbr }}</p>
+    </div>
+    <div>
+      <h2 class="heading">Make</h2>
+      <p class="detail">{{ deviceDetails?.dvc_make }}</p>
+      <h2 class="heading">Model</h2>
+      <p class="detail">{{ deviceDetails?.dvc_model }}</p>
+      <h2 class="heading">Category</h2>
+      <p class="detail">{{ deviceDetails?.dvc_category }}</p>
+      <h2 class="heading">Software</h2>
+      <p class="detail">NA</p>
+      <h2 class="heading">Sim</h2>
+      <p class="detail">NA</p>
+    </div>
+    <div>
+      <h2 class="heading">Sim Generation</h2>
+      <p class="detail">NA</p>
+      <h2 class="heading">Rate Plan Name</h2>
+      <p class="detail">{{ deviceDetails?.Rate_Plan_name }}</p>
+      <h2 class="heading">Rate Plan Description</h2>
+      <p class="detail">NA</p>
+    </div>
+  </div>
+</div>

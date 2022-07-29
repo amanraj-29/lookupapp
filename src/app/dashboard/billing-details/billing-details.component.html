@@ -17,7 +17,16 @@
     
 </div> -->
 <div class="bg-container">
-    <h1 class="main-heading">Billing Account Information</h1>
+    <div class="heading-container">
+        <h1 class="main-heading">Billing Account Information</h1>
+    <div class="alerts">
+        <p class="alert-text">Alerts</p>
+        <button class="alert-button">SOC</button>
+        <button class="alert-button">SOC</button>
+        <button class="alert-button">SOC</button>
+    </div>
+    </div>
+    
     <div class="bottom-container">
         <div class="left-container">
             <div class="card-head">
@@ -26,15 +35,15 @@
             <div class="card-container">
                 <div class="card1">
                     <h2 class="heading">Billing Account Name</h2>
-                    <p class="detail">{{Billing_Account_Name}}</p>
+                    <p class="detail">{{billingInfo?.Billing_Account_Name}}</p>
                     <h2 class="heading">Billing Account Number</h2>
-                    <p class="detail">{{curr_srv_accs_nbr}}</p>
+                    <p class="detail">{{billingInfo?.curr_srv_accs_nbr}}</p>
                     <h2 class="heading">Billing Address 1</h2>
-                    <p class="detail">{{Billing_Address_1}}</p>
+                    <p class="detail">{{billingInfo?.Billing_Address_1}}</p>
                     <h2 class="heading">Billing Address 2</h2>
-                    <p class="detail">{{Billing_Address_2}}</p>
+                    <p class="detail">{{billingInfo?.Billing_Address_2}}</p>
                     <h2 class="heading">City</h2>
-                    <p class="detail">{{City}}</p>
+                    <p class="detail">{{billingInfo?.City}}</p>
                 </div>
                 <div>
                     <h2 class="heading">State</h2>
@@ -42,7 +51,7 @@
                     <h2 class="heading">Zip Code</h2>
                     <p class="detail">NA</p>
                     <h2 class="heading">Account Email</h2>
-                    <p class="detail">{{Account_Email}}</p>
+                    <p class="detail">{{billingInfo?.Account_Email}}</p>
                     <h2 class="heading">Account Contact Number</h2>
                     <p class="detail">NA</p>
                 </div>
@@ -56,26 +65,26 @@
                 <div class="card1">
                     <h2 class="heading">Action Needed</h2>
                     <p class="detail">NA</p>
-                    <h2  class="heading">Authorized Users</h2>
-                    <p class="detail">NA</p>
+                    <!-- <h2  class="heading">Authorized Users</h2>
+                    <p class="detail">NA</p> -->
                     <h2 class="heading">Liability Type</h2>
-                    <p class="detail">{{Libility_Type}}</p>
+                    <p class="detail">{{billingInfo?.Libility_Type}}</p>
                     <h2 class="heading">Account Type</h2>
-                    <p class="detail">{{Account_Type}}</p>
+                    <p class="detail">{{billingInfo?.Account_Type}}</p>
                     <h2 class="heading">Billing Cycle</h2>
-                    <p class="detail">{{Billing_Cycle}}</p>
+                    <p class="detail">{{billingInfo?.Billing_Cycle}}</p>
                 </div>
                 <div>
                     <h2 class="heading">Billing Close Date</h2>
-                    <p class="detail">{{Billing_Close_Date}}</p>
+                    <p class="detail">{{billingInfo?.Billing_Close_Date}}</p>
                     <h2 class="heading">Account Start Date</h2>
-                    <p class="detail">{{Account_start_date}}</p>
+                    <p class="detail">{{billingInfo?.Account_start_date}}</p>
                     <h2 class="heading">FAN ID</h2>
                     <p class="detail">NA</p>
                     <h2 class="heading">FAN Name</h2>
                     <p class="detail">NA</p>
                     <h2 class="heading">Service ID</h2>
-                    <p class="detail">{{Service_ID}}</p>
+                    <p class="detail">{{billingInfo?.Service_ID}}</p>
                 </div>
             </div>
         </div>

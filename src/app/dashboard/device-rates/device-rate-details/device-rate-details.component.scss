@@ -1,0 +1,43 @@
+@import "../../../../assets/scss/variables";
+
+.bg-container{
+    padding: 50px;
+}
+.card-head{
+    background-color: #4473c5;
+    padding: 7px 0 7px 25px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-top: 20px;
+}
+.card-heading{
+    color: #fff;
+    font-size: 20px;
+}
+.card-container{
+    display: flex;
+    background-color: #fff;
+    padding: 25px 200px 25px 25px;
+    height: 290px;
+    justify-content: space-between;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.card1{
+    margin-right: 45px;
+}
+.heading{
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.detail{
+    font-size: 15px;
+}
+.back-but{
+    color: nth($orange-shades, 1);
+    padding: 7px;
+    cursor: pointer;
+    border-radius: 5px;
+    border-style: none;
+}

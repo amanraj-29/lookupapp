@@ -5,7 +5,19 @@
     (ngSubmit)="formGroup.valid && searchDetailAndRatePlan()"
   >
     <div>
-      <p class="pad-b-10"><b>Enter Account / Mobile Number</b></p>
+      <p class="pad-b-10 acc-num"><b>Enter Account / Mobile Number</b></p>
+      <div
+      class="text-center error-msg"
+      *ngIf="
+        formGroup.controls['search'].invalid &&
+        (formGroup.controls['search'].dirty ||
+          formGroup.controls['search'].touched)
+      "
+    >
+      <div *ngIf="formGroup.controls['search'].errors">
+        Must be of 15-17 digit
+      </div>
+    </div>
       <mat-form-field class="large-input pad-0" appearance="fill">
         <input
           matInput
@@ -20,18 +32,8 @@
       </mat-form-field>
     </div>
 
-    <div
-      class="text-center"
-      *ngIf="
-        formGroup.controls['search'].invalid &&
-        (formGroup.controls['search'].dirty ||
-          formGroup.controls['search'].touched)
-      "
-    >
-      <div *ngIf="formGroup.controls['search'].errors">
-        Must be of 15-17 digit
-      </div>
-    </div>
+
+    
 
     <div class="example-button-row text-center centre">
       <button
