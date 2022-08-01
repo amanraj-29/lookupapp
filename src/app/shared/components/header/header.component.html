@@ -5,6 +5,6 @@
     <div class="wd-100 dp-flex header-content">
     <h3>Lookup App</h3>
 
-    <button  class="logout-btn" mat-button (click)="logout()">Log out</button>
+    <button *ngIf="showLogin" class="logout-btn" mat-button (click)="logout()">Log out</button>
 </div>
 </header>
