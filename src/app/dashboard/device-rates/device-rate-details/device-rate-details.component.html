@@ -10,6 +10,8 @@
 
 <div class="bg-container">
   <button (click)="goBack()" class="back-but">< Back</button>
+  <br>
+  <h1 class="card-heading1">Line Details</h1>
   <div class="card-head">
     <h2  class="card-heading">{{deviceDetails?.Billing_Account_Name}}</h2>
   </div>
@@ -25,26 +27,28 @@
       <p class="detail">{{ deviceDetails?.Migratable_By_Device || 'NA' }}</p>
       <h2 class="heading">Migration Status By Rate Plan</h2>
       <p class="detail">{{ deviceDetails?.Migratable_by_rate_plan || 'NA' }}</p>
+     
+    </div>
+    <div>
       <h2 class="heading">Migration Status By Sim</h2>
       <p class="detail">{{ deviceDetails?.SIM_Gen_Status || 'NA' }}</p>
       <h2 class="heading">Subscriber Email</h2>
       <p class="detail">{{ deviceDetails?.acct_email_addr || 'NA' }}</p>
       <h2 class="heading">IMEI</h2>
       <p class="detail">{{ deviceDetails?.dvc_nbr }}</p>
-    </div>
-    <div>
       <h2 class="heading">Make</h2>
       <p class="detail">{{ deviceDetails?.dvc_make }}</p>
       <h2 class="heading">Model</h2>
       <p class="detail">{{ deviceDetails?.dvc_model }}</p>
+      
+    </div>
+    <div>
       <h2 class="heading">Category</h2>
       <p class="detail">{{ deviceDetails?.dvc_category }}</p>
       <h2 class="heading">Software</h2>
       <p class="detail">NA</p>
       <h2 class="heading">Sim</h2>
       <p class="detail">NA</p>
-    </div>
-    <div>
       <h2 class="heading">Sim Generation</h2>
       <p class="detail">NA</p>
       <h2 class="heading">Rate Plan Name</h2>

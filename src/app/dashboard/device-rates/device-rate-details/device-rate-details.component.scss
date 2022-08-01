@@ -18,13 +18,18 @@
     display: flex;
     background-color: #fff;
     padding: 25px 200px 25px 25px;
-    height: 290px;
+    height: 320px;
     justify-content: space-between;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
 .card1{
     margin-right: 45px;
+}
+.card-heading1{
+    color: #fff;
+    font-size: 25px;
+    margin-top: 15px;
 }
 .heading{
     font-size: 18px;
