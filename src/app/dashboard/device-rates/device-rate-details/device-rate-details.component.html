@@ -20,7 +20,7 @@
       <h2 class="heading">Effective Date</h2>
       <p class="detail">{{ deviceDetails?.Effective_Date }}</p>
       <h2 class="heading">Migration Status</h2>
-      <p class="detail">NA</p>
+      <p class="detail">{{ deviceDetails?.action_needed || 'NA' }}</p>
       <h2 class="heading">Subscriber Email</h2>
       <p class="detail">{{ deviceDetails?.acct_email_addr || 'NA' }}</p>
       <h2 class="heading">IMEI</h2>

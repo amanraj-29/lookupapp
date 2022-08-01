@@ -8,7 +8,7 @@
             <button class="alert-button">SOC</button>
         </div>
     </div>
-    
+    <h1 class="count">Total Lines : {{length}}</h1>
     <div>
         <div class="mat-elevation-z8" *ngIf="(isLoaded && dataSource.data && dataSource.data.length>0)">
             <table mat-table [dataSource]="dataSource" >

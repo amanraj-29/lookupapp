@@ -41,7 +41,7 @@
                     <h2 class="heading">Billing Address 1</h2>
                     <p class="detail">{{billingInfo?.Billing_Address_1}}</p>
                     <h2 class="heading">Billing Address 2</h2>
-                    <p class="detail">{{billingInfo?.Billing_Address_2}}</p>
+                    <p class="detail">{{billingInfo?.Billing_Address_2 || 'NA' }}</p>
                     <h2 class="heading">City</h2>
                     <p class="detail">{{billingInfo?.City}}</p>
                 </div>
@@ -51,7 +51,7 @@
                     <h2 class="heading">Zip Code</h2>
                     <p class="detail">NA</p>
                     <h2 class="heading">Account Email</h2>
-                    <p class="detail">{{billingInfo?.Account_Email}}</p>
+                    <p class="detail">{{billingInfo?.Account_Email || 'NA' }}</p>
                     <h2 class="heading">Account Contact Number</h2>
                     <p class="detail">NA</p>
                 </div>
@@ -73,12 +73,14 @@
                     <p class="detail">{{billingInfo?.Account_Type}}</p>
                     <h2 class="heading">Billing Cycle</h2>
                     <p class="detail">{{billingInfo?.Billing_Cycle}}</p>
+                    <h2 class="heading">Preferred Language</h2>
+                    <p class="detail">{{billingInfo?.lang_desc || 'NA' }}</p>
                 </div>
                 <div>
                     <h2 class="heading">Billing Close Date</h2>
                     <p class="detail">{{billingInfo?.Billing_Close_Date}}</p>
                     <h2 class="heading">Account Start Date</h2>
-                    <p class="detail">{{billingInfo?.Account_start_date}}</p>
+                    <p class="detail">{{billingInfo?.Account_start_date || 'NA' }}</p>
                     <h2 class="heading">FAN ID</h2>
                     <p class="detail">NA</p>
                     <h2 class="heading">FAN Name</h2>

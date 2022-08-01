@@ -32,7 +32,7 @@ export class DevicesRatesListComponent implements OnInit {
   dataSource = new MatTableDataSource<deviceRatesState>(ELEMENT_DATA);
 
   isLoaded = false;
-
+  length!: number;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
@@ -43,6 +43,8 @@ export class DevicesRatesListComponent implements OnInit {
         this.isLoaded = true;
         this.dataSource = new MatTableDataSource<deviceRatesState>(val);
         this.dataSource.paginator = this.paginator;
+        this.length = val.length
+        
 
       }
     })

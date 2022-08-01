@@ -66,9 +66,18 @@ input[type="number"] {
       color: #0098FF;
       
   }
+  .welcome-msg{
+    font-size: 20px;
+    font-weight: normal;
+  }
   
   .button:active{
     color: #ffffff;
     background-color: #0055FF;
     border-width: 0;
+  }
+  .abc{
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
   }

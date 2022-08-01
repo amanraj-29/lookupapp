@@ -14,7 +14,7 @@ export class BillingDetailsComponent implements OnInit {
 
     this.utils.billingObservable$.subscribe(deviceData=>{
       this.billingInfo=deviceData;
-      // console.log('billing info:',this.billingInfo);
+      console.log('billing info:',this.billingInfo);
 
     });
    }
