@@ -44,10 +44,11 @@
                     <p class="detail">{{billingInfo?.Billing_Address_2 || 'NA' }}</p>
                     <h2 class="heading">City</h2>
                     <p class="detail">{{billingInfo?.City}}</p>
-                </div>
-                <div>
                     <h2 class="heading">State</h2>
                     <p class="detail">NA</p>
+                </div>
+                <div>
+                    
                     <h2 class="heading">Zip Code</h2>
                     <p class="detail">NA</p>
                     <h2 class="heading">Account Email</h2>
@@ -64,7 +65,7 @@
             <div class="card-container">
                 <div class="card1">
                     <h2 class="heading">Action Needed</h2>
-                    <p class="detail">NA</p>
+                    <p class="detail">{{billingInfo?.Action_Needed || 'NA'}}</p>
                     <!-- <h2  class="heading">Authorized Users</h2>
                     <p class="detail">NA</p> -->
                     <h2 class="heading">Liability Type</h2>
@@ -75,6 +76,8 @@
                     <p class="detail">{{billingInfo?.Billing_Cycle}}</p>
                     <h2 class="heading">Preferred Language</h2>
                     <p class="detail">{{billingInfo?.lang_desc || 'NA' }}</p>
+                    <h2 class="heading">Lines Count</h2>
+                    <p class="detail">{{length}}</p>
                 </div>
                 <div>
                     <h2 class="heading">Billing Close Date</h2>
@@ -82,11 +85,13 @@
                     <h2 class="heading">Account Start Date</h2>
                     <p class="detail">{{billingInfo?.Account_start_date || 'NA' }}</p>
                     <h2 class="heading">FAN ID</h2>
-                    <p class="detail">NA</p>
+                    <p class="detail">{{billingInfo?.fan_id}}</p>
                     <h2 class="heading">FAN Name</h2>
-                    <p class="detail">NA</p>
+                    <p class="detail">{{billingInfo?.fan_nm}}</p>
                     <h2 class="heading">Service ID</h2>
                     <p class="detail">{{billingInfo?.Service_ID}}</p>
+                    <h2 class="heading">Service Name</h2>
+                    <p class="detail">NA</p>
                 </div>
             </div>
         </div>

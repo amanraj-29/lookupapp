@@ -69,6 +69,8 @@ export class DashboardComponent implements OnInit {
         : { search: this.searchednumber };
     this.apiService.deviceandrateplan(num).subscribe((result) => {
       this.util.dispatchDeviceRates(result.result);
+      // localStorage.setItem("Length", result.result.length)
+      
     });
   }
 
