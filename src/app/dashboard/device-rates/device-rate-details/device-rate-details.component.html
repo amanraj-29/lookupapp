@@ -21,6 +21,12 @@
       <p class="detail">{{ deviceDetails?.Effective_Date }}</p>
       <h2 class="heading">Migration Status</h2>
       <p class="detail">{{ deviceDetails?.action_needed || 'NA' }}</p>
+      <h2 class="heading">Migration Status By Device</h2>
+      <p class="detail">{{ deviceDetails?.Migratable_By_Device || 'NA' }}</p>
+      <h2 class="heading">Migration Status By Rate Plan</h2>
+      <p class="detail">{{ deviceDetails?.Migratable_by_rate_plan || 'NA' }}</p>
+      <h2 class="heading">Migration Status By Sim</h2>
+      <p class="detail">{{ deviceDetails?.SIM_Gen_Status || 'NA' }}</p>
       <h2 class="heading">Subscriber Email</h2>
       <p class="detail">{{ deviceDetails?.acct_email_addr || 'NA' }}</p>
       <h2 class="heading">IMEI</h2>
