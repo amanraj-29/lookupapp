@@ -12,7 +12,7 @@ const routes:Routes=[
 {
   path:'',component:DashboardComponent,children:[
     {
-      path:'',redirectTo:'billing',pathMatch:'full'
+      path:'',redirectTo:'deviceRates',pathMatch:'full'
     },
     {
       path:'billing',component:BillingDetailsComponent

@@ -13,14 +13,15 @@
   <br>
   <h1 class="card-heading1">Line Details</h1>
   <div class="card-head">
-    <h2  class="card-heading">{{deviceDetails?.Billing_Account_Name}}</h2>
+    <h2  class="card-heading">{{deviceDetails?.Billing_Account_Name || 'NA'}}</h2>
   </div>
+
   <div class="card-container">
     <div class="card1">
       <h2 class="heading">CTN</h2>
-      <p class="detail">{{ deviceDetails?.curr_srv_accs_nbr }}</p>
+      <p class="detail">{{ deviceDetails?.curr_srv_accs_nbr || 'NA' }}</p>
       <h2 class="heading">Effective Date</h2>
-      <p class="detail">{{ deviceDetails?.Effective_Date }}</p>
+      <p class="detail">{{ deviceDetails?.Effective_Date|| 'NA' }}</p>
       <h2 class="heading">Migration Status</h2>
       <p class="detail">{{ deviceDetails?.action_needed || 'NA' }}</p>
       <h2 class="heading">Migration Status By Device</h2>
@@ -44,13 +45,13 @@
     </div>
     <div>
       <h2 class="heading">Category</h2>
-      <p class="detail">{{ deviceDetails?.dvc_category }}</p>
+      <p class="detail">{{ deviceDetails?.dvc_category || 'NA' }}</p>
       <h2 class="heading">Software</h2>
       <p class="detail">NA</p>
       <h2 class="heading">Sim</h2>
       <p class="detail">NA</p>
       <h2 class="heading">Sim Generation</h2>
-      <p class="detail">NA</p>
+      <p class="detail">{{deviceDetails?.sim_generation}}</p>
       <h2 class="heading">Rate Plan Name</h2>
       <p class="detail">{{ deviceDetails?.Rate_Plan_name }}</p>
       <h2 class="heading">Rate Plan Description</h2>

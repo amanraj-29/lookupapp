@@ -37,7 +37,7 @@
                     <h2 class="heading">Billing Account Name</h2>
                     <p class="detail">{{billingInfo?.Billing_Account_Name}}</p>
                     <h2 class="heading">Billing Account Number</h2>
-                    <p class="detail">{{billingInfo?.curr_srv_accs_nbr}}</p>
+                    <p class="detail">{{billingInfo?.acct_nbr}}</p>
                     <h2 class="heading">Billing Address 1</h2>
                     <p class="detail">{{billingInfo?.Billing_Address_1}}</p>
                     <h2 class="heading">Billing Address 2</h2>
@@ -54,7 +54,7 @@
                     <h2 class="heading">Account Email</h2>
                     <p class="detail">{{billingInfo?.Account_Email || 'NA' }}</p>
                     <h2 class="heading">Account Contact Number</h2>
-                    <p class="detail">NA</p>
+                    <p class="detail">{{billingInfo?.curr_srv_accs_nbr}}</p>
                 </div>
             </div>
         </div>
@@ -85,9 +85,9 @@
                     <h2 class="heading">Account Start Date</h2>
                     <p class="detail">{{billingInfo?.Account_start_date || 'NA' }}</p>
                     <h2 class="heading">FAN ID</h2>
-                    <p class="detail">{{billingInfo?.fan_id}}</p>
+                    <p class="detail">{{billingInfo?.fan_id || 'NA'}}</p>
                     <h2 class="heading">FAN Name</h2>
-                    <p class="detail">{{billingInfo?.fan_nm}}</p>
+                    <p class="detail">{{billingInfo?.fan_nm || 'NA'}}</p>
                     <h2 class="heading">Service ID</h2>
                     <p class="detail">{{billingInfo?.Service_ID}}</p>
                     <h2 class="heading">Service Name</h2>
