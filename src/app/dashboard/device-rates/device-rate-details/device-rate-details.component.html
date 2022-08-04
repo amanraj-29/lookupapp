@@ -10,48 +10,60 @@
 
 <div class="bg-container">
   <button (click)="goBack()" class="back-but">< Back</button>
-  <br>
+  <br />
   <h1 class="card-heading1">Line Details</h1>
   <div class="card-head">
-    <h2  class="card-heading">{{deviceDetails?.Billing_Account_Name || 'NA'}}</h2>
+    <h2 class="card-heading">
+      {{ deviceDetails?.Billing_Account_Name || "NA" }}
+    </h2>
   </div>
 
   <div class="card-container">
     <div class="card1">
       <h2 class="heading">CTN</h2>
-      <p class="detail">{{ deviceDetails?.curr_srv_accs_nbr || 'NA' }}</p>
+      <p class="detail">{{ deviceDetails?.curr_srv_accs_nbr || "NA" }}</p>
       <h2 class="heading">Effective Date</h2>
-      <p class="detail">{{ deviceDetails?.Effective_Date|| 'NA' }}</p>
+      <p class="detail">{{ deviceDetails?.Effective_Date || "NA" }}</p>
       <h2 class="heading">Migration Status</h2>
-      <p class="detail">{{ deviceDetails?.action_needed || 'NA' }}</p>
+      <p
+        class="detail"
+        *ngIf="
+          (deviceDetails?.Migratable_By_Device == 'Migratable' &&
+            deviceDetails?.Migratable_by_rate_plan== 'Migratable' &&
+            deviceDetails?.SIM_Gen_Status == 'Migratable') ;
+          then thenBlock;
+          else elseBlock
+        "
+      ></p>
       <h2 class="heading">Migration Status By Device</h2>
-      <p class="detail">{{ deviceDetails?.Migratable_By_Device || 'NA' }}</p>
+      <p class="detail">{{ deviceDetails?.Migratable_By_Device || "NA" }}</p>
       <h2 class="heading">Migration Status By Rate Plan</h2>
-      <p class="detail">{{ deviceDetails?.Migratable_by_rate_plan || 'NA' }}</p>
-     
+      <p class="detail">{{ deviceDetails?.Migratable_by_rate_plan || "NA" }}</p>
+
+      <ng-template #thenBlock>Complete Migratable</ng-template>
+      <ng-template #elseBlock>Non-Migratable</ng-template>
     </div>
     <div>
       <h2 class="heading">Migration Status By Sim</h2>
-      <p class="detail">{{ deviceDetails?.SIM_Gen_Status || 'NA' }}</p>
+      <p class="detail">{{ deviceDetails?.SIM_Gen_Status || "NA" }}</p>
       <h2 class="heading">Subscriber Email</h2>
-      <p class="detail">{{ deviceDetails?.acct_email_addr || 'NA' }}</p>
+      <p class="detail">{{ deviceDetails?.acct_email_addr || "NA" }}</p>
       <h2 class="heading">IMEI</h2>
       <p class="detail">{{ deviceDetails?.dvc_nbr }}</p>
       <h2 class="heading">Make</h2>
       <p class="detail">{{ deviceDetails?.dvc_make }}</p>
       <h2 class="heading">Model</h2>
       <p class="detail">{{ deviceDetails?.dvc_model }}</p>
-      
     </div>
     <div>
       <h2 class="heading">Category</h2>
-      <p class="detail">{{ deviceDetails?.dvc_category || 'NA' }}</p>
+      <p class="detail">{{ deviceDetails?.dvc_category || "NA" }}</p>
       <h2 class="heading">Software</h2>
       <p class="detail">NA</p>
       <h2 class="heading">Sim</h2>
       <p class="detail">NA</p>
       <h2 class="heading">Sim Generation</h2>
-      <p class="detail">{{deviceDetails?.sim_generation}}</p>
+      <p class="detail">{{ deviceDetails?.sim_generation }}</p>
       <h2 class="heading">Rate Plan Name</h2>
       <p class="detail">{{ deviceDetails?.Rate_Plan_name }}</p>
       <h2 class="heading">Rate Plan Description</h2>
