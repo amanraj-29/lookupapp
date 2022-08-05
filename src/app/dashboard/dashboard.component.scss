@@ -92,6 +92,7 @@ button[disabled] {
 .menu{
   width: 100% !important;
   background-color: nth($orange-shades, 1);
+  color: #fff;
   :hover { background-color:  nth($orange-shades, 2) !important };
   &.active {
     background-color: nth($orange-shades, 2);

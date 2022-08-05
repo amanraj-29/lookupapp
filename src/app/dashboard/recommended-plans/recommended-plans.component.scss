@@ -29,6 +29,9 @@
     }
     .bg-container{
         padding: 20px 20px 50px 20px;
+        @media (max-width: 576px){
+            padding: 10px;
+         }
     }
     .card-head{
         background-color: #4473c5;
@@ -64,6 +67,10 @@
         color: #fff;
         font-size: 22px;
         margin-bottom: 10px;
+        margin-top: 10px;
+        @media (max-width: 576px){
+            font-size: 18px;
+         }
     }
     table, th, td {
         border: 1px solid #169fd5;
@@ -96,3 +103,14 @@ h3{
 //     justify-content: center;
 //     align-items: center;
 // }
+
+table{
+    overflow-wrap: anywhere;
+}
+h3{
+    font-size: 18px;
+}
+
+td{
+    font-family: 'Roboto';
+}

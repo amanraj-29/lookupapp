@@ -17,6 +17,9 @@
 .card-heading{
     color: #fff;
     font-size: 20px;
+    @media (max-width: 576px){
+        font-size: 18px;
+     }
 }
 .card-container{
     display: flex;
@@ -39,11 +42,17 @@
     color: #fff;
     font-size: 25px;
     margin-top: 15px;
+    @media (max-width: 576px){
+        font-size: 18px;
+     }
 }
 .heading{
     font-size: 18px;
     margin-top: 10px;
     margin-bottom: 5px;
+    @media (max-width: 576px){
+        font-size: 16px;
+     }
 }
 .detail{
     font-size: 15px;
@@ -54,6 +63,11 @@
     cursor: pointer;
     border-radius: 5px;
     border-style: none;
+    @media (max-width: 576px){
+        padding: 5px;
+        font-size: 14px;
+        
+     }
 }
 .middle-content{
     margin-right: 20px;
