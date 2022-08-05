@@ -10,6 +10,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -22,13 +24,15 @@ import { MatTableModule } from '@angular/material/table';
     MatTableModule,
     MatPaginatorModule,
     MatChipsModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule
   ],
   exports:[HeaderComponent,LoaderComponent, FormsModule,MatInputModule,
     MatTabsModule,MatTableModule,
     MatPaginatorModule,
     MatChipsModule,
     MatCardModule,
-    ReactiveFormsModule,MatButtonModule]
+    ReactiveFormsModule,MatButtonModule, MatMenuModule,MatIconModule]
 })
 export class SharedModule { }

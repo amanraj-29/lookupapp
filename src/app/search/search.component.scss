@@ -67,8 +67,18 @@ input[type="number"] {
       
   }
   .welcome-msg{
-    font-size: 20px;
+    font-size: 22px;
     font-weight: normal;
+    @media (max-width: 576px){
+      font-size: 18px;
+   }
+  }
+  .welcome-email{
+    font-size: 22px;
+    font-weight: bold;
+    @media (max-width: 576px){
+      font-size: 18px;
+   }
   }
   
   .button:active{
@@ -76,8 +86,15 @@ input[type="number"] {
     background-color: #0055FF;
     border-width: 0;
   }
-  .abc{
+  .acc-num{
     text-align: center;
     color: #ffffff;
     font-size: 18px;
+  }
+  .error-msg{
+    color: #ffffff;
+  }
+  .notfound-err{
+    color: #ffffff;
+    text-align: center;
   }

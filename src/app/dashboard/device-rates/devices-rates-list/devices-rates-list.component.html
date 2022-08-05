@@ -5,12 +5,12 @@
             <p class="alert-text">Alerts</p>
             <button class="alert-button">SOC</button>
             <button class="alert-button">SOC</button>
-            <button class="alert-button">SOC</button>
+            <button class="alert-button1">SOC</button>
         </div>
     </div>
     <h1 class="count">Total Lines : {{length}}</h1>
     <div>
-        <div class="mat-elevation-z8" *ngIf="(isLoaded && dataSource.data && dataSource.data.length>0)">
+        <div class="mat-elevation-z8 overflow" *ngIf="(isLoaded && dataSource.data && dataSource.data.length>0)">
             <table mat-table [dataSource]="dataSource" >
           
               <!-- Billing_Account_Name Column -->

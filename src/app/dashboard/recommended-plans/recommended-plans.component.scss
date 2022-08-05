@@ -42,7 +42,7 @@
     }
     .card-container{
         display: flex;
-        background-color: #fff;
+        // background-color: #fff;
         padding: 5px 50px 5px 25px;
         height: 350px;
         justify-content: space-between;
@@ -66,10 +66,33 @@
         margin-bottom: 10px;
     }
     table, th, td {
-        border: 1px solid;
-        background-color: #fff;
+        border: 1px solid #169fd5;
+        padding: 8px;
+        border-collapse: collapse;
+        // background-color: #fff;
       }
     .sub-sub-item{
         text-align: right;
         font-style: italic;
     }
+.table-head{
+    background-color: #4473c5 !important;
+    color: #fff;
+    
+}
+.table-items{
+    background-color: #fff;
+}
+h3{
+    color: #fff;
+}
+// .odd{
+//     background-color: #7e9fd7;
+// }
+// tr:hover {background-color: #6b90d1;}
+// table{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+// }

@@ -1,7 +1,7 @@
 <div class="content-align-middle dp-flex">
   <form [formGroup]="formGroup" (ngSubmit)="formGroup.valid && search()">
     <div class="text-center search-text">
-      <h2 class="pad-b-10">{{ email }}<span class="welcome-msg"> Welcome to the</span></h2>
+      <h2 class="pad-b-10 welcome-email">{{ email }}<span class="welcome-msg"> Welcome to the</span></h2>
       <span class="welcome-msg">Lookup Portal</span>
       <!-- <h3 class="pad-b-10">Welcome</h3> -->
       
@@ -9,19 +9,21 @@
     <br />
 
     
-    <div>
-        <h2 class="pad-b-10">{{failureSearchMessage}}</h2>
-    </div>
+    
     <br />
     <div>
-      <p class="pad-b-10 abc">Enter Account / Mobile Number</p>
-      <div class="text-center"
+      <h2 class="pad-b-10 notfound-err">{{failureSearchMessage}}</h2>
+  </div>
+    <div>
+      <p class="pad-b-10 acc-num">Enter Account / Mobile Number</p>
+      <div class="text-center error-msg"
         *ngIf="formGroup.controls['search'].invalid && (formGroup.controls['search'].dirty || formGroup.controls['search'].touched)">
         <div *ngIf="formGroup.controls['search'].errors">
           Must be of 15-17 digit
           </div>
         
     </div>
+    
       <mat-form-field class="large-input pad-0" appearance="fill">
         <input
           matInput

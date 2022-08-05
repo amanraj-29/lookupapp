@@ -1,6 +1,6 @@
 <div class="dashboard-bar text-center dashboard-bg" d-align-center>
   <form
-    class="dp-flex"
+    class="dp-flex mobile-search"
     [formGroup]="formGroup"
     (ngSubmit)="formGroup.valid && searchDetailAndRatePlan()"
   >
@@ -49,17 +49,42 @@
   </form>
 </div>
 
+<!-- Mobile Menu bar -->
+<div class="mobile-menu">
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <div class="menu-bar">
+      <span class="menu-text">Menu</span>
+    <mat-icon>list</mat-icon>
+    </div>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="'./billing'" routerLinkActive="active" class="inr-tab menu">
+      Billing Details
+    </button>
+    <button mat-menu-item [routerLink]="'./deviceRates'"
+    routerLinkActive="active"
+    class="inr-tab before menu">
+    Device and Rate Plans
+    </button>
+    <button mat-menu-item [routerLink]="'./recPlans'"
+    routerLinkActive="active"
+    class="inr-tab before menu">
+      Recommended Plans
+    </button>
+  </mat-menu>
+</div>
 
+<!-- Desktop Menu bar -->
 <div class="tab-container wd-100">
   <button [routerLink]="'./billing'" routerLinkActive="active" class="inr-tab">
-    Billing Details
+    Billing <br class="tab-item">Details
   </button>
   <button
     [routerLink]="'./deviceRates'"
     routerLinkActive="active"
     class="inr-tab before"
   >
-    Device and Rate Plans
+    Device and <br class="tab-item">Rate Plans
   </button>
   <!-- recPlans -->
   <button
@@ -67,10 +92,13 @@
     routerLinkActive="active"
     class="inr-tab before"
   >
-    Recommended Plans
-  </button>
+    Recommended<br class="tab-item">Plans
+  </button> 
   <!-- <button [routerLink]="'./deviceRateDetails'" routerLinkActive="active" class="inr-tab">Agreement Details</button> -->
 </div>
+
+
+
 
 <!-- <mat-tab-group mat-align-tabs="start">
     <mat-tab label="First" [routerLink]="'./billing'">Billing Details</mat-tab>

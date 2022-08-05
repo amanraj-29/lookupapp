@@ -4,13 +4,22 @@
     border-bottom: 6px solid nth($orange-shades , 2 );
     background-color: nth($white-shade , 1 );
 
+    
     .logo-path {
         width: 40%;
+        @media (max-width: 576px){
+            width: 55%;
+            padding-right: 22px;
+         }
 
         .logo {
             width: 150px;
             object-fit: contain;
             padding: 0 20px;
+            @media (max-width: 576px){
+                width: 100px;
+                padding-left: 10px;
+             }
         }
     }
 
@@ -20,6 +29,9 @@
         background-color: nth($orange-shades , 1 );
         align-items: center;
         position: relative;
+        @media (max-width: 576px){
+            padding: 0 0px;
+         }
 
         &::before {
             content: '';
@@ -35,6 +47,10 @@
 
         h3 {
             z-index: 9999;
+            font-size: 22px;
+            @media (max-width: 576px){
+                font-size: 18px;
+             }
         }
 
         .logout-btn {
@@ -43,6 +59,9 @@
             margin-left: auto;
             margin-right: 2em;
             color: nth($white-shade , 1 );
+            @media (max-width: 576px){
+                margin-right: 10px;
+             }
 
         }
 
@@ -50,4 +69,5 @@
             cursor: pointer;
           }
     }
+    
 }

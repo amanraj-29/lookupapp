@@ -3,6 +3,10 @@
 .tab-container {
   height: 50px;
   background-color: nth($orange-shades, 1);
+  @media (max-width: 576px){
+  display: none;
+
+ }
   .inr-tab {
     height: inherit;
     padding: 0px 10px;
@@ -11,6 +15,12 @@
     color: #fff;
     padding-left: 25px;
     padding-right: 25px;
+    @media (max-width: 576px){
+      padding-left: 13px;
+    padding-right: 13px;
+    display: none;
+
+   }
     &.active {
       background-color: nth($orange-shades, 2);
       position: relative;
@@ -61,4 +71,50 @@ button[disabled] {
 }
 .acc-num{
   color: #fff;
+}
+.mobile-search{
+  @media (max-width: 576px){
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+ }
+  
+}
+.tab-item{
+  display: none;
+  @media (max-width: 576px){
+    display: block;
+ }
+}
+.top{
+  text-align: start;
+}
+.menu{
+  width: 100% !important;
+  background-color: nth($orange-shades, 1);
+  :hover { background-color:  nth($orange-shades, 2) !important };
+  &.active {
+    background-color: nth($orange-shades, 2);
+  }
+}
+
+.menu-text{
+  float: left;
+  margin-left: 15px;
+  color: #fff;
+    font-weight: 400;
+}
+.menu-bar{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-color:nth($orange-shades, 1);
+  height: 45px;
+  
+}
+.mobile-menu{
+  display: none;
+  @media (max-width: 576px){
+    display: block;
+ }
 }

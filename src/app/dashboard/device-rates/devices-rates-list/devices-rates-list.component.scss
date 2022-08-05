@@ -2,6 +2,10 @@
 
 .container{
     padding: 20px;
+    @media (max-width: 576px){
+        padding: 10px;
+        
+     }
 }
 table {
     width: 100%;
@@ -11,6 +15,14 @@ table {
     background-color: #507bc5;
     color: #fff;
     font-family: "Gilroy-Bold";
+    @media (max-width: 576px){
+        padding-left: 10px !important;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 20px;
+        font-size: 15px;
+        
+     }
 }
 .button-bg{
     background-color: nth($blue-shade , 2 );
@@ -23,19 +35,38 @@ table {
 }
 .row-bg{
     background-color: #fff;
+    @media (max-width: 576px){
+        padding-left: 10px !important;
+        font-size: 14px;
+        padding-right: 10px !important;
+     }
 }
 .heading{
     font-size: 22px;
     color: #fff;
+    @media (max-width: 576px){
+        font-size: 20px;
+        margin-top: 10px;
+     }
 }
 .heading-container{
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    @media (max-width: 576px){
+        display: block;
+        margin-bottom: 10px;
+        
+     }
 }
 .alerts{
     display: flex;
     align-items: center;
+    @media (max-width: 576px){
+        justify-content: flex-end;
+        margin-top: 12px;
+        
+     }
 }
 .alert-text{
     color: #fff;
@@ -46,8 +77,15 @@ table {
     width:50px;
     height: 20px;
     border-style: hidden;
-    font-size: 15pz;
     margin-right: 5px;
+    cursor: pointer;
+}
+.alert-button1{
+    border-radius: 12px;
+    width:50px;
+    height: 20px;
+    border-style: hidden;
+    // margin-right: 5px;
     cursor: pointer;
 }
 .back-button{
@@ -61,4 +99,11 @@ table {
     color: #fff;
     text-align: end;
     margin-bottom: 10px;
+    @media (max-width: 576px){
+        font-size: 15px;
+        
+     }
+}
+.overflow{
+    overflow: auto;
 }
