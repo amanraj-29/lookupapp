@@ -17,6 +17,7 @@
 .card-heading{
     color: #fff;
     font-size: 20px;
+    margin-bottom: 0px;
     @media (max-width: 576px){
         font-size: 18px;
      }
@@ -34,9 +35,16 @@
         padding: 15px;
         
      }
+     @media (min-width: 577px) and (max-width: 800px){
+        padding: 25px 50px 25px 25px;
+        
+     }
 }
 .card1{
-    margin-right: 45px;
+    margin-right: 20px;
+}
+.card2{
+    margin-right: 20px;
 }
 .card-heading1{
     color: #fff;

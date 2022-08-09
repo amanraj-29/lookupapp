@@ -12,13 +12,17 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import { SearchPopupComponent } from './search-popup/search-popup.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    LoaderComponent
+    LoaderComponent,
+    SearchPopupComponent
   ],
+  entryComponents: [SearchPopupComponent],
   imports: [
     CommonModule,
     MatTableModule,
@@ -26,13 +30,16 @@ import {MatIconModule} from '@angular/material/icon';
     MatChipsModule,
     MatCardModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatInputModule
   ],
   exports:[HeaderComponent,LoaderComponent, FormsModule,MatInputModule,
     MatTabsModule,MatTableModule,
     MatPaginatorModule,
     MatChipsModule,
     MatCardModule,
-    ReactiveFormsModule,MatButtonModule, MatMenuModule,MatIconModule]
+    ReactiveFormsModule,MatButtonModule, MatMenuModule,MatIconModule, MatDialogModule]
 })
 export class SharedModule { }

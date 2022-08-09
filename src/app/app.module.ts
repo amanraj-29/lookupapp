@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -12,6 +11,8 @@ import { SharedModule } from './shared/shared.module';
 import { MatTableModule } from '@angular/material/table';
 import {MatTableDataSource} from '@angular/material/table';
 import { InterceptorService } from './shared/services/interceptor.service';
+// import {MatDialogModule} from '@angular/material/dialog';
+import { SearchPopupComponent } from './shared/search-popup/search-popup.component';
 
 
 
@@ -33,6 +34,7 @@ import { InterceptorService } from './shared/services/interceptor.service';
   providers: [{
     provide:HTTP_INTERCEPTORS,useClass:InterceptorService,multi:true
   }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [SearchPopupComponent]
 })
 export class AppModule { }

@@ -5,7 +5,7 @@
     (ngSubmit)="formGroup.valid && searchDetailAndRatePlan()"
   >
     <div>
-      <p class="pad-b-10 acc-num"><b>Enter Account / Mobile Number</b></p>
+      <p class="acc-num"><b>Enter Account / Mobile Number</b></p>
       <div
       class="text-center error-msg"
       *ngIf="
@@ -18,18 +18,18 @@
         Must be of 15-17 digit
       </div>
     </div>
-      <mat-form-field class="large-input pad-0" appearance="fill">
+      <!-- <mat-form-field> -->
         <input
-          matInput
-          class="formGroup"
+          
+        class="large-input"
           type="text"
           id="search"
           formControlName="search"
-          placeholder="IMEI"
+          placeholder="Account/Mobile Number"
           (keydown)="Space($event)"
           required
         />
-      </mat-form-field>
+      <!-- </mat-form-field> -->
     </div>
 
 

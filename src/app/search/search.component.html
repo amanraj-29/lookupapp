@@ -1,54 +1,50 @@
 <div class="content-align-middle dp-flex">
   <form [formGroup]="formGroup" (ngSubmit)="formGroup.valid && search()">
     <div class="text-center search-text">
-      <h2 class="pad-b-10 welcome-email">{{ email }}<span class="welcome-msg"> Welcome to the</span></h2>
+      <h2 class="welcome-email">{{ email }}<span class="welcome-msg"> Welcome to the</span></h2>
       <span class="welcome-msg">Lookup Portal</span>
       <!-- <h3 class="pad-b-10">Welcome</h3> -->
-      
     </div>
     <br />
-
-    
-    
     <br />
     <div>
       <h2 class="pad-b-10 notfound-err">{{failureSearchMessage}}</h2>
   </div>
     <div>
-      <p class="pad-b-10 acc-num">Enter Account / Mobile Number</p>
+      <p class="acc-num">Enter Account / Mobile Number</p>
       <div class="text-center error-msg"
         *ngIf="formGroup.controls['search'].invalid && (formGroup.controls['search'].dirty || formGroup.controls['search'].touched)">
         <div *ngIf="formGroup.controls['search'].errors">
           Must be of 15-17 digit
           </div>
-        
     </div>
     
-      <mat-form-field class="large-input pad-0" appearance="fill">
+      <!-- <mat-form-field> -->
         <input
-          matInput
+        
           type="text"
           placeholder="Phone/Account number"
           formControlName="search"
           (keydown)="Space($event)"
+          class="large-input"
         />
         
-      </mat-form-field>
+      <!-- </mat-form-field> -->
     </div>
 
     <div class="example-button-row text-center">
       <button
       type="submit"
         class="common-btn"
-        mat-button
-        color="primary"
         [disabled]="formGroup.invalid"
-       
+        mat-button 
+        
       >
         Search
       </button>
     </div>
   </form>
 
- 
+  <!-- (click)="openDialog('0ms', '0ms')" -->
 </div>
+

@@ -57,25 +57,31 @@
         </div>
       </div>
       <br>
-      <mat-form-field class="large-input abc pad-0" appearance="fill">
-        <input
-          matInput
-          type="text"
-          placeholder="Email"
-          formControlName="email"
-          email=""
-        />
-      </mat-form-field>
+      <div class="fields">
+        <!-- <mat-form-field > -->
+          <!-- <mat-label>Email</mat-label> -->
+          <input
+            
+            type="text"
+            formControlName="email"
+            email=""
+            class="large-input"
+          />
+        <!-- </mat-form-field> -->
+        <!-- <mat-form-field> -->
+          <input
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+            class="large-input"
+          />
+        <!-- </mat-form-field> -->
+      </div>
+      
+      
     </ul>
 
-    <mat-form-field class="large-input pad-0" appearance="fill">
-      <input
-        matInput
-        type="password"
-        placeholder="Password"
-        formControlName="password"
-      />
-    </mat-form-field>
+    
 
     <div class="example-button-row text-center">
       <button

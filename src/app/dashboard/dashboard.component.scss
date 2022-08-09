@@ -57,6 +57,7 @@ button[disabled] {
 .centre{
   align-self: center;
   margin-left: 20px;
+  
 }
 .width{
   width: auto;
@@ -66,11 +67,12 @@ button[disabled] {
 }
 .error-msg{
   display: block;
-  margin-bottom: 10px;
+  margin-top: 10px;
   color: #fff;
 }
 .acc-num{
   color: #fff;
+  // margin-bottom: -0.5em;
 }
 .mobile-search{
   @media (max-width: 576px){
@@ -118,4 +120,11 @@ button[disabled] {
   @media (max-width: 576px){
     display: block;
  }
+}
+.mat-form-field-infix {
+  display: block;
+  position: relative;
+  flex: auto;
+  min-width: 0;
+  /* width: 180px; */
 }

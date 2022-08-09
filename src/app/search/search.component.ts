@@ -9,6 +9,8 @@ import {
 import { ApisService } from '../shared/services/apis.service';
 import { HttpClient } from '@angular/common/http';
 import { UtilitiesService } from '../shared/services/utilities.service';
+// import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+// import { SearchPopupComponent } from '../shared/search-popup/search-popup.component';
 
 @Component({
   selector: 'app-search',
@@ -20,15 +22,25 @@ export class SearchComponent implements OnInit {
   email: any;
   failureSearchMessage: any = null;
 
+
   constructor(
     private router: Router,
     private actRoute: ActivatedRoute,
     private apiService: ApisService,
     private http: HttpClient,
-    private utils: UtilitiesService
+    private utils: UtilitiesService,
+    // public dialog: MatDialog
   ) {
     this.email = sessionStorage.getItem('userData');
   }
+
+  // openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+  //   this.dialog.open(SearchPopupComponent, {
+  //     width: '250px',
+  //     enterAnimationDuration,
+  //     exitAnimationDuration,
+  //   });
+  // }
 
   ngOnInit(): void {
     this.initForm();
@@ -60,7 +72,7 @@ export class SearchComponent implements OnInit {
     if (this.formGroup.valid) {
       this.apiService.datasearch(this.formGroup.value).subscribe((result) => {
         if (result.success) {
-          // console.log(this.formGroup.value);
+          console.log(this.formGroup.value);
           // console.log('length of data received', result);
           this.utils.dispatchBillingData(result.result[0]);
           this.apiService.setDataInLocalStorage(
