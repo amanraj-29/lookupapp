@@ -35,16 +35,28 @@ export class DevicesRatesListComponent implements OnInit {
   length!: number;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-
+nonMigratableBy:Array<string>=[];
   constructor(private util: UtilitiesService, private router: Router, private actRoute: ActivatedRoute) {
     this.util.deviceRatesObservable$.subscribe(val => {
-      // console.log('  deviceRatesObservable$ :', val);
+      console.log('  deviceRatesObservable$ :', val);
       if (val?.length > 0) {
+        this.nonMigratableBy = [];
         this.isLoaded = true;
         this.dataSource = new MatTableDataSource<deviceRatesState>(val);
         this.dataSource.paginator = this.paginator;
         this.length = val.length
-        
+        val.map((inrVal:any)=>{
+          if(inrVal?.Action_Needed==="Non Migratable by Device"){
+            this.nonMigratableBy.push('Device')
+          }
+          if(inrVal?.Action_Needed==="Non Migratable by SIM Status"){
+            this.nonMigratableBy.push('Sim')
+          }
+          if(inrVal?.Action_Needed==="Non Migratable by Rate Plan"){
+            this.nonMigratableBy.push('Rate')
+          }
+          
+        })
 
       }
     })

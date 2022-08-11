@@ -3,8 +3,8 @@
   Would you like search this number
 </div>
 <div mat-dialog-actions>
-  <button mat-raised-button  color="primary">No</button>
-  <button mat-raised-button color="warn"  >Yes</button>
+  <button mat-raised-button (click)="close('no')">No</button>
+  <button mat-raised-button (click)="close('yes')" >Yes</button>
 </div>
 
 

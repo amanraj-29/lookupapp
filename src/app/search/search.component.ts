@@ -9,8 +9,6 @@ import {
 import { ApisService } from '../shared/services/apis.service';
 import { HttpClient } from '@angular/common/http';
 import { UtilitiesService } from '../shared/services/utilities.service';
-// import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-// import { SearchPopupComponent } from '../shared/search-popup/search-popup.component';
 
 @Component({
   selector: 'app-search',
@@ -29,18 +27,9 @@ export class SearchComponent implements OnInit {
     private apiService: ApisService,
     private http: HttpClient,
     private utils: UtilitiesService,
-    // public dialog: MatDialog
   ) {
     this.email = sessionStorage.getItem('userData');
   }
-
-  // openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-  //   this.dialog.open(SearchPopupComponent, {
-  //     width: '250px',
-  //     enterAnimationDuration,
-  //     exitAnimationDuration,
-  //   });
-  // }
 
   ngOnInit(): void {
     this.initForm();

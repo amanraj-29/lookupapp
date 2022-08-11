@@ -11,7 +11,17 @@
 <div class="bg-container">
   <button (click)="goBack()" class="back-but">< Back</button>
   <br />
-  <h1 class="card-heading1">Line Details</h1>
+  <div class="heading-container">
+    <h1 class="card-heading1">Line Details</h1>
+  <div class="alerts">
+    <p class="alert-text">Migration Status:</p>
+    <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device==='Migratable')?'mg':'nmg'">Device</button>
+    <button class="alert-button" [ngClass]="(deviceDetails?.SIM_Gen_Status==='Migratable')?'mg':'nmg'">Sim</button>
+    <button class="alert-button1" [ngClass]="(deviceDetails?.Migratable_by_rate_plan==='Migratable')?'mg':'nmg'">Rate Plan</button>
+</div>
+  </div>
+
+  
   <div class="card-head">
     <h2 class="card-heading">
       {{ deviceDetails?.Billing_Account_Name || "NA" }}
@@ -37,10 +47,10 @@
       ></p>
       <h2 class="heading">Migration Status By Device</h2>
       <p class="detail">{{ deviceDetails?.Migratable_By_Device || "NA" }}</p>
-      <h2 class="heading">Migration Status By Rate Plan</h2>
-      <p class="detail">{{ deviceDetails?.Migratable_by_rate_plan || "NA" }}</p>
       <h2 class="heading">Migration Status By Sim</h2>
       <p class="detail">{{ deviceDetails?.SIM_Gen_Status || "NA" }}</p>
+      <h2 class="heading">Migration Status By Rate Plan</h2>
+      <p class="detail">{{ deviceDetails?.Migratable_by_rate_plan || "NA" }}</p>
 
       <ng-template #thenBlock>Complete Migratable</ng-template>
       <ng-template #elseBlock>Non-Migratable</ng-template>

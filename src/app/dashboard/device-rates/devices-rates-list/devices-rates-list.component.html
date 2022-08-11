@@ -2,10 +2,10 @@
     <div class="heading-container">
         <h1 class="heading">Subscriber List</h1>
         <div class="alerts">
-            <p class="alert-text">Migratable by:</p>
-            <button class="alert-button">Device</button>
-            <button class="alert-button">Sim</button>
-            <button class="alert-button1">Rate Plan</button>
+            <p class="alert-text">Migration Status:</p>
+            <button class="alert-button" [ngClass] = "(nonMigratableBy.includes('Device'))? 'nmg' : 'mg'">Device</button>
+            <button class="alert-button" [ngClass] = "(nonMigratableBy.includes('Sim'))? 'nmg' : 'mg'">Sim</button>
+            <button class="alert-button1" [ngClass] = "(nonMigratableBy.includes('Rate'))? 'nmg' : 'mg'">Rate Plan</button>
         </div>
     </div>
     <h1 class="count">Total Lines : {{length}}</h1>

@@ -16,5 +16,8 @@ export class SearchPopupComponent implements OnInit {
   // back(){
   //   this.router.navigate(['search'])
   // }
+  close(val:string){
+    this.dialogRef.close(val)
+  }
 
 }

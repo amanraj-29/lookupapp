@@ -2,7 +2,7 @@
   <form
     class="dp-flex mobile-search"
     [formGroup]="formGroup"
-    (ngSubmit)="formGroup.valid && searchDetailAndRatePlan()"
+    (ngSubmit)="formGroup.valid && openDialog('0ms', '0ms')"
   >
     <div>
       <p class="acc-num"><b>Enter Account / Mobile Number</b></p>
@@ -42,6 +42,7 @@
         mat-button
         color="primary"
         [disabled]="formGroup.invalid"
+        
       >
         Search
       </button>
@@ -58,9 +59,6 @@
     </div>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item [routerLink]="'./billing'" routerLinkActive="active" class="inr-tab menu">
-      Billing Details
-    </button>
     <button mat-menu-item [routerLink]="'./deviceRates'"
     routerLinkActive="active"
     class="inr-tab before menu">
@@ -71,14 +69,15 @@
     class="inr-tab before menu">
       Recommended Plans
     </button>
+    <button mat-menu-item [routerLink]="'./billing'" routerLinkActive="active" class="inr-tab menu">
+      Billing Details
+    </button>
   </mat-menu>
 </div>
 
 <!-- Desktop Menu bar -->
 <div class="tab-container wd-100">
-  <button [routerLink]="'./billing'" routerLinkActive="active" class="inr-tab">
-    Billing Details
-  </button>
+  
   <button
     [routerLink]="'./deviceRates'"
     routerLinkActive="active"
@@ -94,6 +93,9 @@
   >
     Recommended Plans
   </button> 
+  <button [routerLink]="'./billing'" routerLinkActive="active" class="inr-tab">
+    Billing Details
+  </button>
   <!-- <button [routerLink]="'./deviceRateDetails'" routerLinkActive="active" class="inr-tab">Agreement Details</button> -->
 </div>
 

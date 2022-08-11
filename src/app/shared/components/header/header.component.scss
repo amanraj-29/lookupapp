@@ -11,6 +11,9 @@
             width: 55%;
             padding-right: 22px;
          }
+         @media (min-width: 577px) and (max-width: 800px){
+            width: 50%;
+         }
 
         .logo {
             width: 150px;
@@ -20,6 +23,7 @@
                 width: 100px;
                 padding-left: 10px;
              }
+            
         }
     }
 
