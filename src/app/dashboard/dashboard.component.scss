@@ -61,9 +61,14 @@ button[disabled] {
 }
 .width{
   width: auto;
+  margin-top: 5px;
+  @media (max-width: 576px){
+    margin-top: 0px;
+
+ }
 }
 .dashboard-bg{
-  padding-top: 45px;
+  padding-top: 20px;
 }
 .error-msg{
   display: block;

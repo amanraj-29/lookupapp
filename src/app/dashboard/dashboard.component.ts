@@ -9,6 +9,9 @@ import { ApisService } from '../shared/services/apis.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UtilitiesService } from '../shared/services/utilities.service';
+
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { SearchPopupComponent } from '../shared/search-popup/search-popup.component';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -25,7 +28,8 @@ export class DashboardComponent implements OnInit {
     private actRoute: ActivatedRoute,
     private apiService: ApisService,
     private http: HttpClient,
-    private util: UtilitiesService
+    private util: UtilitiesService,
+    public dialog: MatDialog
   ) {
     this.email = sessionStorage.getItem('userData');
     this.searchednumber = sessionStorage.getItem('searchedNumber');
@@ -47,6 +51,23 @@ export class DashboardComponent implements OnInit {
       ]),
       page: new FormControl(1),
     });
+  }
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    if(this.searchednumber!==this.formGroup.value.search){
+   let searchPop= this.dialog.open(SearchPopupComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+    searchPop.afterClosed().subscribe(val=>{
+      console.log('popup close event:',val);
+      if(val==="yes"){
+        this.searchednumber=this.formGroup.value.search;
+        sessionStorage.setItem('searchedNumber', this.searchednumber);
+        this.searchDetailAndRatePlan()
+      }
+    })
+  }
   }
   Space(e: any) {
     var maxLength = 15;
