@@ -14,10 +14,30 @@
   <div class="heading-container">
     <h1 class="card-heading1">Line Details</h1>
   <div class="alerts">
-    <p class="alert-text">Migration Status:</p>
-    <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device==='Migratable')?'mg':'nmg'">Device</button>
-    <button class="alert-button" [ngClass]="(deviceDetails?.SIM_Gen_Status==='Migratable')?'mg':'nmg'">Sim</button>
-    <button class="alert-button1" [ngClass]="(deviceDetails?.Migratable_by_rate_plan==='Migratable')?'mg':'nmg'">Rate Plan</button>
+    <!-- <p class="alert-text">Migration Status:</p> -->
+    <div>
+      <p>Config</p>
+    <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device==='Migratable')?'mg':'nmg'">
+      {{(deviceDetails?.Migratable_By_Device==='Migratable')?'Ready':'Action Required'}}
+    </button>
+  </div>
+  <div>
+    <p>Equipment</p>
+    <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device==='Migratable')?'mg':'nmg'"> 
+      {{(deviceDetails?.Migratable_By_Device==='Migratable')?'Ready':'Action Required'}}</button>
+    </div>
+    <div>
+      <p>SIM</p>
+      <button class="alert-button" [ngClass]="(deviceDetails?.SIM_Gen_Status==='Migratable')?'mg':'nmg'">
+      {{(deviceDetails?.SIM_Gen_Status==='Migratable')?'Ready':'Action Required'}}
+    </button>
+  </div>
+  <div>
+    <p>Rate Plan</p>
+    <button class="alert-button1" [ngClass]="(deviceDetails?.Migratable_by_rate_plan==='Migratable')?'mg':'nmg'">
+      {{(deviceDetails?.Migratable_by_rate_plan==='Migratable')?'Ready':'Action Required'}}
+    </button>
+    </div>
 </div>
   </div>
 
@@ -34,6 +54,35 @@
       <p class="detail">{{ deviceDetails?.curr_srv_accs_nbr || "NA" }}</p>
       <h2 class="heading">Effective Date</h2>
       <p class="detail">{{ deviceDetails?.Effective_Date || "NA" }}</p>
+
+      <h2 class="heading">Sim</h2>
+      <p class="detail">NA</p>
+      <h2 class="heading">Sim Generation</h2>
+      <p class="detail">{{ deviceDetails?.sim_generation }}</p>
+      <h2 class="heading">Rate Plan Name</h2>
+      <p class="detail">{{ deviceDetails?.Rate_Plan_name }}</p>
+      <h2 class="heading">Rate Plan Description</h2>
+      <p class="detail">NA</p>
+
+     
+    </div>
+    <div class="card2">
+      
+      <h2 class="heading">Subscriber Email</h2>
+      <p class="detail">{{ deviceDetails?.acct_email_addr || "NA" }}</p>
+      <h2 class="heading">IMEI</h2>
+      <p class="detail">{{ deviceDetails?.dvc_nbr }}</p>
+      <h2 class="heading">Make</h2>
+      <p class="detail">{{ deviceDetails?.dvc_make }}</p>
+      <h2 class="heading">Model</h2>
+      <p class="detail">{{ deviceDetails?.dvc_model }}</p>
+      <h2 class="heading">Category</h2>
+      <p class="detail">{{ deviceDetails?.dvc_category || "NA" }}</p>
+      <h2 class="heading">Software</h2>
+      <p class="detail">NA</p>
+    </div>
+    <div>
+
       <h2 class="heading">Migration Status</h2>
       <p
         class="detail"
@@ -54,32 +103,8 @@
 
       <ng-template #thenBlock>Complete Migratable</ng-template>
       <ng-template #elseBlock>Non-Migratable</ng-template>
-    </div>
-    <div class="card2">
       
-      <h2 class="heading">Subscriber Email</h2>
-      <p class="detail">{{ deviceDetails?.acct_email_addr || "NA" }}</p>
-      <h2 class="heading">IMEI</h2>
-      <p class="detail">{{ deviceDetails?.dvc_nbr }}</p>
-      <h2 class="heading">Make</h2>
-      <p class="detail">{{ deviceDetails?.dvc_make }}</p>
-      <h2 class="heading">Model</h2>
-      <p class="detail">{{ deviceDetails?.dvc_model }}</p>
-      <h2 class="heading">Category</h2>
-      <p class="detail">{{ deviceDetails?.dvc_category || "NA" }}</p>
-      <h2 class="heading">Software</h2>
-      <p class="detail">NA</p>
-    </div>
-    <div>
-      
-      <h2 class="heading">Sim</h2>
-      <p class="detail">NA</p>
-      <h2 class="heading">Sim Generation</h2>
-      <p class="detail">{{ deviceDetails?.sim_generation }}</p>
-      <h2 class="heading">Rate Plan Name</h2>
-      <p class="detail">{{ deviceDetails?.Rate_Plan_name }}</p>
-      <h2 class="heading">Rate Plan Description</h2>
-      <p class="detail">NA</p>
+     
     </div>
   </div>
 </div>

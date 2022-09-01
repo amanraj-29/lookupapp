@@ -2,11 +2,35 @@
     <div class="heading-container">
         <h1 class="heading">Subscriber List</h1>
         <div class="alerts">
-            <p class="alert-text">Migration Status:</p>
-            <button class="alert-button" [ngClass] = "(nonMigratableBy.includes('Device'))? 'nmg' : 'mg'">Device</button>
-            <button class="alert-button" [ngClass] = "(nonMigratableBy.includes('Sim'))? 'nmg' : 'mg'">Sim</button>
-            <button class="alert-button1" [ngClass] = "(nonMigratableBy.includes('Rate'))? 'nmg' : 'mg'">Rate Plan</button>
-        </div>
+    <!-- <p class="alert-text">Migration Status:</p> 
+    (nonMigratableBy.includes('Device'))?
+(nonMigratableBy.includes('Device'))?
+(nonMigratableBy.includes('Sim'))? 'n
+"(nonMigratableBy.includes('Rate'))? -->
+    <div>
+      <p>Config</p>
+    <button class="alert-button" [ngClass]="(nonMigratableBy.includes('Device'))?'mg':'nmg'">
+      {{(nonMigratableBy.includes('Device'))?'Ready':'Action Required'}}
+    </button>
+  </div>
+  <div>
+    <p>Equipment</p>
+    <button class="alert-button" [ngClass]="nonMigratableBy.includes('Device')?'mg':'nmg'"> 
+      {{nonMigratableBy.includes('Device')?'Ready':'Action Required'}}</button>
+    </div>
+    <div>
+      <p>SIM</p>
+      <button class="alert-button" [ngClass]="(nonMigratableBy.includes('Sim'))?'mg':'nmg'">
+      {{(nonMigratableBy.includes('Sim'))?'Ready':'Action Required'}}
+    </button>
+  </div>
+  <div>
+    <p>Rate Plan</p>
+    <button class="alert-button1" [ngClass]="(nonMigratableBy.includes('Rate'))?'mg':'nmg'">
+      {{(nonMigratableBy.includes('Rate'))?'Ready':'Action Required'}}
+    </button>
+    </div>
+</div>
     </div>
     <h1 class="count">Total Lines : {{length}}</h1>
     <div>
