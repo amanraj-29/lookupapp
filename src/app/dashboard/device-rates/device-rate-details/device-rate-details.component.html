@@ -16,24 +16,24 @@
   <div class="alerts">
     <!-- <p class="alert-text">Migration Status:</p> -->
     <div>
-      <p>Config</p>
+      <p class="label">Config</p>
     <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device==='Migratable')?'mg':'nmg'">
       {{(deviceDetails?.Migratable_By_Device==='Migratable')?'Ready':'Action Required'}}
     </button>
   </div>
   <div>
-    <p>Equipment</p>
+    <p class="label">Equipment</p>
     <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device==='Migratable')?'mg':'nmg'"> 
       {{(deviceDetails?.Migratable_By_Device==='Migratable')?'Ready':'Action Required'}}</button>
     </div>
     <div>
-      <p>SIM</p>
+      <p class="label">SIM</p>
       <button class="alert-button" [ngClass]="(deviceDetails?.SIM_Gen_Status==='Migratable')?'mg':'nmg'">
       {{(deviceDetails?.SIM_Gen_Status==='Migratable')?'Ready':'Action Required'}}
     </button>
   </div>
   <div>
-    <p>Rate Plan</p>
+    <p class="label">Rate Plan</p>
     <button class="alert-button1" [ngClass]="(deviceDetails?.Migratable_by_rate_plan==='Migratable')?'mg':'nmg'">
       {{(deviceDetails?.Migratable_by_rate_plan==='Migratable')?'Ready':'Action Required'}}
     </button>

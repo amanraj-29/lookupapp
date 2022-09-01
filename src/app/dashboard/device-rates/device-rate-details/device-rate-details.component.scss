@@ -12,7 +12,7 @@
     padding: 7px 0 7px 25px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    // margin-top: 20px;
+     margin-top: 20px;
 }
 .card-heading{
     color: #fff;
@@ -95,28 +95,30 @@
 }
 .alert-button{
     border-radius: 12px;
-    width:75px;
-    height: 22px;
+    width:135px;
+    // height: 22px;
     border-style: hidden;
     margin-right: 5px;
+    padding: 12px;
     cursor: pointer;
     @media (max-width: 576px){
         font-size: 12px;
-        width:60px;
+        width:80px;
      }
 }
 .alert-button1{
     border-radius: 12px;
-    width:80px;
-    height: 22px;
+    width:135px;
+    // height: 22px;
     border-style: hidden;
     // margin-right: 5px;
     cursor: pointer;
     // padding-left: 10px;
     // padding-right: 10px;
+    padding: 12px;
     @media (max-width: 576px){
         font-size: 12px;
-        width:65px;
+        width:80px;
      }
 }
 .heading-container{
@@ -129,4 +131,9 @@
         margin-bottom: 10px;
         
      }
+}
+.label{
+    text-align: center;
+    color: #fff;
+    margin-bottom: 5px !important;
 }
