@@ -36,6 +36,7 @@ export class DashboardComponent implements OnInit {
     if (this.searchednumber) {
       this.searchnum();
       this.searchdeviceandrateplan();
+      // this.searchRecommendedPlans();
     }
   }
 
@@ -82,6 +83,7 @@ export class DashboardComponent implements OnInit {
   searchDetailAndRatePlan() {
     this.searchdeviceandrateplan();
     this.searchnum();
+    // this.searchRecommendedPlans();
   }
 
   searchdeviceandrateplan() {
@@ -96,10 +98,22 @@ export class DashboardComponent implements OnInit {
   }
 
   searchnum() {
-    if (this.formGroup?.valid) {
-      this.apiService.datasearch(this.formGroup.value).subscribe((result) => {
+    // if (this.formGroup?.valid) {
+      let num = this.formGroup && this.formGroup.value
+        ? this.formGroup.value
+        : { search: this.searchednumber };
+      this.apiService.datasearch(num).subscribe((result) => {
         this.util.dispatchBillingData(result.result[0]);
+        this.searchRecommendedPlans(result.result[0]?.acct_nbr);
       });
-    }
+    // }
+  }
+  searchRecommendedPlans(accountId:string) {
+    
+      this.apiService.retriveDeviceRecommendedPlan({account_no:accountId}).subscribe((result) => {
+        // this.util.dispatchBillingData(result.result[0]);
+        this.util.dispatchRecommendedPlans(result.result);
+      });
+    
   }
 }

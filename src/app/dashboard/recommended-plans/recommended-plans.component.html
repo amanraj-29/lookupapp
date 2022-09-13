@@ -6,11 +6,12 @@
     <div class="heading-container">
         <h2 class="main-heading">Recommended Portal for Agents</h2>
 
-        <h3>Account #: 159407799</h3>
-        <h3>Customer Name: John</h3>
+        <h3>Account #: {{billingInfo?.acct_nbr}}</h3>
+        <h3>Customer Name: {{billingInfo?.Billing_Account_Name}}</h3>
 
     </div>
-        <table>
+    <div *ngIf="accountData && accountData.length>0 else nodata"> 
+        <table *ngFor="let tableList of accountData">
             <thead class="table-head">
                 <td>
 
@@ -24,14 +25,13 @@
             </thead>
             <tbody class="table-items">
                 <tr>
-                    <td>
-                        Rate Plan
+                    <td> Rate Plan
                     </td>
                     <td>
-                        AT & T Unlimited & more (SM) multiline
+                        {{tableList.current_rate_plan}}
                     </td>
                     <td>
-                        Unlimited Your way (UNLELITE/UNLELITE/UNLEXTRA/UNLSTARTER)
+                        {{tableList.recommended_plan}}
                     </td>
                 </tr>
                 <tr class="odd">
@@ -47,7 +47,7 @@
                 </tr>
                 <tr>
                     <td>
-                        LINES
+                       <b>LINES</b> 
                     </td>
                     <td>
 
@@ -61,10 +61,19 @@
                         Handsets
                     </td>
                     <td>
-                        4
+                        {{tableList.handset_lines}}
                     </td>
                     <td>
-                        4
+                        Included in Rate Plan
+                        <ul class="list-group">                            
+                            <li *ngIf="tableList.unl_extra !==0">UNL Extra : {{tableList.unl_extra}}</li>
+                            <li *ngIf="tableList.unl_premium !==0">UNL Premium : {{tableList.unl_premium}}</li>
+                            <li *ngIf="tableList.unl_starter !==0">UNL Starter : {{tableList.unl_starter}}</li>
+                            <li *ngIf="tableList.value_plus_2gb !==0">Value Plus 2gb : {{tableList.value_plus_2gb}}</li>
+                            <li *ngIf="tableList.value_plus_unlimited !==0">Value Plus Unlimited : {{tableList.value_plus_unlimited}}</li>
+                            <li *ngIf="tableList['4gb'] !==0">4gb : {{tableList['4gb']}}</li>
+                            <li *ngIf="tableList['50plus'] !==0">50plus : {{tableList['50plus']}}</li>
+                        </ul>
                     </td>
                 </tr>
                 <tr>
@@ -72,10 +81,11 @@
                         Tablets
                     </td>
                     <td>
-                        1
+                        {{tableList.curr_tablet_lines}}
                     </td>
                     <td>
-                       1
+                        {{tableList.recc_tablet_lines}}
+      
                     </td>
                 </tr>
                 <tr class="odd">
@@ -83,10 +93,10 @@
                         Wearables
                     </td>
                     <td>
-                        1
+                        {{tableList.curr_wearable_lines}}
                     </td>
                     <td>
-                        1
+                        {{tableList.recc_wearable_lines}}
                     </td>
                 </tr>
                 <tr>
@@ -94,10 +104,10 @@
                         WHP
                     </td>
                     <td>
-
+                        {{tableList.curr_whp_lines}}
                     </td>
                     <td>
-
+                        {{tableList.recc_whp_lines}}
                     </td>
                 </tr>
                 <tr class="odd">
@@ -105,10 +115,10 @@
                         MiFi
                     </td>
                     <td>
-
+                        {{tableList.curr_mifi_lines}}
                     </td>
-                    <td>
-
+                    <td>        
+                        {{tableList.recc_mifi_lines}}
                     </td>
                 </tr>
                 <tr>
@@ -116,32 +126,30 @@
                         Connected Car
                     </td>
                     <td>
-
+                        {{tableList.curr_connected_car}}
                     </td>
                     <td>
-
+                        {{tableList.recc_connected_car}}
                     </td>
                 </tr>
                 <tr class="odd">
                     <td>
-                        MRC
+                        <b>Bill Before Discount</b>
                     </td>
                     <td>
-                        $245
+                        {{tableList.curr_mrc_before_discounts}}
                     </td>
                     <td>
-                        $245
+                        {{tableList.recc_mrc_before_discount}}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Discounts
+                        <b>Discounts</b>
                     </td>
                     <td>
-
                     </td>
                     <td>
-
                     </td>
                 </tr>
                 <tr class="odd">
@@ -149,45 +157,47 @@
                         Auto Bill Pay
                     </td>
                     <td>
-                        -$20
+                        {{tableList.curr_abp_discount }}
                     </td>
                     <td>
-                        -$40
+                        {{tableList.recc_abp_discount}}
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td class="sub-sub-item">
                         FAN Discount
                     </td>
                     <td>
-                        NO
                     </td>
                     <td>
-                        -$20
                     </td>
-                </tr>
+                </tr> -->
                 <tr class="odd">
                     <td class="sub-sub-item">
-                        Appreciation
+                        Signature/Appreciation
                     </td>
                     <td>
-
+                        {{tableList.curr_app_and_sig_discount}}
                     </td>
                     <td>
-
+                        {{tableList.recc_app_and_sig_discount_dollar}}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        MRC after Discount is Applied
+                       <b>Total Discount</b> 
                     </td>
                     <td>
-                        $225
+                        {{tableList.curr_mrc_after_discount}}
                     </td>
                     <td>
-                        $185
+                        {{tableList.recc_mrc_after_discounts}}
                     </td>
                 </tr>
             </tbody>
         </table>
+    </div>
+    <ng-template #nodata>
+        No data Found for the searched criteria.
+    </ng-template>
     </div>
