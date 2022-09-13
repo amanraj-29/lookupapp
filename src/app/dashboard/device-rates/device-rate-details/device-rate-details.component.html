@@ -16,9 +16,9 @@
   <div class="alerts">
     <!-- <p class="alert-text">Migration Status:</p> -->
     <div>
-      <p class="label">Config</p>
+      <p class="label">Device Configuration</p>
     <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device==='Migratable')?'mg':'nmg'">
-      {{(deviceDetails?.Migratable_By_Device==='Migratable')?'Ready':'Action Required'}}
+      {{(deviceDetails?.Migratable_By_Device==='Migratable')?'Ready':'Needs Unlock'}}
     </button>
   </div>
   <div>
