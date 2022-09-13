@@ -83,7 +83,8 @@ export class DashboardComponent implements OnInit {
   searchDetailAndRatePlan() {
     this.searchdeviceandrateplan();
     this.searchnum();
-    this.searchRecommendedPlans(this.formGroup.value.search);
+    //this.searchRecommendedPlans();
+    // this.searchRecommendedPlans(this.formGroup.value.search);
   }
 
   searchdeviceandrateplan() {
