@@ -14,6 +14,7 @@ baseUrl:String='localhost:4000/';
   login(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}signinad`, data);
   }
+  
 
   setDataInLocalStorage(variableName: any, data: any) {
     sessionStorage.setItem(variableName, data);
