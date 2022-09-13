@@ -30,7 +30,10 @@ baseUrl:String='localhost:4000/';
   deviceDetails(id: any): Observable<any> {
     return this.http.get(`${this.baseUrl}devicedetails/${id}`);
   }
-
+  retriveDeviceRecommendedPlan(data: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}getDeviceRecommendedPlan`, data);
+  }
+  
 
   revokeToken(){
     return this.http.get(`${this.baseUrl}revokeToken`);

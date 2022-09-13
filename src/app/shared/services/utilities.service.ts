@@ -29,10 +29,16 @@ export class UtilitiesService {
 
   deviceRatesSubject:BehaviorSubject<any>= new BehaviorSubject(null);
   deviceRatesObservable$:Observable<any>=this.deviceRatesSubject.asObservable();
-
   dispatchDeviceRates(data:any){
     this.deviceRatesSubject.next(data);
   }
+
+  recommendedPlansSubject:BehaviorSubject<any>= new BehaviorSubject(null);
+  recommendedPlansObservable$:Observable<any>=this.recommendedPlansSubject.asObservable();
+  dispatchRecommendedPlans(data:any){
+    this.recommendedPlansSubject.next(data);
+  }
+
   setData(data: any[]){
     this.masterArray=data
   }
