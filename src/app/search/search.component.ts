@@ -72,7 +72,7 @@ export class SearchComponent implements OnInit {
         }
 
         if (!result.success) {
-          this.failureSearchMessage = 'Search Not found';
+          this.failureSearchMessage = "We're sorry. We were not able to find a match.";
           console.log('search not found');
         }
       });

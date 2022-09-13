@@ -11,7 +11,7 @@
 
     </div>
     <div *ngIf="accountData && accountData.length>0 else nodata"  class="rec-tables"> 
-        <table *ngFor="let tableList of accountData">
+        <table *ngFor="let tableList of accountData" class="alternate">
             <thead class="table-head">
                 <td class="border"> 
 
@@ -34,7 +34,7 @@
                         {{tableList.recommended_plan}}
                     </td>
                 </tr>
-                <tr class="odd">
+                <!-- <tr class="odd">
                     <td>
                         Rate Plan Rate
                     </td>
@@ -44,7 +44,7 @@
                     <td>
                         $215
                     </td>
-                </tr>
+                </tr> -->
                 <tr>
                     <td>
                        <b>LINES</b> 
