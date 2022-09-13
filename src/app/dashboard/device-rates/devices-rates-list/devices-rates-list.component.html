@@ -9,25 +9,25 @@
 "(nonMigratableBy.includes('Rate'))? -->
     <div>
       <p class="label">Device Configuration</p>
-    <button class="alert-button" [ngClass]="(nonMigratableBy.includes('Device'))?'mg':'nmg'">
-      {{(nonMigratableBy.includes('Device'))?'Ready':'Needs Unlock'}}
+    <button class="alert-button" [ngClass]="(!nonMigratableBy.includes('Device'))?'mg':'nmg'">
+      {{(!nonMigratableBy.includes('Device'))?'Ready':'Needs Unlock'}}
     </button>
   </div>
   <div>
     <p class="label">Equipment</p>
-    <button class="alert-button" [ngClass]="nonMigratableBy.includes('Device')?'mg':'nmg'"> 
-      {{nonMigratableBy.includes('Device')?'Ready':'Action Required'}}</button>
+    <button class="alert-button" [ngClass]="!nonMigratableBy.includes('Device')?'mg':'nmg'"> 
+      {{!nonMigratableBy.includes('Device')?'Ready':'Action Required'}}</button>
     </div>
     <div>
       <p class="label">SIM</p>
-      <button class="alert-button" [ngClass]="(nonMigratableBy.includes('Sim'))?'mg':'nmg'">
-      {{(nonMigratableBy.includes('Sim'))?'Ready':'Action Required'}}
+      <button class="alert-button" [ngClass]="(!nonMigratableBy.includes('Sim'))?'mg':'nmg'">
+      {{(!nonMigratableBy.includes('Sim'))?'Ready':'Action Required'}}
     </button>
   </div>
   <div>
     <p class="label">Rate Plan</p>
-    <button class="alert-button1" [ngClass]="(nonMigratableBy.includes('Rate'))?'mg':'nmg'">
-      {{(nonMigratableBy.includes('Rate'))?'Ready':'Action Required'}}
+    <button class="alert-button1" [ngClass]="(!nonMigratableBy.includes('Rate'))?'mg':'nmg'">
+      {{(!nonMigratableBy.includes('Rate'))?'Ready':'Action Required'}}
     </button>
     </div>
 </div>
