@@ -13,13 +13,13 @@
     <div *ngIf="accountData && accountData.length>0 else nodata"  class="rec-tables"> 
         <table *ngFor="let tableList of accountData">
             <thead class="table-head">
-                <td>
+                <td class="border"> 
 
                 </td>
                 <td>
                     Current Plan Details
                 </td>
-                <td>
+                <td  class="border1">
                     Recommended Plan Details
                 </td>
             </thead>
@@ -184,13 +184,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="border2">
                        <b>Total Discount</b> 
                     </td>
                     <td>
                         {{tableList.curr_mrc_after_discount}}
                     </td>
-                    <td>
+                    <td class="border3">
                         {{tableList.recc_mrc_after_discounts}}
                     </td>
                 </tr>
