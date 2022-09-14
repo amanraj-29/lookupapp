@@ -45,15 +45,18 @@ nonMigratableBy:Array<string>=[];
         this.dataSource = new MatTableDataSource<deviceRatesState>(val);
         this.dataSource.paginator = this.paginator;
         this.length = val.length
+       
         val.map((inrVal:any)=>{
-          if(inrVal?.Action_Needed==="Non Migratable by Device"){
+          if(inrVal?.Migratable_By_Device
+                ==="Non-Migratable"){
             this.nonMigratableBy.push('Device')
           }
-          if(inrVal?.Action_Needed==="Non Migratable by SIM Status"){
-            this.nonMigratableBy.push('Sim')
-          }
-          if(inrVal?.Action_Needed==="Non Migratable by Rate Plan"){
+          if(inrVal?.Migratable_by_rate_plan
+            ==="Non-Migratable"){
             this.nonMigratableBy.push('Rate')
+          }
+          if(inrVal?.SIM_Gen_Status==="Non-Migratable"){
+            this.nonMigratableBy.push('Sim')
           }
           
         })
