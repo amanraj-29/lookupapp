@@ -83,20 +83,25 @@ table {
 }
 .alert-button{
     border-radius: 12px;
-    width:135px;
+    width:160px;
     // height: 22px;
     border-style: hidden;
     margin-right: 5px;
-    padding: 12px;
+    padding: 14px;
     cursor: pointer;
     @media (max-width: 576px){
         font-size: 12px;
         width:80px;
+        padding: 12px;
+     }
+     @media (min-width: 577px ) and (max-width: 900px){
+        padding: 12px;
+        width:135px;
      }
 }
 .alert-button1{
     border-radius: 12px;
-    width:135px;
+    width:160px;
     // height: 22px;
     border-style: hidden;
     // margin-right: 5px;
@@ -107,6 +112,10 @@ table {
     @media (max-width: 576px){
         font-size: 12px;
         width:80px;
+     }
+     @media (min-width: 577px ) and (max-width: 900px){
+
+        width:135px;
      }
 }
 .back-button{

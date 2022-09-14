@@ -13,8 +13,7 @@
   <br />
   <div class="heading-container">
     <h1 class="card-heading1">Line Details</h1>
-  <div class="alerts">
-    <!-- <p class="alert-text">Migration Status:</p> -->
+  <!-- <div class="alerts">
     <div>
       <p class="label">Device Configuration</p>
     <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device==='Migratable')?'mg':'nmg'">
@@ -38,7 +37,7 @@
       {{(deviceDetails?.Migratable_by_rate_plan==='Migratable')?'Ready':'Action Required'}}
     </button>
     </div>
-</div>
+</div> -->
   </div>
 
   
@@ -82,8 +81,34 @@
       <p class="detail">NA</p>
     </div>
     <div>
-
       <h2 class="heading">Migration Status</h2>
+      <div class="alerts">
+        <!-- <p class="alert-text">Migration Status:</p> -->
+        <div class="alert1">
+          <p class="label">Device Configuration</p>
+        <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device==='Migratable')?'mg':'nmg'">
+          {{(deviceDetails?.Migratable_By_Device==='Migratable')?'Ready':'Needs Unlock'}}
+        </button>
+      </div>
+      <div class="alert1">
+        <p class="label">Equipment</p>
+        <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device==='Migratable')?'mg':'nmg'"> 
+          {{(deviceDetails?.Migratable_By_Device==='Migratable')?'Ready':'Action Required'}}</button>
+        </div>
+        <div class="alert1">
+          <p class="label">SIM</p>
+          <button class="alert-button" [ngClass]="(deviceDetails?.SIM_Gen_Status==='Migratable')?'mg':'nmg'">
+          {{(deviceDetails?.SIM_Gen_Status==='Migratable')?'Ready':'Action Required'}}
+        </button>
+      </div>
+      <div class="alert1">
+        <p class="label">Rate Plan</p>
+        <button class="alert-button1" [ngClass]="(deviceDetails?.Migratable_by_rate_plan==='Migratable')?'mg':'nmg'">
+          {{(deviceDetails?.Migratable_by_rate_plan==='Migratable')?'Ready':'Action Required'}}
+        </button>
+        </div>
+    </div>
+      <!-- <h2 class="heading">Migration Status</h2>
       <p
         class="detail"
         *ngIf="
@@ -93,13 +118,13 @@
           then thenBlock;
           else elseBlock
         "
-      ></p>
-      <h2 class="heading">Migration Status By Device</h2>
+      ></p> -->
+      <!-- <h2 class="heading">Migration Status By Device</h2>
       <p class="detail">{{ deviceDetails?.Migratable_By_Device || "NA" }}</p>
       <h2 class="heading">Migration Status By Sim</h2>
       <p class="detail">{{ deviceDetails?.SIM_Gen_Status || "NA" }}</p>
       <h2 class="heading">Migration Status By Rate Plan</h2>
-      <p class="detail">{{ deviceDetails?.Migratable_by_rate_plan || "NA" }}</p>
+      <p class="detail">{{ deviceDetails?.Migratable_by_rate_plan || "NA" }}</p> -->
 
       <ng-template #thenBlock>Complete Migratable</ng-template>
       <ng-template #elseBlock>Non-Migratable</ng-template>

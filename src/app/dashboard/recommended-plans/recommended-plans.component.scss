@@ -110,7 +110,7 @@ table{
     width: 48%;
     margin-bottom: 25px;
     // border-radius: 1em !important;
-    @media (max-width: 600px){
+    @media (max-width: 900px){
         width: 95%;
      }
 }
@@ -148,8 +148,10 @@ li {padding-left: 2em; text-indent: -2em;}
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
-    @media (max-width: 600px){
+    @media (max-width: 900px){
         flex-direction: column;
+        width: 100%;
+        align-items: center;
      }
 }
 // .table-head{

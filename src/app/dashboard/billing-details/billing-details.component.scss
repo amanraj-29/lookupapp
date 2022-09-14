@@ -70,7 +70,7 @@ justify-content: space-between;
     display: flex;
     background-color: #fff;
     padding: 5px 50px 5px 25px;
-    height: 500px;
+    height: 450px;
     justify-content: space-between;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -80,8 +80,8 @@ justify-content: space-between;
         height: auto;
         margin-bottom: 25px;
      }
-     @media (min-width: 601px) and (max-width: 800px){
-        height: 480px;
+     @media (min-width: 601px) and (max-width: 900px){
+        height: 400px;
         padding: 5px 15px 5px 15px;
      }
 }
@@ -93,13 +93,13 @@ justify-content: space-between;
     @media (max-width: 576px){
         font-size: 16px;
      }
-     @media (min-width: 577px) and (max-width: 800px){
+     @media (min-width: 577px) and (max-width: 900px){
         font: 500 16px / 22px Roboto, "Helvetica Neue", sans-serif;
      }
 }
 .detail{
     font-size: 15px;
-    @media (min-width: 577px) and (max-width: 800px){
+    @media (min-width: 577px) and (max-width: 900px){
         font-size: 14px;
      }
 }

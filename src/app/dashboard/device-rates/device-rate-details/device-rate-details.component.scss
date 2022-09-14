@@ -82,6 +82,7 @@
 }
 .alerts{
     display: flex;
+    flex-direction: column;
     @media (max-width: 576px){
         justify-content: flex-end;
         margin-top: 12px;
@@ -134,6 +135,10 @@
 }
 .label{
     text-align: center;
-    color: #fff;
-    margin-bottom: 5px !important;
+    // color: #fff;
+    margin-bottom: 2px !important;
+}
+.alert1{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
