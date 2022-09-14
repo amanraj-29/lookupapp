@@ -108,13 +108,14 @@ table {
     cursor: pointer;
     // padding-left: 10px;
     // padding-right: 10px;
-    padding: 12px;
+    padding: 14px;
     @media (max-width: 576px){
         font-size: 12px;
         width:80px;
+        padding: 12px;
      }
      @media (min-width: 577px ) and (max-width: 900px){
-
+        padding: 12px;
         width:135px;
      }
 }
