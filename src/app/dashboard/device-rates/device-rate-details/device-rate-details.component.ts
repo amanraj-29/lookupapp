@@ -13,11 +13,15 @@ export class DeviceRateDetailsComponent implements OnInit {
   deviceDetails:any={};
   nonMigratableBy:Array<string>=[];
   constructor(private router:Router,private location:Location,private actRoute:ActivatedRoute,private apiService:ApisService) {
-    let id=this.actRoute.snapshot.paramMap.get('id');
-    console.log('id is:',id);
-    this.apiService.deviceDetails(id).subscribe(val=>{
-this.deviceDetails=val.result[0];
-    })
+//     let id=this.actRoute.snapshot.paramMap.get('id');
+//     console.log('id is:',id);
+//     this.apiService.deviceDetails(id).subscribe(val=>{
+// this.deviceDetails=val.result[0];
+//     })
+this.actRoute.data.subscribe(deviceDet=>{
+// console.log('details are:',deviceDet);
+this.deviceDetails=deviceDet['deviceDetails']['result'][0]
+})
     
    }
    goBack(){
@@ -26,38 +30,5 @@ this.deviceDetails=val.result[0];
   ngOnInit(): void {
     
   }
-  // ngDoCheck(){
-  //   var devicestatus = document.getElementById("device");
-  //   var simstatus = document.getElementById("sim");
-  //   var ratestatus = document.getElementById("rate");
-    
-  //   var devicealertstatus = document.getElementById("devStatus");
-  //   var simalertstatus = document.getElementById("simStatus");
-  //   var ratealertstatus = document.getElementById("rateStatus");
-
-  //   if (devicestatus?.textContent === "Migratable"){
-  //     devicealertstatus?.classList.add("mg");
-  //     }
-  //   if (devicestatus?.textContent === "Non-Migratable"){
-  //     devicealertstatus?.classList.remove("mg");
-  //     devicealertstatus?.classList.add("nmg");
-  //     }
-  //   if (simstatus?.textContent === "Migratable"){
-  //     simalertstatus?.classList.add("mg");
-  //     }
-  //   if (simstatus?.textContent === "Non-Migratable"){
-  //     simalertstatus?.classList.remove("mg");
-  //     simalertstatus?.classList.add("nmg");
-      
-  //     }
-  //   if (ratestatus?.textContent === "Migratable"){
-  //     ratealertstatus?.classList.add("mg");
-  //     }
-  //   if (ratestatus?.textContent === "Non-Migratable"){
-  //     ratealertstatus?.classList.remove("mg");
-  //     ratealertstatus?.classList.add("nmg");
-      
-  //     }
-  // }
 
 }

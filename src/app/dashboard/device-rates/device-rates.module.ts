@@ -6,6 +6,7 @@ import { DeviceRateDetailsComponent } from './device-rate-details/device-rate-de
 import { DeviceRatesComponent } from './device-rates.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { DeviceDetailsResolver} from '../../shared/services/utilities.service';
 
 const routes:Routes=[
   {
@@ -18,7 +19,10 @@ const routes:Routes=[
         component:DevicesRatesListComponent
       },
       {
-        path:'details/:id',component:DeviceRateDetailsComponent
+        path:'details/:id',component:DeviceRateDetailsComponent,
+        resolve: {
+          deviceDetails: DeviceDetailsResolver
+        }
       }
     ]
   },
