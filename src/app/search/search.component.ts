@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
   formGroup!: FormGroup;
   email: any;
   failureSearchMessage: any = null;
-
+  maxLength:number=15;
 
   constructor(
     private router: Router,
@@ -40,7 +40,7 @@ export class SearchComponent implements OnInit {
       search: new FormControl('', [
         Validators.required,
         Validators.minLength(10),
-        Validators.maxLength(15),
+        Validators.maxLength(this.maxLength),
         Validators.pattern('^[0-9]*$'),
       ]),
     });
