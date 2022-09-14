@@ -58,7 +58,9 @@
               <!-- status Column -->
               <ng-container matColumnDef="Action_Needed">
                 <th mat-header-cell *matHeaderCellDef  class="header-bg"> Migration Status </th>
-                <td mat-cell *matCellDef="let element" class="row-bg"> {{element.Action_Needed}} </td>
+                <td  mat-cell *matCellDef="let element"  class="row-bg" ><div *ngIf="element.Action_Needed=='Complete Migratable' then thenBlock else elseBlock"></div></td>
+                <ng-template #thenBlock>Ready</ng-template>
+                <ng-template #elseBlock>Action Required</ng-template>
               </ng-container>
 
               <!-- device Column -->
