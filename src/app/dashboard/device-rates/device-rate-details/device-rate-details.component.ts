@@ -11,6 +11,7 @@ import {Location} from '@angular/common';
 export class DeviceRateDetailsComponent implements OnInit {
 
   deviceDetails:any={};
+  nonMigratableBy:Array<string>=[];
   constructor(private router:Router,private location:Location,private actRoute:ActivatedRoute,private apiService:ApisService) {
     let id=this.actRoute.snapshot.paramMap.get('id');
     console.log('id is:',id);
