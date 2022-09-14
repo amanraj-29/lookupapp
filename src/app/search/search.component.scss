@@ -91,10 +91,11 @@ input[type="number"] {
   }
   .acc-num{
     // text-align: center;
-    align-self: flex-start;
+    // align-self: flex-start;
     color: #ffffff;
     font-size: 18px;
-    margin-bottom: 0px;
+    margin-bottom: 3px;
+    margin-left: -17%;
     @media (max-width: 576px){
       font-size: 15px;
    }
@@ -107,6 +108,7 @@ input[type="number"] {
   .notfound-err{
     color: #ffffff;
     text-align: center;
+    margin-top: 20px;
   }
   .search-num{
     display: flex;
