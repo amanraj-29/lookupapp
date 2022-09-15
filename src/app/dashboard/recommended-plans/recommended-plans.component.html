@@ -10,11 +10,12 @@
         <h3>Customer Name: {{billingInfo?.Billing_Account_Name}}</h3>
 
     </div>
-    <div *ngIf="accountData && accountData.length>0 else nodata"  class="rec-tables"> 
-        <table *ngFor="let tableList of accountData" class="alternate">
+    <div *ngIf="accountData && accountData.length>0 else nodata"   class="rec-tables"> 
+        <table *ngFor="let tableList of accountData;let i=index;" class="alternate">
+            
             <thead class="table-head">
                 <td class="border"> 
-
+                    Group {{i+1}}
                 </td>
                 <td>
                     Current Plan Details
