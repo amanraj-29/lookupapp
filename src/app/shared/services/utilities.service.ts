@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { ApisService } from './apis.service';
@@ -81,5 +81,17 @@ export class UtilitiesService {
       this.timeInterVar = null;
     }
     this.router.navigate(['login']);
+  }
+}
+
+@Injectable({ providedIn: 'root' })
+export class DeviceDetailsResolver implements Resolve<any> {
+  constructor(private service: ApisService) {}
+
+  resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<any>|Promise<any>|any {
+    return this.service.deviceDetails(route.paramMap.get('id'));
   }
 }
