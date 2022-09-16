@@ -1,3 +1,5 @@
+@import "../../../assets/scss/variables";
+
 .bottom-container{
     display: flex;
     justify-content: space-between;
@@ -158,3 +160,18 @@ li {padding-left: 2em; text-indent: -2em;}
 //     border-top-left-radius: 12px;
 // }
 .alternate tr:nth-child(even){background-color: #E3F2FD;}
+
+.delay-warn{
+    background-color: nth($orange-shades, 2);
+    width: 90%;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 50px;
+    align-items: center;
+    margin: auto;
+}
+.delay-content{
+    margin: 0px;
+    color: #fff;
+    text-align: center;
+}
