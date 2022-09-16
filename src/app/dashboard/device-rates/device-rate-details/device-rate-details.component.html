@@ -58,10 +58,10 @@
       <p class="detail">NA</p>
       <h2 class="heading">Sim Generation</h2>
       <p class="detail">{{ deviceDetails?.sim_generation }}</p>
-      <h2 class="heading">Rate Plan Name</h2>
+      <h2 class="heading">Rate Plan Code</h2>
       <p class="detail">{{ deviceDetails?.Rate_Plan_name }}</p>
       <h2 class="heading">Rate Plan Description</h2>
-      <p class="detail">NA</p>
+      <p class="detail">{{deviceDetails?.rate_plan_description || "NA"}}</p>
 
      
     </div>
@@ -93,7 +93,7 @@
       <div class="alert1">
         <p class="label">Equipment</p>
         <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device==='Migratable')?'mg':'nmg'"> 
-          {{(deviceDetails?.Migratable_By_Device==='Migratable')?'Ready':'Action Required'}}</button>
+          {{(deviceDetails?.Migratable_By_Device==='Migratable')?'Ready':'Upgrade Required'}}</button>
         </div>
         <div class="alert1">
           <p class="label">SIM</p>
