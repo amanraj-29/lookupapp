@@ -25,6 +25,58 @@
         <button class="alert-button">SOC</button>
         <button class="alert-button">SOC</button>
     </div> -->
+
+    <div class="alerts">
+        <div class="sub-alert">
+          <div class="alert1">
+            <p class="label">Device Configuration</p>
+            <button
+              class="alert-button"
+              [ngClass]="migratableBy.includes('Device') ? 'mg' : 'nmg'"
+            >
+              {{
+                migratableBy.includes("Device") ? "Ready" : "Action Required"
+              }}
+            </button>
+          </div>
+          <div class="alert1">
+            <p class="label">Equipment</p>
+            <button
+              class="alert-button"
+              [ngClass]="migratableBy.includes('Device') ? 'mg' : 'nmg'"
+            >
+              {{
+                migratableBy.includes("Device") ? "Ready" : "Upgrade Required"
+              }}
+            </button>
+          </div>
+        </div>
+        
+        <div class="sub-alert">
+          <div class="alert1">
+            <p class="label">SIM</p>
+            <button
+              class="alert-button"
+              [ngClass]="migratableBy.includes('Sim') ? 'mg' : 'nmg'"
+            >
+              {{migratableBy.includes("Sim") ? "Ready" : "Action Required" }}
+            </button>
+          </div>
+          <div class="alert1">
+            <p class="label">Rate Plan</p>
+            <button
+              class="alert-button1"
+              [ngClass]="migratableBy.includes('Rate') ? 'mg' : 'nmg'"
+            >
+              {{ migratableBy.includes("Rate") ? "Ready" : "Action Required" }}
+            </button>
+          </div>
+        </div>
+        
+        
+      </div>
+
+      
     </div>
     
     <div class="bottom-container">

@@ -4,12 +4,63 @@
 
 <div class="bg-container">
     <div class="heading-container">
-        <h2 class="main-heading">Recommended Portal for Agents</h2>
+        <div>
+            <h2 class="main-heading">Recommended Portal for Agents</h2>
+        </div>
+        
 
-        <h3>Account #: {{billingInfo?.acct_nbr}}</h3>
-        <h3>Customer Name: {{billingInfo?.Billing_Account_Name}}</h3>
-
+        <div class="alerts">
+            <div class="sub-alert">
+              <div class="alert1">
+                <p class="label">Device Configuration</p>
+                <button
+                  class="alert-button"
+                  [ngClass]="migratableBy.includes('Device') ? 'mg' : 'nmg'"
+                >
+                  {{
+                    migratableBy.includes("Device") ? "Ready" : "Action Required"
+                  }}
+                </button>
+              </div>
+              <div class="alert1">
+                <p class="label">Equipment</p>
+                <button
+                  class="alert-button"
+                  [ngClass]="migratableBy.includes('Device') ? 'mg' : 'nmg'"
+                >
+                  {{
+                    migratableBy.includes("Device") ? "Ready" : "Upgrade Required"
+                  }}
+                </button>
+              </div>
+            </div>
+            
+            <div class="sub-alert">
+              <div class="alert1">
+                <p class="label">SIM</p>
+                <button
+                  class="alert-button"
+                  [ngClass]="migratableBy.includes('Sim') ? 'mg' : 'nmg'"
+                >
+                  {{migratableBy.includes("Sim") ? "Ready" : "Action Required" }}
+                </button>
+              </div>
+              <div class="alert1">
+                <p class="label">Rate Plan</p>
+                <button
+                  class="alert-button1"
+                  [ngClass]="migratableBy.includes('Rate') ? 'mg' : 'nmg'"
+                >
+                  {{ migratableBy.includes("Rate") ? "Ready" : "Action Required" }}
+                </button>
+              </div>
+            </div>
+            
+            
+          </div>
     </div>
+    <h3>Account #: {{billingInfo?.acct_nbr}}</h3>
+        <h3>Customer Name: {{billingInfo?.Billing_Account_Name}}</h3>
     <div *ngIf="accountData && accountData.length>0 else nodata"   class="rec-tables"> 
         <table *ngFor="let tableList of accountData;let i=index;" class="alternate">
             
