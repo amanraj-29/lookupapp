@@ -57,9 +57,9 @@
       <h2 class="heading">Sim</h2>
       <p class="detail">NA</p>
       <h2 class="heading">Sim Generation</h2>
-      <p class="detail">{{ deviceDetails?.sim_generation }}</p>
+      <p class="detail">{{ deviceDetails?.sim_generation  || "NA"}}</p>
       <h2 class="heading">Rate Plan Code</h2>
-      <p class="detail">{{ deviceDetails?.Rate_Plan_name }}</p>
+      <p class="detail">{{ deviceDetails?.Rate_Plan_name  || "NA" }}</p>
       <h2 class="heading">Rate Plan Description</h2>
       <p class="detail">{{deviceDetails?.rate_plan_description || "NA"}}</p>
 
