@@ -65,7 +65,7 @@ button[disabled] {
 }
 .width{
   width: auto;
-  margin-top: 5px;
+  margin-top: -5px;
   @media (max-width: 576px){
     margin-top: 0px;
 
@@ -81,7 +81,7 @@ button[disabled] {
 }
 .acc-num{
   color: #fff;
-  // margin-bottom: -0.5em;
+  margin-bottom: 0px;
 }
 .mobile-search{
   @media (max-width: 576px){
@@ -172,9 +172,10 @@ button[disabled] {
   width: 320px;
   text-align: center;
   margin-top: -2em;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  color: #fff;
   @media (max-width: 576px){
-    width: 0px;
+    width: 100%;
  }
 }
 .desktop-warn{
