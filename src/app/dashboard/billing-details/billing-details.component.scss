@@ -29,6 +29,12 @@ justify-content: space-between;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    @media (max-width: 576px){
+        justify-content: center;
+        margin-top: 12px;
+        margin-left: 5px;
+        
+     }
 }
 .alert-text{
     color: #fff;
@@ -186,5 +192,8 @@ justify-content: space-between;
 .no-data{
     color: #fff;
     text-align: center;
-    // margin: auto;
+    font-size: 20px;
+    @media (max-width: 700px){
+        font-size: 17px;
+     }
 }

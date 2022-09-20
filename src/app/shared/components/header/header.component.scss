@@ -58,7 +58,7 @@
                 font-size: 15px;
              }
              @media (max-width: 310px){
-                line-height: 15px;
+                line-height: normal;
              }
         }
 
@@ -69,8 +69,9 @@
             margin-right: 2em;
             color: nth($white-shade , 1 );
             cursor: pointer;
+            padding: 0px;
             @media (max-width: 576px){
-                margin-right: -2px;
+                margin-right: 0px;
              }
 
         }

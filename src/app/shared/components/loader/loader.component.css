@@ -16,4 +16,10 @@
     height: 8rem;
     width: 8rem;
 }
+@media (max-width: 900px) {
+    .loading-spinner img{
+    height: 6rem;
+    width: 6rem;
+}
+}
 
