@@ -73,6 +73,7 @@ table {
     @media (max-width: 576px){
         justify-content: center;
         margin-top: 12px;
+        margin-left: 5px;
         
      }
 }
@@ -162,7 +163,7 @@ table {
     @media (max-width: 700px){
         flex-direction: column;
         justify-content: center;
-        margin-right: 10px;
+        margin-right: 0px;
      }
 }
 // @media (max-width: 576px){
