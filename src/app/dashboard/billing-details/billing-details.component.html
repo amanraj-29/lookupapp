@@ -26,7 +26,7 @@
         <button class="alert-button">SOC</button>
     </div> -->
 
-    <div class="alerts">
+    <div class="alerts" *ngIf="billingInfo">
         <div class="sub-alert">
           <div class="alert1">
             <p class="label">Device Configuration</p>
@@ -79,7 +79,7 @@
       
     </div>
     
-    <div class="bottom-container">
+    <div class="bottom-container"  *ngIf="billingInfo">
         <div class="left-container">
             <div class="card-head">
                 <h1 class="card-heading">Demographics</h1>
@@ -150,6 +150,10 @@
     </div>
     <br>
     <br>
+
+    <div  *ngIf="!billingInfo" >
+      <p class="delay-content">Data not Available</p>
+    </div>
     <div class="delay-warn">
         <p class="delay-content">This data may have a two week delay, please validate current customer information in Opus before making an offer.</p>
       </div>

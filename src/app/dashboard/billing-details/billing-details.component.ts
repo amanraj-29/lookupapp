@@ -28,6 +28,8 @@ export class BillingDetailsComponent implements OnInit {
       if(deviceData){
       this.billingInfo={...this.billingInfo,...deviceData};
       // console.log('billing info:',this.billingInfo);
+      }else{
+        this.billingInfo=undefined;
       }
       
 

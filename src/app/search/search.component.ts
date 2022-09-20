@@ -49,9 +49,10 @@ export class SearchComponent implements OnInit {
   Space(e: any) {
     var maxLength = 15;
     if (
-      e.target.value.length >= maxLength &&
-      ((e.keyCode >= 48 && e.keyCode <= 57) ||
-        (e.keyCode >= 96 && e.keyCode <= 105))
+     
+      (e.target.value.length >= maxLength &&
+        ((e.keyCode >= 48 && e.keyCode <= 57) ||
+        (e.keyCode >= 96 && e.keyCode <= 105)) || e.keyCode===69)
     ) {
       e.preventDefault();
     }

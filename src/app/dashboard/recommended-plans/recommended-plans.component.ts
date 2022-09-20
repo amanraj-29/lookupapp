@@ -35,6 +35,8 @@ export class RecommendedPlansComponent implements OnInit {
       if(deviceData){
       this.billingInfo={...this.billingInfo,...deviceData};
       // console.log('billing info:',this.billingInfo);
+      }else{
+        this.billingInfo=undefined;
       }
     });
 
@@ -42,6 +44,8 @@ export class RecommendedPlansComponent implements OnInit {
       if(plans){
       this.accountData=plans;
       // console.log('billing info:',this.billingInfo);
+      }else{
+        this.accountData=undefined;
       }
     });
 

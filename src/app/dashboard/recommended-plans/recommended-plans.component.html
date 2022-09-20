@@ -9,7 +9,7 @@
         </div>
         
 
-        <div class="alerts">
+        <div class="alerts" *ngIf="accountData ">
             <div class="sub-alert">
               <div class="alert1">
                 <p class="label">Device Configuration</p>
@@ -59,10 +59,15 @@
             
           </div>
     </div>
+    <div *ngIf="billingInfo">
     <h3>Account #: {{billingInfo?.acct_nbr}}</h3>
         <h3>Customer Name: {{billingInfo?.Billing_Account_Name}}</h3>
+    </div>
+        <div *ngIf="accountData">
+
+       
     <div *ngIf="accountData && accountData.length>0 else nodata"   class="rec-tables"> 
-        <table *ngFor="let tableList of accountData;let i=index;" class="alternate">
+        <table  *ngFor="let tableList of accountData;let i=index;" class="alternate">
             
             <thead class="table-head">
                 <td class="border"> 
@@ -249,9 +254,13 @@
             </tbody>
         </table>
     </div>
-    <ng-template #nodata>
+</div>
+    <ng-template #nodata >
         No data Found for the searched criteria.
     </ng-template>
+    <div *ngIf="!accountData">
+        Data Not found
+    </div>
     <br>
     <div class="delay-warn">
         <p class="delay-content">This data may have a two week delay, please validate current customer information in Opus before making an offer.</p>
