@@ -39,9 +39,10 @@ migratableBy:Array<string>=[];
   constructor(private util: UtilitiesService, private router: Router, private actRoute: ActivatedRoute) {
     this.util.deviceRatesObservable$.subscribe(val => {
       console.log('  deviceRatesObservable$ :', val);
+      this.isLoaded = true;
+
       if (val?.length > 0) {
         this.migratableBy = [];
-        this.isLoaded = true;
         this.dataSource = new MatTableDataSource<deviceRatesState>(val);
         this.dataSource.paginator = this.paginator;
         this.length = val.length
@@ -61,6 +62,10 @@ migratableBy:Array<string>=[];
           
         })
 
+      }else{
+        this.dataSource = new MatTableDataSource<deviceRatesState>([]);
+        this.dataSource.paginator = this.paginator;
+        this.length = 0;
       }
     })
   }

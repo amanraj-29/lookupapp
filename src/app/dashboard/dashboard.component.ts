@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Debounce } from 'angular-debounce-throttle';
 import {
   AbstractControl,
   FormControl,
@@ -22,6 +23,7 @@ export class DashboardComponent implements OnInit {
   email: any;
   formGroup!: FormGroup;
   search: any;
+  errorMsg: string | undefined;
 
   constructor(
     private router: Router,
@@ -72,14 +74,18 @@ export class DashboardComponent implements OnInit {
   }
   Space(e: any) {
     var maxLength = 15;
+    console.log(e.keyCode)
     if (
-      e.target.value.length >= maxLength &&
+      (e.target.value.length >= maxLength &&
       ((e.keyCode >= 48 && e.keyCode <= 57) ||
-        (e.keyCode >= 96 && e.keyCode <= 105))
+      (e.keyCode >= 96 && e.keyCode <= 105)) || e.keyCode===69)
     ) {
       e.preventDefault();
     }
   }
+
+
+  @Debounce(500, true)
   searchDetailAndRatePlan() {
     this.searchdeviceandrateplan();
     this.searchnum();
@@ -104,8 +110,17 @@ export class DashboardComponent implements OnInit {
         ? this.formGroup.value
         : { search: this.searchednumber };
       this.apiService.datasearch(num).subscribe((result) => {
+        console.log('result for search:',result);
+        if(result.result){
+          this.errorMsg='';
         this.util.dispatchBillingData(result.result[0]);
         this.searchRecommendedPlans(result.result[0]?.acct_nbr);
+        }else if (result.message){
+          this.errorMsg=result.message;
+          this.util.dispatchBillingData(null);
+          this.util.dispatchDeviceRates(null);
+          this.util.dispatchRecommendedPlans(null);
+        }
       });
     // }
   }
