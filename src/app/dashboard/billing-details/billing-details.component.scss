@@ -13,7 +13,8 @@ justify-content: space-between;
 .left-container{
     width: 48%;
     @media (max-width: 576px){
-        width: 280px;
+        // width: 250px;
+        width: 100%;
      }
 }
 .heading-container{
@@ -74,6 +75,9 @@ justify-content: space-between;
 
 .bg-container{
     padding: 20px 20px 50px 20px;
+    @media (max-width: 576px){
+        padding: 10px;
+     }
 }
 .card-head{
     background-color: #4473c5;
@@ -169,6 +173,7 @@ justify-content: space-between;
         flex-direction: column;
         justify-content: center;
         margin-right: 10px;
+        margin-right: 0px;
      }
 }
 .label{
