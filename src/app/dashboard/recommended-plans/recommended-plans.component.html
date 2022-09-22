@@ -255,11 +255,14 @@
         </table>
     </div>
 </div>
+<br>
+<br>
     <ng-template #nodata >
         No data Found for the searched criteria.
     </ng-template>
     <div *ngIf="!accountData">
-        Data Not found
+        <h2  class="no-data">No Data Available for searched number</h2>
+        
     </div>
     <br>
     <div class="delay-warn">

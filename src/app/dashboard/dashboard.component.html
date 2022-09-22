@@ -31,12 +31,19 @@
       <div *ngIf="formGroup.controls['search'].errors" class="warn-msg">
         Must be of 10-15 digit
       </div>
+      
     </div>
-    <div *ngIf="errorMsg">
-     {{errorMsg}}
+    
+    <div class="mobile-warn">
+      <div *ngIf="errorMsg" class="warn-msg">
+        {{errorMsg}}
+       </div>
     </div>
+    
+    
+    
       <!-- <mat-form-field> -->
-        <input
+        <!-- <input
           
         class="large-input"
         type="search"
@@ -47,7 +54,7 @@
           placeholder="Account/Mobile Number"
           (keydown)="Space($event)"
           required
-        />
+        /> -->
       <!-- </mat-form-field> -->
     </div>
 
@@ -75,7 +82,15 @@
       <div *ngIf="formGroup.controls['search'].errors" class="warn-msg">
         Must be of 10-15 digit
       </div>
+      
     </div>
+
+    <div class="desktop-warn">
+      <div *ngIf="errorMsg"  class="warn-msg">
+        {{errorMsg}}
+       </div>
+    </div>
+    
 </div>
 
 

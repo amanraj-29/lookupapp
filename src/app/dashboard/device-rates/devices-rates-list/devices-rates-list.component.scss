@@ -171,3 +171,12 @@ table {
 //         width: 80px;
 //     }
 //  }
+.no-data{
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    line-height: normal;
+    @media (max-width: 700px){
+        font-size: 17px;
+     }
+}

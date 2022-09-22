@@ -29,6 +29,12 @@ justify-content: space-between;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    @media (max-width: 576px){
+        justify-content: center;
+        margin-top: 12px;
+        margin-left: 5px;
+        
+     }
 }
 .alert-text{
     color: #fff;
@@ -148,6 +154,7 @@ justify-content: space-between;
     color: #fff;
     font-size: 22px;
     margin-bottom: 10px;
+    margin-top: 10px;
     @media (max-width: 576px){
         font-size: 18px;
         
@@ -180,4 +187,13 @@ justify-content: space-between;
     text-align: center;
     color: #fff;
     margin-bottom: 0px !important;
+}
+
+.no-data{
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    @media (max-width: 700px){
+        font-size: 17px;
+     }
 }

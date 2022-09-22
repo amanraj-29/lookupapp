@@ -1,6 +1,6 @@
 <div class="container">
   <div class="heading-container">
-    <h1 class="heading">Subscriber List</h1>
+    <h2 class="heading">Subscriber List</h2>
     <!-- <div class="alerts">
       <div>
         <p class="label">Device Configuration</p>
@@ -186,7 +186,8 @@
     <ng-container
       *ngIf="isLoaded && dataSource.data && dataSource.data.length === 0"
     >
-      No Data Available for searched number
+    <h2 class="no-data">No Data Available for searched number</h2>
+      
     </ng-container>
     <!-- isLoaded:{{isLoaded}} -->
     <ng-container *ngIf="!isLoaded"> Loading Data... </ng-container>
