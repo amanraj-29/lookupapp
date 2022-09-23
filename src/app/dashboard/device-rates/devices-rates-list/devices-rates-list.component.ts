@@ -43,25 +43,28 @@ migratableBy:Array<string>=[];
 
       if (val?.length > 0) {
         this.migratableBy = [];
+        //Complete Migratable //Non-Migratable by SIM Status //Non Migratable by Rate Plan //Non Migratable by Device //NMG By Both Device and Rate Plan
+        val?.sort((a:any, b:any) => (a.Action_Needed > b.Action_Needed? -1 : 1))
         this.dataSource = new MatTableDataSource<deviceRatesState>(val);
         this.dataSource.paginator = this.paginator;
         this.length = val.length
        
         val.map((inrVal:any)=>{
-          if(inrVal?.Migratable_By_Device
-                ==="Migratable"){
-            this.migratableBy.push('Device')
-          }
           if(inrVal?.Migratable_by_rate_plan
-            ==="Migratable"){
+            ==="Non-Migratable" || inrVal?.Migratable_by_rate_plan===null){
             this.migratableBy.push('Rate')
           }
-          if(inrVal?.SIM_Gen_Status==="Migratable"){
+          if(inrVal?.Migratable_By_Device
+                ==="Non-Migratable" || inrVal?.Migratable_By_Device===null){
+            this.migratableBy.push('Device')
+          }
+         
+          if(inrVal?.SIM_Gen_Status==="Non-Migratable" || inrVal?.SIM_Gen_Status===null){
             this.migratableBy.push('Sim')
           }
           
         })
-
+        //console.log("Inside array",this.migratableBy)
       }else{
         this.dataSource = new MatTableDataSource<deviceRatesState>([]);
         this.dataSource.paginator = this.paginator;

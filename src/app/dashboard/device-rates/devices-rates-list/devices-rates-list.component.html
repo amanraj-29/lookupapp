@@ -54,10 +54,10 @@
         <p class="label">Device Configuration</p>
         <button
           class="alert-button"
-          [ngClass]="migratableBy.includes('Device') ? 'mg' : 'nmg'"
+          [ngClass]="migratableBy.includes('Device') ? 'nmg' : 'mg'"
         >
           {{
-            migratableBy.includes("Device") ? "Ready" : "Action Required"
+            migratableBy.includes("Device") ? "Action Required" : "Ready"
           }}
         </button>
       </div>
@@ -65,10 +65,10 @@
         <p class="label">Equipment</p>
         <button
           class="alert-button"
-          [ngClass]="migratableBy.includes('Device') ? 'mg' : 'nmg'"
+          [ngClass]="migratableBy.includes('Device') ? 'nmg' : 'mg'"
         >
           {{
-            migratableBy.includes("Device") ? "Ready" : "Upgrade Required"
+            migratableBy.includes("Device") ? "Upgrade Required" : "Ready"
           }}
         </button>
       </div>
@@ -79,18 +79,18 @@
         <p class="label">SIM</p>
         <button
           class="alert-button"
-          [ngClass]="migratableBy.includes('Sim') ? 'mg' : 'nmg'"
+          [ngClass]="migratableBy.includes('Sim') ? 'nmg' : 'mg'"
         >
-          {{migratableBy.includes("Sim") ? "Ready" : "Action Required" }}
+          {{migratableBy.includes("Sim") ? "Action Required" : "Ready" }}
         </button>
       </div>
       <div class="alert1">
         <p class="label">Rate Plan</p>
         <button
           class="alert-button1"
-          [ngClass]="migratableBy.includes('Rate') ? 'mg' : 'nmg'"
+          [ngClass]="migratableBy.includes('Rate') ? 'nmg' : 'mg'"
         >
-          {{ migratableBy.includes("Rate") ? "Ready" : "Action Required" }}
+          {{ migratableBy.includes("Rate") ? "Action Required" : "Ready" }}
         </button>
       </div>
     </div>
