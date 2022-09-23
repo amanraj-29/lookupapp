@@ -10,49 +10,51 @@
         
 
         <div class="alerts" *ngIf="accountData ">
+
+            <div class="alert1">
+                <p class="label">Equipment</p>
+                <button
+                class="alert-button"
+                [ngClass]="migratableBy.includes('Device') ? 'nmg' : 'mg'"
+              >
+                {{
+                  migratableBy.includes("Device") ? "Upgrade Required" : "Ready"
+                }}
+              </button>
+              </div>
             <div class="sub-alert">
               <div class="alert1">
                 <p class="label">Device Configuration</p>
                 <button
-                  class="alert-button"
-                  [ngClass]="migratableBy.includes('Device') ? 'mg' : 'nmg'"
-                >
-                  {{
-                    migratableBy.includes("Device") ? "Ready" : "Action Required"
-                  }}
-                </button>
+                class="alert-button"
+                [ngClass]="migratableBy.includes('Device_Config') ? 'nmg' : 'mg'"
+              >
+                {{
+                  migratableBy.includes("Device_Config") ? "Action Required" : "Ready"
+                }}
+              </button>
               </div>
-              <div class="alert1">
-                <p class="label">Equipment</p>
-                <button
-                  class="alert-button"
-                  [ngClass]="migratableBy.includes('Device') ? 'mg' : 'nmg'"
-                >
-                  {{
-                    migratableBy.includes("Device") ? "Ready" : "Upgrade Required"
-                  }}
-                </button>
-              </div>
+              
             </div>
             
             <div class="sub-alert">
               <div class="alert1">
                 <p class="label">SIM</p>
                 <button
-                  class="alert-button"
-                  [ngClass]="migratableBy.includes('Sim') ? 'mg' : 'nmg'"
-                >
-                  {{migratableBy.includes("Sim") ? "Ready" : "Action Required" }}
-                </button>
+          class="alert-button"
+          [ngClass]="migratableBy.includes('Sim') ? 'nmg' : 'mg'"
+        >
+          {{migratableBy.includes("Sim") ? "Action Required" : "Ready" }}
+        </button>
               </div>
               <div class="alert1">
                 <p class="label">Rate Plan</p>
                 <button
-                  class="alert-button1"
-                  [ngClass]="migratableBy.includes('Rate') ? 'mg' : 'nmg'"
-                >
-                  {{ migratableBy.includes("Rate") ? "Ready" : "Action Required" }}
-                </button>
+          class="alert-button1"
+          [ngClass]="migratableBy.includes('Rate') ? 'nmg' : 'mg'"
+        >
+          {{ migratableBy.includes("Rate") ? "Action Required" : "Ready" }}
+        </button>
               </div>
             </div>
             

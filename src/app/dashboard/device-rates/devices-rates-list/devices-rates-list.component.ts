@@ -50,6 +50,13 @@ migratableBy:Array<string>=[];
         this.length = val.length
        
         val.map((inrVal:any)=>{
+
+
+          if(inrVal?.Migratable_By_Device_Config
+            ==="Non-Migratable" || inrVal?.Migratable_by_Device_Config===null){
+            this.migratableBy.push('Device_Config')
+          }
+
           if(inrVal?.Migratable_by_rate_plan
             ==="Non-Migratable" || inrVal?.Migratable_by_rate_plan===null){
             this.migratableBy.push('Rate')
@@ -64,7 +71,7 @@ migratableBy:Array<string>=[];
           }
           
         })
-        //console.log("Inside array",this.migratableBy)
+      console.log("Inside array",this.migratableBy)
       }else{
         this.dataSource = new MatTableDataSource<deviceRatesState>([]);
         this.dataSource.paginator = this.paginator;

@@ -84,17 +84,19 @@
       <h2 class="heading">Migration Status</h2>
       <div class="alerts">
         <!-- <p class="alert-text">Migration Status:</p> -->
-        <div class="alert1">
-          <p class="label">Device Configuration</p>
-        <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device==='Migratable')?'mg':'nmg'">
-          {{(deviceDetails?.Migratable_By_Device==='Migratable')?'Ready':'Action Required'}}
-        </button>
-      </div>
+        
       <div class="alert1">
         <p class="label">Equipment</p>
         <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device==='Migratable')?'mg':'nmg'"> 
           {{(deviceDetails?.Migratable_By_Device==='Migratable')?'Ready':'Upgrade Required'}}</button>
         </div>
+
+        <div class="alert1">
+          <p class="label">Device Configuration</p>
+        <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device_Config==='Migratable')?'mg':'nmg'">
+          {{(deviceDetails?.Migratable_By_Device_Config==='Migratable')?'Ready':'Action Required'}}
+        </button>
+      </div>
         <div class="alert1">
           <p class="label">SIM</p>
           <button class="alert-button" [ngClass]="(deviceDetails?.SIM_Gen_Status==='Migratable')?'mg':'nmg'">

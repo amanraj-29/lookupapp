@@ -58,15 +58,21 @@ export class BillingDetailsComponent implements OnInit {
         this.length = val.length
        
         val.map((inrVal:any)=>{
-          if(inrVal?.Migratable_By_Device
-                ==="Migratable"){
-            this.migratableBy.push('Device')
+          if(inrVal?.Migratable_By_Device_Config
+            ==="Non-Migratable" || inrVal?.Migratable_by_Device_Config===null){
+            this.migratableBy.push('Device_Config')
           }
+
           if(inrVal?.Migratable_by_rate_plan
-            ==="Migratable"){
+            ==="Non-Migratable" || inrVal?.Migratable_by_rate_plan===null){
             this.migratableBy.push('Rate')
           }
-          if(inrVal?.SIM_Gen_Status==="Migratable"){
+          if(inrVal?.Migratable_By_Device
+                ==="Non-Migratable" || inrVal?.Migratable_By_Device===null){
+            this.migratableBy.push('Device')
+          }
+         
+          if(inrVal?.SIM_Gen_Status==="Non-Migratable" || inrVal?.SIM_Gen_Status===null){
             this.migratableBy.push('Sim')
           }
           
