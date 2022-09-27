@@ -1,7 +1,3 @@
-
-
-
-
 <div class="bg-container">
     <div class="heading-container">
         <div>
@@ -11,18 +7,19 @@
 
         <div class="alerts" *ngIf="accountData ">
 
-            <div class="alert1">
-                <p class="label">Equipment</p>
-                <button
-                class="alert-button"
-                [ngClass]="migratableBy.includes('Device') ? 'nmg' : 'mg'"
-              >
-                {{
-                  migratableBy.includes("Device") ? "Upgrade Required" : "Ready"
-                }}
-              </button>
-              </div>
+           
             <div class="sub-alert">
+                <div class="alert1">
+                    <p class="label">Equipment</p>
+                    <button
+                    class="alert-button"
+                    [ngClass]="migratableBy.includes('Device') ? 'nmg' : 'mg'"
+                  >
+                    {{
+                      migratableBy.includes("Device") ? "Upgrade Required" : "Ready"
+                    }}
+                  </button>
+                  </div>
               <div class="alert1">
                 <p class="label">Device Configuration</p>
                 <button

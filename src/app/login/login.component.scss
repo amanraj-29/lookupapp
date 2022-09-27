@@ -1,4 +1,5 @@
 @import "../../assets/scss/variables";
+@import "../../assets/scss/common";
 
 
 .button{
@@ -145,12 +146,14 @@ padding-bottom: 10px;
   position: relative;
 }
 
-.common-btn{
-  width: 40%;
-  padding: 3px 0px;
-  background-color: nth($blue-shade, 2 );
-  border-radius: 15px;
-  color: nth($white-shade, 1 ) !important;
-  font-weight: bold;
-  border:2px solid nth($white-shade, 1 ) !important;
-}
+// .common-btn{
+//   // width: 40%;
+//   width: 115px;
+//   // padding: 3px 0px;
+//   padding: 2px;
+//   background-color: nth($blue-shade, 2 );
+//   border-radius: 20px;
+//   color: nth($white-shade, 1 ) !important;
+//   font-weight: bold;
+//   border:2px solid nth($white-shade, 1 ) !important;
+// }

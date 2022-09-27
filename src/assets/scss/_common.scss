@@ -56,10 +56,22 @@ padding-bottom: 10px;
     position: relative;
 }
 .mg{
-    background-color: #00E676;
+    // background-color: #00E676;
+    background-color: #69E382;
     color: #fff;
 }
 .nmg{
     background-color: #F50057;
     color: #fff;
 }
+.common-btn{
+    // width: 40%;
+    width: 115px !important;
+    // padding: 3px 0px;
+    padding: 2px;
+    background-color: nth($blue-shade, 2 );
+    border-radius: 20px;
+    color: nth($white-shade, 1 ) !important;
+    font-weight: bold;
+    border:2px solid nth($white-shade, 1 ) !important;
+  }
