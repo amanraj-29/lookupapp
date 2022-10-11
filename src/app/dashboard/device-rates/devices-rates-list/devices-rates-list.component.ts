@@ -39,10 +39,15 @@ migratableBy:Array<string>=[];
   constructor(private util: UtilitiesService, private router: Router, private actRoute: ActivatedRoute) {
     this.util.deviceRatesObservable$.subscribe(val => {
       console.log('  deviceRatesObservable$ :', val);
-      this.isLoaded = true;
+      
 
       if (val?.length > 0) {
+
         this.migratableBy = [];
+       
+          this.isLoaded = true;
+       
+        
         //Complete Migratable //Non-Migratable by SIM Status //Non Migratable by Rate Plan //Non Migratable by Device //NMG By Both Device and Rate Plan
         val?.sort((a:any, b:any) => (a.Action_Needed > b.Action_Needed? -1 : 1))
         this.dataSource = new MatTableDataSource<deviceRatesState>(val);
