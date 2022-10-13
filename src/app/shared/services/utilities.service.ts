@@ -75,7 +75,7 @@ export class UtilitiesService {
   }
   logout() {
     this.clearStorage();
-    console.log('timeinterval is:', this.timeInterVar);
+    //console.log('timeinterval is:', this.timeInterVar);
     if (this.timeInterVar) {
       clearInterval(this.timeInterVar);
       this.timeInterVar = null;

@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
     this.email = sessionStorage.getItem('userData');
     this.searchednumber = sessionStorage.getItem('searchedNumber');
     if (this.searchednumber) {
-      this.searchnum();
+      //this.searchnum();
       this.searchdeviceandrateplan();
       // this.searchRecommendedPlans();
     }
@@ -85,7 +85,7 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  @Debounce(500, true)
+ 
   searchDetailAndRatePlan() {
     this.searchdeviceandrateplan();
     this.searchnum();

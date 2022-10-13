@@ -59,13 +59,24 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  searchRecommendedPlans(accountId:string) {
+    
+    this.apiService.retriveDeviceRecommendedPlan({account_no:accountId}).subscribe((result) => {
+      // this.util.dispatchBillingData(result.result[0]);
+      this.utils.dispatchRecommendedPlans(result.result);
+    });
+  
+}
+
   search() {
     if (this.formGroup.valid) {
       this.apiService.datasearch(this.formGroup.value).subscribe((result) => {
         if (result.success) {
-          console.log(this.formGroup.value);
-          // console.log('length of data received', result);
+          //console.log("Data from 1st search",this.formGroup.value);
+           //console.log('length of data received', result.result[0]);
+          
           this.utils.dispatchBillingData(result.result[0]);
+          this.searchRecommendedPlans(result.result[0]?.acct_nbr);
           this.apiService.setDataInLocalStorage(
             'searchedNumber',
             this.formGroup.value.search
