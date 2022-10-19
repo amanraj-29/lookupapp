@@ -51,6 +51,8 @@ migratableBy:Array<string>=[];
         //Complete Migratable //Non-Migratable by SIM Status //Non Migratable by Rate Plan //Non Migratable by Device //NMG By Both Device and Rate Plan
         val?.sort((a:any, b:any) => (a.Action_Needed > b.Action_Needed? -1 : 1))
         this.dataSource = new MatTableDataSource<deviceRatesState>(val);
+
+       
         this.dataSource.paginator = this.paginator;
         this.length = val.length
        

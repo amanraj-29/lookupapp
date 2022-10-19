@@ -123,11 +123,11 @@
                     <!-- <h2  class="heading">Authorized Users</h2>
                     <p class="detail">NA</p> -->
                     <h2 class="heading">Liability Type</h2>
-                    <p class="detail">{{billingInfo?.Libility_Type}}</p>
+                    <p class="detail">{{billingInfo?.Libility_Type || 'NA'}}</p>
                     <h2 class="heading">Account Type</h2>
-                    <p class="detail">{{billingInfo?.Account_Type}}</p>
+                    <p class="detail">{{billingInfo?.Account_Type || 'NA'}}</p>
                     <h2 class="heading">Billing Cycle</h2>
-                    <p class="detail">{{billingInfo?.Billing_Cycle}}</p>
+                    <p class="detail">{{billingInfo?.Billing_Cycle || 'NA'}}</p>
                     <h2 class="heading">Preferred Language</h2>
                     <p class="detail">{{billingInfo?.lang_desc || 'NA' }}</p>
                     <h2 class="heading">Lines Count</h2>
