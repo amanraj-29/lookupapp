@@ -1,51 +1,54 @@
-<div class="content-align-middle dp-flex pad">
-  <form [formGroup]="formGroup" (ngSubmit)="formGroup.valid && search()">
-    <div class="text-center search-text">
-      <h2 class="welcome-email">Hi {{ email }}!
-        <!-- <span class="welcome-msg"> Welcome to the</span> -->
-      </h2>
-      <span class="welcome-msg">Welcome to the Lookup Portal</span>
-      <!-- <h3 class="pad-b-10">Welcome</h3> -->
+<div class="content-align-middle dp-flex">
+  <div class="pad">
+    <form [formGroup]="formGroup" (ngSubmit)="formGroup.valid && search()">
+      <div class="text-center search-text">
+        <h2 class="welcome-email">Hi {{ email }}!
+          <!-- <span class="welcome-msg"> Welcome to the</span> -->
+        </h2>
+        <span class="welcome-msg">Welcome to the Lookup Portal</span>
+        <!-- <h3 class="pad-b-10">Welcome</h3> -->
+      </div>
+      <div>
+        <h2 class="notfound-err">{{failureSearchMessage}}</h2>
+        <h2 class="pad-b-10 notfound-err1">{{failureSearchMessage1}}</h2>
     </div>
-    <div>
-      <h2 class="notfound-err">{{failureSearchMessage}}</h2>
-      <h2 class="pad-b-10 notfound-err1">{{failureSearchMessage1}}</h2>
-  </div>
-    <div class="search-num">
-      <p class="acc-num">Enter Account / Mobile Number</p>
+      <div class="search-num">
+        <p class="acc-num">Enter Account / Mobile Number</p>
+        
       
-    
-      <!-- <mat-form-field> -->
-        <input
-        type="search"
-        
-          type="number"
-          placeholder="Phone/Account number"
-          formControlName="search"
-          (keydown)="Space($event)"
-          class="large-input accnum-input"
-        />
-        <div class="text-center error-msg"
-        *ngIf="formGroup.controls['search'].invalid && (formGroup.controls['search'].dirty || formGroup.controls['search'].touched)">
-        <div *ngIf="formGroup.controls['search'].errors">
-          Must be of 10-15 digit
-          </div>
-    </div>
-        
-      <!-- </mat-form-field> -->
-    </div>
-
-    <div class="example-button-row text-center but-center">
-      <button
-      type="submit"
-        class="common-btn"
-        [disabled]="formGroup.invalid"
-        mat-button 
-      >
-        Search
-      </button>
-    </div>
-  </form>
+        <!-- <mat-form-field> -->
+          <input
+          type="search"
+          
+            type="number"
+            placeholder="Phone/Account number"
+            formControlName="search"
+            (keydown)="Space($event)"
+            class="large-input accnum-input"
+          />
+          <div class="text-center error-msg"
+          *ngIf="formGroup.controls['search'].invalid && (formGroup.controls['search'].dirty || formGroup.controls['search'].touched)">
+          <div *ngIf="formGroup.controls['search'].errors">
+            Must be of 10-15 digit
+            </div>
+      </div>
+          
+        <!-- </mat-form-field> -->
+      </div>
+  
+      <div class="example-button-row text-center but-center">
+        <button
+        type="submit"
+          class="common-btn"
+          [disabled]="formGroup.invalid"
+          mat-button 
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+  
 
   
 </div>

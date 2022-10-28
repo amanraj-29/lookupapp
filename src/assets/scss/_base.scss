@@ -7,7 +7,10 @@
 }
 
 body{
-    background-color: nth($blue-shade, 1 );
+    // background-color: nth($blue-shade, 1 );
+    background: url("/assets/Background.png");
+    background-size: cover;
+    background-position: center;
 }
 
 .cdk-overlay-connected-position-bounding-box{
@@ -68,3 +71,5 @@ body{
     min-height: 0px !important;
     position: relative;
   }
+
+ 

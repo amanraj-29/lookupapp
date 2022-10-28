@@ -257,7 +257,10 @@
 <br>
 <br>
     <ng-template #nodata >
-        No data Found for the searched criteria.
+        <div class="no-data">
+            No data Found for the searched criteria.
+        </div>
+        
     </ng-template>
     <div *ngIf="!accountData">
         <h2  class="no-data">No Data Available for searched number</h2>

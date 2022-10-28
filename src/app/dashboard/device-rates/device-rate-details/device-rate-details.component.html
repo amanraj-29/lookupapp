@@ -9,12 +9,15 @@
 "Account_start_date": "", "Rate_Plan_name": "GP77" } JOHN MARRERO -->
 
 <div class="bg-container">
-  
-  <button (click)="goBack()" class="common-btn" mat-button><mat-icon>chevron_left</mat-icon><span>Back</span> </button>
+    <button (click)="goBack()" class="common-btn" mat-button >
+      <mat-icon>chevron_left</mat-icon>
+      Back
+    </button>
+
   <br />
   <div class="heading-container">
     <h1 class="card-heading1">Line Details</h1>
-  <!-- <div class="alerts">
+    <!-- <div class="alerts">
     <div>
       <p class="label">Device Configuration</p>
     <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device==='Migratable')?'mg':'nmg'">
@@ -41,7 +44,6 @@
 </div> -->
   </div>
 
-  
   <div class="card-head">
     <h2 class="card-heading">
       {{ deviceDetails?.Billing_Account_Name || "NA" }}
@@ -58,16 +60,13 @@
       <h2 class="heading">Sim</h2>
       <p class="detail">NA</p>
       <h2 class="heading">Sim Generation</h2>
-      <p class="detail">{{ deviceDetails?.sim_generation  || "NA"}}</p>
+      <p class="detail">{{ deviceDetails?.sim_generation || "NA" }}</p>
       <h2 class="heading">Rate Plan Code</h2>
-      <p class="detail">{{ deviceDetails?.Rate_Plan_name  || "NA" }}</p>
+      <p class="detail">{{ deviceDetails?.Rate_Plan_name || "NA" }}</p>
       <h2 class="heading">Rate Plan Description</h2>
-      <p class="detail">{{deviceDetails?.rate_plan_description || "NA"}}</p>
-
-     
+      <p class="detail">{{ deviceDetails?.rate_plan_description || "NA" }}</p>
     </div>
     <div class="card2">
-      
       <h2 class="heading">Subscriber Email</h2>
       <p class="detail">{{ deviceDetails?.acct_email_addr || "NA" }}</p>
       <h2 class="heading">IMEI</h2>
@@ -85,32 +84,75 @@
       <h2 class="heading">Migration Status</h2>
       <div class="alerts">
         <!-- <p class="alert-text">Migration Status:</p> -->
-        
-      <div class="alert1">
-        <p class="label">Equipment</p>
-        <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device==='Migratable')?'mg':'nmg'"> 
-          {{(deviceDetails?.Migratable_By_Device==='Migratable')?'Ready':'Upgrade Required'}}</button>
+
+        <div class="alert1">
+          <p class="label">Equipment</p>
+          <button
+            class="alert-button"
+            [ngClass]="
+              deviceDetails?.Migratable_By_Device === 'Migratable'
+                ? 'mg'
+                : 'nmg'
+            "
+          >
+            {{
+              deviceDetails?.Migratable_By_Device === "Migratable"
+                ? "Ready"
+                : "Upgrade Required"
+            }}
+          </button>
         </div>
 
         <div class="alert1">
           <p class="label">Device Configuration</p>
-        <button class="alert-button" [ngClass]="(deviceDetails?.Migratable_By_Device_Config==='Migratable')?'mg':'nmg'">
-          {{(deviceDetails?.Migratable_By_Device_Config==='Migratable')?'Ready':'Action Required'}}
-        </button>
-      </div>
+          <button
+            class="alert-button"
+            [ngClass]="
+              deviceDetails?.Migratable_By_Device_Config === 'Migratable'
+                ? 'mg'
+                : 'nmg'
+            "
+          >
+            {{
+              deviceDetails?.Migratable_By_Device_Config === "Migratable"
+                ? "Ready"
+                : "Action Required"
+            }}
+          </button>
+        </div>
         <div class="alert1">
           <p class="label">SIM</p>
-          <button class="alert-button" [ngClass]="(deviceDetails?.SIM_Gen_Status==='Migratable')?'mg':'nmg'">
-          {{(deviceDetails?.SIM_Gen_Status==='Migratable')?'Ready':'Action Required'}}
-        </button>
-      </div>
-      <div class="alert1">
-        <p class="label">Rate Plan</p>
-        <button class="alert-button1" [ngClass]="(deviceDetails?.Migratable_by_rate_plan==='Migratable')?'mg':'nmg'">
-          {{(deviceDetails?.Migratable_by_rate_plan==='Migratable')?'Ready':'Action Required'}}
-        </button>
+          <button
+            class="alert-button"
+            [ngClass]="
+              deviceDetails?.SIM_Gen_Status === 'Migratable' ? 'mg' : 'nmg'
+            "
+          >
+            {{
+              deviceDetails?.SIM_Gen_Status === "Migratable"
+                ? "Ready"
+                : "Action Required"
+            }}
+          </button>
         </div>
-    </div>
+        <div class="alert1">
+          <p class="label">Rate Plan</p>
+          <button
+            class="alert-button1"
+            [ngClass]="
+              deviceDetails?.Migratable_by_rate_plan === 'Migratable'
+                ? 'mg'
+                : 'nmg'
+            "
+          >
+            {{
+              deviceDetails?.Migratable_by_rate_plan === "Migratable"
+                ? "Ready"
+                : "Action Required"
+            }}
+          </button>
+        </div>
+      </div>
       <!-- <h2 class="heading">Migration Status</h2>
       <p
         class="detail"
@@ -131,12 +173,13 @@
 
       <ng-template #thenBlock>Complete Migratable</ng-template>
       <ng-template #elseBlock>Non-Migratable</ng-template>
-      
-     
     </div>
   </div>
 
   <div class="delay-warn">
-    <p class="delay-content">This data may have a two week delay, please validate current customer information in Opus before making an offer.</p>
+    <p class="delay-content">
+      This data may have a two week delay, please validate current customer
+      information in Opus before making an offer.
+    </p>
   </div>
 </div>
