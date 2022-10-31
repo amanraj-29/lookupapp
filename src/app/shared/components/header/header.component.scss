@@ -164,7 +164,7 @@
     color: #FFFFFF;
 }
 .headline3 {
-    // font-family: 'Gilroy-Regular';
+    font-family: 'Gilroy-SemiBold';
     font-size: 30px;
     color: #FFFFFF;
     margin-bottom: 0px;
@@ -269,6 +269,7 @@
     color: nth($white-shade , 1 );
     cursor: pointer;
     padding: 0px;
+    font-family: 'Gilroy-SemiBold';
     @media (max-width: 576px){
         margin-right: 0px;
         }

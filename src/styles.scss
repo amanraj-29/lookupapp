@@ -43,24 +43,28 @@ body{
     font-family: "Gilroy-Bold", "Gilroy-SemiBold", "Gilroy-Regular";
 }
 
-// @font-face {
-//     font-family: Gilroy-Regular;
-//     src: url('assets/fonts/Gilroy-Regular.otf') format("opentype");
-//     font-weight: normal;
-//     font-display: swap;
-//   }
-  
-//   @font-face {
-//     font-family: Gilroy-Bold;
-//     src: url('assets/fonts/Gilroy-Bold.otf') format("opentype");
-//     font-weight: bold;
-//     font-display: swap;
-//   }
-  
-//   @font-face {
-//     font-family: Gilroy-SemiBold;
-//     src: url('assets/fonts/Gilroy-SemiBold.otf') format("opentype");
-//     font-display: swap;
-//   }
+@font-face {
+  font-family: Gilroy-Regular;
+  src: url('assets/fonts/Gilroy-Regular.ttf') format("opentype");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Gilroy-Bold;
+  src: url('assets/fonts/Gilroy-Bold.ttf') format("opentype");
+  font-weight: bold;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Gilroy-SemiBold;
+  src: url('assets/fonts/Gilroy-SemiBold.ttf') format("opentype");
+  font-display: swap;
+}
+
+
+
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: "Gilroy-Bold", "Gilroy-SemiBold", "Gilroy-Regular"; }

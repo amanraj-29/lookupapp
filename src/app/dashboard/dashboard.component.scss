@@ -17,6 +17,7 @@
     padding-left: 25px;
     padding-right: 25px;
     font-size: 16px;
+    font-family: 'Gilroy-SemiBold';
     @media (max-width: 576px){
       padding-left: 13px;
     padding-right: 13px;
@@ -107,6 +108,7 @@ margin-bottom: 0px;
   color: #ffffff;
   font-size: 18px;
   // font-weight: 400 !important;
+  font-family: 'Gilroy-Regular';
   @media (max-width: 576px){
     font-size: 15px;
  }
@@ -136,6 +138,7 @@ b{
   width: 100% !important;
   background-color: nth($orange-shades, 1);
   color: #fff;
+  font-family: 'Gilroy-SemiBold';
   :hover { background-color:  nth($orange-shades, 2) !important };
   &.active {
     background-color: nth($orange-shades, 2);
@@ -147,6 +150,7 @@ b{
   margin-left: 15px;
   color: #fff;
     font-weight: 400;
+    font-family: 'Gilroy-SemiBold';
 }
 .menu-bar{
   align-items: center;
@@ -206,6 +210,7 @@ b{
   margin-top: -2em;
   margin-bottom: 25px;
   color: #fff;
+  font-family: 'Gilroy-Regular';
   @media (max-width: 576px){
     width: 100%;
  }

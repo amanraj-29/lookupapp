@@ -4,7 +4,7 @@
 .bg-container{
     padding: 40px;
     @media (max-width: 576px){
-        padding: 35px;
+        padding: 30px 10px 20px 10px;
         
      }
 }
@@ -14,12 +14,17 @@
     padding: 7px 0 7px 25px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-     margin-top: 20px;
+    //  margin-top: 20px;
+    @media (max-width: 576px){
+        padding: 7px 0 7px 15px;
+        
+     }
 }
 .card-heading{
     color: #fff;
     font-size: 20px;
     margin-bottom: 0px;
+    font-family: 'Gilroy-Bold';
     @media (max-width: 576px){
         font-size: 18px;
      }
@@ -27,7 +32,7 @@
 .card-container{
     display: flex;
     background-color: #fff;
-    padding: 0px 150px 25px 25px;
+    padding: 0px 100px 25px 25px;
     // height: 320px;
     justify-content: space-between;
     border-bottom-left-radius: 8px;
@@ -45,6 +50,10 @@
 }
 .card1{
     margin-right: 20px;
+    @media (min-width: 576px){
+        width: 30%;
+        
+     }
 }
 .card2{
     margin-right: 20px;
@@ -53,6 +62,7 @@
     color: #fff;
     font-size: 25px;
     margin-top: 15px;
+    font-family: 'Gilroy-SemiBold';
     @media (max-width: 576px){
         font-size: 18px;
      }
@@ -61,12 +71,14 @@
     font-size: 18px;
     margin-top: 10px;
     margin-bottom: 5px;
+    font-family: 'Gilroy-SemiBold';
     @media (max-width: 576px){
         font-size: 16px;
      }
 }
 .detail{
     font-size: 15px;
+    font-family: 'Gilroy-Regular';
 }
 .back-but{
     color: nth($orange-shades, 1);
@@ -89,7 +101,7 @@
     @media (max-width: 576px){
         justify-content: flex-end;
         // margin-top: 12px;
-        width: 140px;
+        width: 160px;
         
      }
 }
@@ -100,12 +112,13 @@
 }
 .alert-button{
     border-radius: 12px;
-    width:135px;
+    width:160px;
     // height: 22px;
     border-style: hidden;
     margin-right: 5px;
     padding: 12px;
     cursor: pointer;
+    font-family: 'Gilroy-Regular';
     @media (max-width: 576px){
         font-size: 12px;
         // width:80px;
@@ -113,7 +126,7 @@
 }
 .alert-button1{
     border-radius: 12px;
-    width:135px;
+    width:160px;
     // height: 22px;
     border-style: hidden;
     // margin-right: 5px;
@@ -121,6 +134,7 @@
     // padding-left: 10px;
     // padding-right: 10px;
     padding: 12px;
+    font-family: 'Gilroy-Regular';
     @media (max-width: 576px){
         font-size: 12px;
         // width:80px;
@@ -141,6 +155,7 @@
     text-align: center;
     // color: #fff;
     margin-bottom: 2px !important;
+    font-family: 'Gilroy-SemiBold';
 }
 .alert1{
     margin-top: 10px;
@@ -160,6 +175,7 @@
     color: #fff;
     text-align: center;
     font-size: 15px;
+    font-family: 'Gilroy-SemiBold';
 }
  .mat-icon {
     float: none;

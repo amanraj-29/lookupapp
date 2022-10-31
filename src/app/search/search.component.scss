@@ -79,13 +79,15 @@ input[type="number"] {
   .welcome-msg{
     font-size: 22px;
     font-weight: normal;
+    font-family: 'Gilroy-SemiBold';
     @media (max-width: 576px){
       font-size: 18px;
    }
   }
   .welcome-email{
-    font-size: 22px;
+    font-size: 23px;
     font-weight: bold;
+    font-family: 'Gilroy-Bold';
     @media (max-width: 576px){
       font-size: 18px;
       margin-bottom: 0px;
@@ -104,6 +106,7 @@ input[type="number"] {
     font-size: 18px;
     margin-bottom: 3px;
     // margin-left: -17%;
+    font-family: 'Gilroy-Regular';
     @media (max-width: 576px){
       font-size: 15px;
    }
@@ -111,6 +114,7 @@ input[type="number"] {
   .error-msg{
     color: #ffffff;
     margin-top: 8px;
+    font-family: 'Gilroy-Regular';
     // margin-bottom: -10px;
   }
   .notfound-err{
@@ -119,6 +123,7 @@ input[type="number"] {
     margin-top: 20px;
     line-height: normal;
     font-size: 20px;
+    font-family: 'Gilroy-Regular';
     @media (max-width: 576px){
       font-size: 17px;
    }
@@ -128,6 +133,7 @@ input[type="number"] {
     text-align: center;
     // margin-top: 20px;
     line-height: normal;
+    font-family: 'Gilroy-Regular';
     @media (max-width: 576px){
       font-size: 17px;
    }

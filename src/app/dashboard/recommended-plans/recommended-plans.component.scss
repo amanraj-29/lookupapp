@@ -7,6 +7,9 @@
 .left-container {
   width: 48%;
 }
+b{
+  font-family: 'Gilroy-SemiBold';
+}
 .heading-container {
   display: flex;
   justify-content: space-between;
@@ -33,14 +36,15 @@
   margin-right: 5px;
   padding: 14px;
   cursor: pointer;
+  font-family: 'Gilroy-Regular';
   @media (max-width: 576px) {
     font-size: 12px;
-    padding: 12px;
+    padding: 10px;
     margin-bottom: 10px;
     width: 125px;
   }
   @media (min-width: 577px) and (max-width: 900px) {
-    padding: 12px;
+    padding: 10px;
     width: 135px;
     margin-bottom: 10px;
   }
@@ -51,14 +55,15 @@
   border-style: hidden;
   cursor: pointer;
   padding: 14px;
+  font-family: 'Gilroy-Regular';
   @media (max-width: 576px) {
     font-size: 12px;
-    padding: 12px;
+    padding: 10px;
     margin-bottom: 10px;
     width: 125px;
   }
   @media (min-width: 577px) and (max-width: 900px) {
-    padding: 12px;
+    padding: 10px;
     width: 135px;
     margin-bottom: 10px;
   }
@@ -120,6 +125,7 @@
   margin-top: 10px;
   margin-right: 10px;
   line-height: normal;
+  font-family: 'Gilroy-Bold';
   @media (max-width: 576px) {
     font-size: 18px;
   }
@@ -140,6 +146,7 @@ td {
   // background-color: #4473c5 !important;
   background-color: #003bdc;
   color: #fff;
+  font-family: 'Gilroy-SemiBold';
   // border-top-left-radius: 8px;
 }
 .table-items {
@@ -147,6 +154,10 @@ td {
 }
 h3 {
   color: #fff;
+  font-family: 'Gilroy-SemiBold';
+}
+.head-font{
+  font-family: 'Gilroy-SemiBold';
 }
 // .odd{
 //     background-color: #7e9fd7;
@@ -176,7 +187,7 @@ h3 {
 }
 
 td {
-  font-family: "Roboto";
+  font-family: "Gilroy-Regular";
 }
 td.border {
   border-top-left-radius: 10px;
@@ -233,6 +244,7 @@ li {
   color: #fff;
   text-align: center;
   font-size: 15px;
+  font-family: 'Gilroy-SemiBold';
 }
 .sub-alert {
   display: flex;
@@ -246,11 +258,16 @@ li {
     text-align: center;
     color: #fff;
     margin-bottom: 0px !important;
+    font-family: 'Gilroy-SemiBold';
+    @media (max-width: 576px){
+      font-size: 13px;
+   }
 }
 .no-data{
   color: #fff;
   text-align: center;
   font-size: 20px;
+  font-family: 'Gilroy-SemiBold';
   @media (max-width: 700px){
       font-size: 17px;
    }
