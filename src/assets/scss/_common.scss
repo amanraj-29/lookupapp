@@ -51,7 +51,7 @@ padding-bottom: 10px;
 
 // This style should be used for aligning a div or form etc vertical and horizontal center throughout app
 .content-align-middle{
-    height:calc(100vh - 150px);
+    min-height:calc(100vh - 150px);
     align-items: center;
     justify-content: center;
     position: relative;
@@ -91,7 +91,7 @@ padding-bottom: 10px;
   }
 
   mat-icon:hover{
-    background: #ffffff;
+    // background: #ffffff;
     //   border: 2.5px solid #00D1FF !important;
       color: #0098FF !important;
   }
