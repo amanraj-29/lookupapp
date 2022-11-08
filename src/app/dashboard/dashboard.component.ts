@@ -51,6 +51,8 @@ export class DashboardComponent implements OnInit {
       search: new FormControl(this.searchednumber, [
         Validators.minLength(10),
         Validators.maxLength(15),
+        Validators.pattern('^[0-9]*$'),
+        Validators.required
       ]),
       page: new FormControl(1),
     });
@@ -74,11 +76,11 @@ export class DashboardComponent implements OnInit {
   }
   Space(e: any) {
     var maxLength = 15;
-    console.log(e.keyCode)
+   // console.log(e.keyCode)
     if (
       (e.target.value.length >= maxLength &&
       ((e.keyCode >= 48 && e.keyCode <= 57) ||
-      (e.keyCode >= 96 && e.keyCode <= 105)) || e.keyCode===69)
+      (e.keyCode >= 96 && e.keyCode <= 105)) || e.keyCode===69 || e.keyCode === 109 || e.keyCode === 189)
     ) {
       e.preventDefault();
     }
@@ -89,6 +91,10 @@ export class DashboardComponent implements OnInit {
   searchDetailAndRatePlan() {
     this.searchdeviceandrateplan();
     this.searchnum();
+    setTimeout(() => {
+      this.router.navigate(['../dashboard'], { relativeTo: this.actRoute })
+    }, 1000);
+  
     //this.searchRecommendedPlans();
     // this.searchRecommendedPlans(this.formGroup.value.search);
   }
@@ -115,6 +121,7 @@ export class DashboardComponent implements OnInit {
           this.errorMsg='';
         this.util.dispatchBillingData(result.result[0]);
         this.searchRecommendedPlans(result.result[0]?.acct_nbr);
+        
         }else if (result.message){
           this.errorMsg=result.message;
           this.util.dispatchBillingData(null);

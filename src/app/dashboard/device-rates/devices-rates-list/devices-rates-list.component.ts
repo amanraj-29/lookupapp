@@ -28,7 +28,7 @@ const ELEMENT_DATA: any[] = [
 })
 export class DevicesRatesListComponent implements OnInit {
 
-  displayedColumns: string[] = ['Billing_Account_Name', 'phone_number', 'Effective_Date', 'Action_Needed', 'device', 'button'];
+  displayedColumns: string[] = ['Billing_Account_Name', 'phone_number', 'Effective_Date','Migratable_By_Device', 'device', 'button'];
   dataSource = new MatTableDataSource<deviceRatesState>(ELEMENT_DATA);
 
   isLoaded = false;
@@ -51,6 +51,8 @@ migratableBy:Array<string>=[];
         //Complete Migratable //Non-Migratable by SIM Status //Non Migratable by Rate Plan //Non Migratable by Device //NMG By Both Device and Rate Plan
         val?.sort((a:any, b:any) => (a.Action_Needed > b.Action_Needed? -1 : 1))
         this.dataSource = new MatTableDataSource<deviceRatesState>(val);
+        console.log("this val",val)
+      
 
        
         this.dataSource.paginator = this.paginator;

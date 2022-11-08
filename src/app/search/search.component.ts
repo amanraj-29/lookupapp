@@ -53,7 +53,7 @@ export class SearchComponent implements OnInit {
      
       (e.target.value.length >= maxLength &&
         ((e.keyCode >= 48 && e.keyCode <= 57) ||
-        (e.keyCode >= 96 && e.keyCode <= 105)) || e.keyCode===69)
+        (e.keyCode >= 96 && e.keyCode <= 105)) || e.keyCode===69 || e.keyCode === 109 || e.keyCode === 189)
     ) {
       e.preventDefault();
     }
@@ -70,6 +70,8 @@ export class SearchComponent implements OnInit {
 
   search() {
     if (this.formGroup.valid) {
+      //console.log("value inside 73",this.formGroup.value)
+ 
       this.apiService.datasearch(this.formGroup.value).subscribe((result) => {
         if (result.success) {
           //console.log("Data from 1st search",this.formGroup.value);
