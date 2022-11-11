@@ -10,10 +10,10 @@
         <p class="label">Equipment</p>
         <button
           class="alert-button"
-          [ngClass]="migratableBy.includes('Device') ? 'nmg' : 'mg'"
+          [ngClass]="DevicebuttonClass"
         >
           {{
-            migratableBy.includes("Device") ? "Upgrade Required" : "Ready"
+            DevicebuttonMessage
           }}
         </button>
       </div>
@@ -38,18 +38,18 @@
         <p class="label">SIM</p>
         <button
           class="alert-button"
-          [ngClass]="migratableBy.includes('Sim') ? 'nmg' : 'mg'"
+          [ngClass]="SimGenbuttonClass"
         >
-          {{migratableBy.includes("Sim") ? "Action Required" : "Ready" }}
+          {{SimGenbuttonMessage}}
         </button>
       </div>
       <div class="alert1">
         <p class="label">Rate Plan</p>
         <button
           class="alert-button1"
-          [ngClass]="migratableBy.includes('Rate') ? 'nmg' : 'mg'"
+          [ngClass]="RatePlanbuttonClass"
         >
-          {{ migratableBy.includes("Rate") ? "Action Required" : "Ready" }}
+          {{ RatePlanbuttonMessage }}
         </button>
       </div>
     </div>
@@ -100,25 +100,23 @@
        
 
 
-        <ng-container matColumnDef="Migratable_By_Device">
+        <ng-container matColumnDef="Migratable_By_Device_status_code">
           <th mat-header-cell *matHeaderCellDef class="header-bg">
             Equipment Migration Status
           </th>
         
           <td mat-cell *matCellDef="let element" class="row-bg">
-            <div
-              *ngIf="
-                element.Migratable_By_Device == 'Migratable';
-                then thenBlock;
-                else elseBlock
-              "
-            ></div>
+            <div [ngSwitch]=element.Migratable_By_Device_status_code>
+              <div *ngSwitchCase="'0'"><button class="alert-button status-margin nmg">Action Required</button></div>
+      <div *ngSwitchCase="'1'"><button class="alert-button status-margin mg">Ready</button></div>
+      <div *ngSwitchCase="'2'"><button class="alert-button status-margin mgar">Possible Action Required</button></div>
+      <div *ngSwitchCase="'3'"><button class="alert-button status-margin nmg">Action Required</button></div>
+      <div *ngSwitchCase="'P_ACT_REQ'"><button class="alert-button status-margin mgar">Possible Action Required</button></div>
+            </div>
 
           
           </td>
-          <ng-template #thenBlock><button class="alert-button status-margin mg">Ready</button></ng-template>
-          <ng-template #elseBlock><button class="alert-button status-margin nmg">Action Required</button></ng-template>
-
+        
 
 
         </ng-container>

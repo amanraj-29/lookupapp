@@ -90,15 +90,11 @@
           <button
             class="alert-button"
             [ngClass]="
-              deviceDetails?.Migratable_By_Device === 'Migratable'
-                ? 'mg'
-                : 'nmg'
+              DevicebuttonClass
             "
           >
             {{
-              deviceDetails?.Migratable_By_Device === "Migratable"
-                ? "Ready"
-                : "Upgrade Required"
+              DevicebuttonMessage
             }}
           </button>
         </div>
@@ -125,13 +121,11 @@
           <button
             class="alert-button"
             [ngClass]="
-              deviceDetails?.SIM_Gen_Status === 'Migratable' ? 'mg' : 'nmg'
+            SimGenbuttonClass
             "
           >
             {{
-              deviceDetails?.SIM_Gen_Status === "Migratable"
-                ? "Ready"
-                : "Action Required"
+              SimGenbuttonMessage
             }}
           </button>
         </div>
@@ -140,15 +134,11 @@
           <button
             class="alert-button1"
             [ngClass]="
-              deviceDetails?.Migratable_by_rate_plan === 'Migratable'
-                ? 'mg'
-                : 'nmg'
+            RatePlanbuttonClass 
             "
           >
             {{
-              deviceDetails?.Migratable_by_rate_plan === "Migratable"
-                ? "Ready"
-                : "Action Required"
+              RatePlanbuttonMessage
             }}
           </button>
         </div>

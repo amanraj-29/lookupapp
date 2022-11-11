@@ -12,13 +12,13 @@
                 <div class="alert1">
                     <p class="label">Equipment</p>
                     <button
-                    class="alert-button"
-                    [ngClass]="migratableBy.includes('Device') ? 'nmg' : 'mg'"
-                  >
-                    {{
-                      migratableBy.includes("Device") ? "Upgrade Required" : "Ready"
-                    }}
-                  </button>
+          class="alert-button"
+          [ngClass]="DevicebuttonClass"
+        >
+          {{
+            DevicebuttonMessage
+          }}
+        </button>
                   </div>
               <div class="alert1">
                 <p class="label">Device Configuration</p>
@@ -39,19 +39,19 @@
                 <p class="label">SIM</p>
                 <button
           class="alert-button"
-          [ngClass]="migratableBy.includes('Sim') ? 'nmg' : 'mg'"
+          [ngClass]="SimGenbuttonClass"
         >
-          {{migratableBy.includes("Sim") ? "Action Required" : "Ready" }}
+          {{SimGenbuttonMessage}}
         </button>
               </div>
               <div class="alert1">
                 <p class="label">Rate Plan</p>
                 <button
-          class="alert-button1"
-          [ngClass]="migratableBy.includes('Rate') ? 'nmg' : 'mg'"
-        >
-          {{ migratableBy.includes("Rate") ? "Action Required" : "Ready" }}
-        </button>
+                class="alert-button1"
+                [ngClass]="RatePlanbuttonClass"
+              >
+                {{ RatePlanbuttonMessage }}
+              </button>
               </div>
             </div>
             
