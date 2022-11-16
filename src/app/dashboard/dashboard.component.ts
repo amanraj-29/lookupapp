@@ -86,6 +86,8 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  
+
 
  
   searchDetailAndRatePlan() {
@@ -103,13 +105,23 @@ export class DashboardComponent implements OnInit {
     let num = this.formGroup && this.formGroup.value
         ? this.formGroup.value
         : { search: this.searchednumber };
+
+        console.log("109 search dev and rate ",num)
     this.apiService.deviceandrateplan(num).subscribe((result) => {
       this.util.dispatchDeviceRates(result.result);
       // localStorage.setItem("Length", result.result.length)
       
     });
   }
-
+  searchRecommendedPlans(accountId:string) {
+    
+    this.apiService.retriveDeviceRecommendedPlan({account_no:accountId}).subscribe((result) => {
+      // this.util.dispatchBillingData(result.result[0]);
+      console.log("recommended result",result)
+      this.util.dispatchRecommendedPlans(result.result);
+    });
+  
+}
   searchnum() {
     // if (this.formGroup?.valid) {
       let num = this.formGroup && this.formGroup.value
@@ -117,26 +129,23 @@ export class DashboardComponent implements OnInit {
         : { search: this.searchednumber };
       this.apiService.datasearch(num).subscribe((result) => {
         console.log('result for search:',result);
-        if(result.result){
+        console.log('result for search:', !result.result);
+        if(result.success){
           this.errorMsg='';
         this.util.dispatchBillingData(result.result[0]);
         this.searchRecommendedPlans(result.result[0]?.acct_nbr);
-        
-        }else if (result.message){
+        this.router.navigate(['../dashboard'], { relativeTo: this.actRoute })
+        }
+      
+       if (!result.success){
           this.errorMsg=result.message;
           this.util.dispatchBillingData(null);
           this.util.dispatchDeviceRates(null);
           this.util.dispatchRecommendedPlans(null);
+          this.router.navigate(['../dashboard'], { relativeTo: this.actRoute })
         }
       });
     // }
   }
-  searchRecommendedPlans(accountId:string) {
-    
-      this.apiService.retriveDeviceRecommendedPlan({account_no:accountId}).subscribe((result) => {
-        // this.util.dispatchBillingData(result.result[0]);
-        this.util.dispatchRecommendedPlans(result.result);
-      });
-    
-  }
+
 }

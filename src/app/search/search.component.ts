@@ -83,9 +83,9 @@ export class SearchComponent implements OnInit {
             'searchedNumber',
             this.formGroup.value.search
           );
-          setTimeout(() => {
+        
             this.router.navigate(['../dashboard'], { relativeTo: this.actRoute })
-          }, 2000);
+        
          
         }
 
