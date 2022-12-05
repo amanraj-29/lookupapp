@@ -46,7 +46,7 @@ export class DevicesRatesListComponent implements OnInit {
     private actRoute: ActivatedRoute
   ) {
     this.util.deviceRatesObservable$.subscribe((val) => {
-      // console.log('  deviceRatesObservable$ :', val);
+      // //console.log('  deviceRatesObservable$ :', val);
 
       if (val?.length > 0) {
         this.migratableBy = [];
@@ -60,7 +60,7 @@ export class DevicesRatesListComponent implements OnInit {
             : -1
         );
         this.dataSource = new MatTableDataSource<deviceRatesState>(val);
-        console.log('this val', val);
+        //console.log('this val', val);
 
         this.dataSource.paginator = this.paginator;
         this.length = val.length;
@@ -97,14 +97,14 @@ export class DevicesRatesListComponent implements OnInit {
             this.migratableBy.push('Sim_mgar');
           }
         });
-        console.log('Inside array of this', this.migratableBy);
+        //console.log('Inside array of this', this.migratableBy);
         var uniqueMigratableBy = this.migratableBy.filter(
           (v, i, a) => a.indexOf(v) === i
         );
-        console.log('Inside array of filter', uniqueMigratableBy);
+        //console.log('Inside array of filter', uniqueMigratableBy);
 
       //  var res = uniqueMigratableBy.filter((item: string | string[]) => !item.includes("mgar"));
-//console.log("hui hui hui",res)
+////console.log("hui hui hui",res)
 
 
         if (uniqueMigratableBy.includes('Device')) {
@@ -113,20 +113,20 @@ export class DevicesRatesListComponent implements OnInit {
           uniqueMigratableBy = uniqueMigratableBy.filter(
             (e) => e !== 'Device_mgar'
           );
-          console.log("line 116",uniqueMigratableBy)
+          //console.log("line 116",uniqueMigratableBy)
         
         }
         if (uniqueMigratableBy.includes('Device_mgar')) {
           this.DevicebuttonClass='mgar';
           this.DevicebuttonMessage='Possible Action Required';
-          console.log("line 122",uniqueMigratableBy)
+          //console.log("line 122",uniqueMigratableBy)
        
         
         }
         if (!uniqueMigratableBy.includes('Device_mgar') && !uniqueMigratableBy.includes('Device')) {
           this.DevicebuttonClass='mg';
           this.DevicebuttonMessage='Ready';
-          console.log("line 129",uniqueMigratableBy)
+          //console.log("line 129",uniqueMigratableBy)
         }
 
         if (uniqueMigratableBy.includes('Sim')) {
@@ -168,8 +168,8 @@ export class DevicesRatesListComponent implements OnInit {
         
         }
 
-        console.log('final ', uniqueMigratableBy);
-        console.log("device class",this.DevicebuttonClass)
+        //console.log('final ', uniqueMigratableBy);
+        //console.log("device class",this.DevicebuttonClass)
       } else {
         this.dataSource = new MatTableDataSource<deviceRatesState>([]);
         this.dataSource.paginator = this.paginator;

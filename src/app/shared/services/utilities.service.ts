@@ -24,23 +24,27 @@ export class UtilitiesService {
   billingSubject:BehaviorSubject<any>= new BehaviorSubject(null);
   billingObservable$:Observable<any>=this.billingSubject.asObservable();
   dispatchBillingData(data:any){
+    console.log("Billing data ===",data)
     this.billingSubject.next(data);
   }
 
   deviceRatesSubject:BehaviorSubject<any>= new BehaviorSubject(null);
   deviceRatesObservable$:Observable<any>=this.deviceRatesSubject.asObservable();
   dispatchDeviceRates(data:any){
+    console.log("device rates data ===",data)
     this.deviceRatesSubject.next(data);
   }
 
   recommendedPlansSubject:BehaviorSubject<any>= new BehaviorSubject(null);
   recommendedPlansObservable$:Observable<any>=this.recommendedPlansSubject.asObservable();
   dispatchRecommendedPlans(data:any){
+    console.log("recommended data ===",data)
     this.recommendedPlansSubject.next(data);
   }
 
   setData(data: any[]){
     this.masterArray=data
+    console.log("line 47",this.masterArray)
   }
 
 

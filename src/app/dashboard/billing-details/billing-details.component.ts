@@ -35,7 +35,7 @@ export class BillingDetailsComponent implements OnInit {
     this.utils.billingObservable$.subscribe(deviceData=>{
       if(deviceData){
       this.billingInfo={...this.billingInfo,...deviceData};
-      // console.log('billing info:',this.billingInfo);
+      // //console.log('billing info:',this.billingInfo);
       }else{
         this.billingInfo=undefined;
       }
@@ -43,21 +43,21 @@ export class BillingDetailsComponent implements OnInit {
 
     });
     this.utils.deviceRatesObservable$.subscribe(val => {
-      // console.log('  deviceRatesObservable$ :', val);
+      // //console.log('  deviceRatesObservable$ :', val);
       if (val?.length > 0) {
         this.length = val.length;
         if( this.billingInfo){
        this.billingInfo.Action_Needed= (val.filter((obj:any)=>
           (obj.Action_Needed).toLowerCase()!=="complete migratable"
         ).length>0)?'Non Migratable':'Migratable';
-// console.log('billing info obj:',this.billingInfo)
+// //console.log('billing info obj:',this.billingInfo)
       }
     }
     })
 
 
     this.utils.deviceRatesObservable$.subscribe(val => {
-      console.log('  deviceRatesObservable$ :', val);
+      //console.log('  deviceRatesObservable$ :', val);
       if (val?.length > 0) {
         this.migratableBy = [];
         this.isLoaded = true;
@@ -97,36 +97,36 @@ export class BillingDetailsComponent implements OnInit {
             this.migratableBy.push('Sim_mgar');
           }
         });
-        console.log('Inside array of this', this.migratableBy);
+        //console.log('Inside array of this', this.migratableBy);
         var uniqueMigratableBy = this.migratableBy.filter(
           (v, i, a) => a.indexOf(v) === i
         );
-        console.log('Inside array of filter', uniqueMigratableBy);
+        //console.log('Inside array of filter', uniqueMigratableBy);
 
       //  var res = uniqueMigratableBy.filter((item: string | string[]) => !item.includes("mgar"));
-//console.log("hui hui hui",res)
+////console.log("hui hui hui",res)
 
 
-        if (uniqueMigratableBy.includes('Device')) {
+        if (uniqueMigratableBy.includes('Device') && !(uniqueMigratableBy.includes('Device_mgar') )) {
           this.DevicebuttonClass='nmg';
           this.DevicebuttonMessage='Action Required';
           uniqueMigratableBy = uniqueMigratableBy.filter(
             (e) => e !== 'Device_mgar'
           );
-          console.log("line 116",uniqueMigratableBy)
+          //console.log("line 116",uniqueMigratableBy)
         
         }
-        if (uniqueMigratableBy.includes('Device_mgar')) {
+        if (uniqueMigratableBy.includes('Device_mgar') &&  !(uniqueMigratableBy.includes('Device') ) ) {
           this.DevicebuttonClass='mgar';
           this.DevicebuttonMessage='Possible Action Required';
-          console.log("line 122",uniqueMigratableBy)
+          //console.log("line 122",uniqueMigratableBy)
        
         
         }
         if (!uniqueMigratableBy.includes('Device_mgar') && !uniqueMigratableBy.includes('Device')) {
           this.DevicebuttonClass='mg';
           this.DevicebuttonMessage='Ready';
-          console.log("line 129",uniqueMigratableBy)
+          //console.log("line 129",uniqueMigratableBy)
         }
 
         if (uniqueMigratableBy.includes('Sim')) {

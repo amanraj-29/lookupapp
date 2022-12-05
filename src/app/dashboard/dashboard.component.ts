@@ -65,7 +65,7 @@ export class DashboardComponent implements OnInit {
       exitAnimationDuration,
     });
     searchPop.afterClosed().subscribe(val=>{
-      console.log('popup close event:',val);
+      //console.log('popup close event:',val);
       if(val==="yes"){
         this.searchednumber=this.formGroup.value.search;
         sessionStorage.setItem('searchedNumber', this.searchednumber);
@@ -76,7 +76,7 @@ export class DashboardComponent implements OnInit {
   }
   Space(e: any) {
     var maxLength = 15;
-   // console.log(e.keyCode)
+   // //console.log(e.keyCode)
     if (
       (e.target.value.length >= maxLength &&
       ((e.keyCode >= 48 && e.keyCode <= 57) ||
@@ -106,7 +106,7 @@ export class DashboardComponent implements OnInit {
         ? this.formGroup.value
         : { search: this.searchednumber };
 
-        console.log("109 search dev and rate ",num)
+        //console.log("109 search dev and rate ",num)
     this.apiService.deviceandrateplan(num).subscribe((result) => {
       this.util.dispatchDeviceRates(result.result);
       // localStorage.setItem("Length", result.result.length)
@@ -117,7 +117,7 @@ export class DashboardComponent implements OnInit {
     
     this.apiService.retriveDeviceRecommendedPlan({account_no:accountId}).subscribe((result) => {
       // this.util.dispatchBillingData(result.result[0]);
-      console.log("recommended result",result)
+      //console.log("recommended result",result)
       this.util.dispatchRecommendedPlans(result.result);
     });
   
@@ -128,8 +128,8 @@ export class DashboardComponent implements OnInit {
         ? this.formGroup.value
         : { search: this.searchednumber };
       this.apiService.datasearch(num).subscribe((result) => {
-        console.log('result for search:',result);
-        console.log('result for search:', !result.result);
+        //console.log('result for search:',result);
+        //console.log('result for search:', !result.result);
         if(result.success){
           this.errorMsg='';
         this.util.dispatchBillingData(result.result[0]);

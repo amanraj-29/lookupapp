@@ -62,7 +62,7 @@ export class RecommendedPlansComponent implements OnInit {
     });
 
     this.utils.deviceRatesObservable$.subscribe(val => {
-      console.log('  deviceRatesObservable$ :', val);
+     // console.log('  deviceRatesObservable$ :', val);
       if (val?.length > 0) {
         this.migratableBy = [];
         this.isLoaded = true;
@@ -102,7 +102,7 @@ export class RecommendedPlansComponent implements OnInit {
             this.migratableBy.push('Sim_mgar');
           }
         });
-        console.log('Inside array of this', this.migratableBy);
+       // console.log('Inside array of this', this.migratableBy);
         var uniqueMigratableBy = this.migratableBy.filter(
           (v, i, a) => a.indexOf(v) === i
         );
@@ -118,20 +118,20 @@ export class RecommendedPlansComponent implements OnInit {
           uniqueMigratableBy = uniqueMigratableBy.filter(
             (e) => e !== 'Device_mgar'
           );
-          console.log("line 116",uniqueMigratableBy)
+         // console.log("line 116",uniqueMigratableBy)
         
         }
         if (uniqueMigratableBy.includes('Device_mgar')) {
           this.DevicebuttonClass='mgar';
           this.DevicebuttonMessage='Possible Action Required';
-          console.log("line 122",uniqueMigratableBy)
+          //console.log("line 122",uniqueMigratableBy)
        
         
         }
         if (!uniqueMigratableBy.includes('Device_mgar') && !uniqueMigratableBy.includes('Device')) {
           this.DevicebuttonClass='mg';
           this.DevicebuttonMessage='Ready';
-          console.log("line 129",uniqueMigratableBy)
+         // console.log("line 129",uniqueMigratableBy)
         }
 
         if (uniqueMigratableBy.includes('Sim')) {

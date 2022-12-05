@@ -28,12 +28,12 @@ export class DeviceRateDetailsComponent implements OnInit {
     private apiService: ApisService
   ) {
     //     let id=this.actRoute.snapshot.paramMap.get('id');
-    //     console.log('id is:',id);
+    //     //console.log('id is:',id);
     //     this.apiService.deviceDetails(id).subscribe(val=>{
     // this.deviceDetails=val.result[0];
     //     })
     this.actRoute.data.subscribe((deviceDet) => {
-      console.log('details are:', deviceDet);
+      //console.log('details are:', deviceDet);
       this.deviceDetails = deviceDet['deviceDetails']['result'][0];
 
       if (this.deviceDetails?.Migratable_By_Device_status_code == 0) {

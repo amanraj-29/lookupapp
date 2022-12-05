@@ -70,12 +70,12 @@ export class SearchComponent implements OnInit {
 
   search() {
     if (this.formGroup.valid) {
-      //console.log("value inside 73",this.formGroup.value)
+      //////console.log("value inside 73",this.formGroup.value)
  
       this.apiService.datasearch(this.formGroup.value).subscribe((result) => {
         if (result.success) {
-          //console.log("Data from 1st search",this.formGroup.value);
-           //console.log('length of data received', result.result[0]);
+          //////console.log("Data from 1st search",this.formGroup.value);
+           //////console.log('length of data received', result.result[0]);
           
           this.utils.dispatchBillingData(result.result[0]);
           this.searchRecommendedPlans(result.result[0]?.acct_nbr);
@@ -92,7 +92,7 @@ export class SearchComponent implements OnInit {
         if (!result.success) {
           this.failureSearchMessage = "We're sorry. We were not able to find a match.";
           this.failureSearchMessage1 = "Please try another search";
-          //console.log('search not found');
+          //////console.log('search not found');
         }
       });
     }
