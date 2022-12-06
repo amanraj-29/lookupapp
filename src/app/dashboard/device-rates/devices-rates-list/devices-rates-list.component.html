@@ -160,13 +160,13 @@
             </mat-paginator> -->
     </div>
     <ng-container
-      *ngIf="isLoaded && dataSource.data && dataSource.data.length === 0"
+      *ngIf="length===0"
     >
     <h2 class="no-data">No Data Available for searched number</h2>
       
     </ng-container>
     <!-- isLoaded:{{isLoaded}} -->
-    <ng-container  *ngIf="!isLoaded "> <h3 class="heading">Loading Data...</h3> </ng-container>
+    <ng-container  *ngIf="!isLoaded && dataSource.data.length < 0"> <h3 class="heading">Loading Data...</h3> </ng-container>
   </div>
   <div class="delay-warn">
     <p class="delay-content">

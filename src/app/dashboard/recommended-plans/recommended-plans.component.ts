@@ -113,6 +113,7 @@ export class RecommendedPlansComponent implements OnInit {
 
 
         if (uniqueMigratableBy.includes('Device')) {
+        //  console.log("device included",uniqueMigratableBy.includes('Device'))
           this.DevicebuttonClass='nmg';
           this.DevicebuttonMessage='Action Required';
           uniqueMigratableBy = uniqueMigratableBy.filter(
@@ -122,6 +123,7 @@ export class RecommendedPlansComponent implements OnInit {
         
         }
         if (uniqueMigratableBy.includes('Device_mgar')) {
+          //console.log("device mgar included",uniqueMigratableBy.includes('Device_mgar'))
           this.DevicebuttonClass='mgar';
           this.DevicebuttonMessage='Possible Action Required';
           //console.log("line 122",uniqueMigratableBy)
@@ -184,6 +186,9 @@ export class RecommendedPlansComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngDoCheck(): void{
   }
 
 }

@@ -17,8 +17,8 @@
     
 </div> -->
 <div class="bg-container">
-    <div class="heading-container">
-        <h2 class="main-heading">Billing Account Information</h2>
+  <div class="heading-container">
+    <h2 class="main-heading">Billing Account Information</h2>
     <!-- <div class="alerts">
         <p class="alert-text">Alerts</p>
         <button class="alert-button">SOC</button>
@@ -27,136 +27,123 @@
     </div> -->
 
     <div class="alerts" *ngIf="billingInfo">
-        <div class="sub-alert">
-
-          <div class="alert1">
-            <p class="label">Equipment</p>
-            <button
-          class="alert-button"
-          [ngClass]="DevicebuttonClass"
-        >
-          {{
-            DevicebuttonMessage
-          }}
-        </button>
-          </div>
-          <div class="alert1">
-            <p class="label">Device Configuration</p>
-             <button
-          class="alert-button"
-          [ngClass]="migratableBy.includes('Device_Config') ? 'nmg' : 'mg'"
-        >
-          {{
-            migratableBy.includes("Device_Config") ? "Action Required" : "Ready"
-          }}
-        </button>
-          </div>
-          
+      <div class="sub-alert">
+        <div class="alert1">
+          <p class="label">Equipment</p>
+          <button class="alert-button" [ngClass]="DevicebuttonClass">
+            {{ DevicebuttonMessage }}
+          </button>
         </div>
-        
-        <div class="sub-alert">
-          <div class="alert1">
-            <p class="label">SIM</p>
-            <button
-          class="alert-button"
-          [ngClass]="SimGenbuttonClass"
-        >
-          {{SimGenbuttonMessage}}
-        </button>
-          </div>
-          <div class="alert1">
-            <p class="label">Rate Plan</p>
-            <button
-            class="alert-button1"
-            [ngClass]="RatePlanbuttonClass"
+        <div class="alert1">
+          <p class="label">Device Configuration</p>
+          <button
+            class="alert-button"
+            [ngClass]="migratableBy.includes('Device_Config') ? 'nmg' : 'mg'"
           >
+            {{
+              migratableBy.includes("Device_Config")
+                ? "Action Required"
+                : "Ready"
+            }}
+          </button>
+        </div>
+      </div>
+
+      <div class="sub-alert">
+        <div class="alert1">
+          <p class="label">SIM</p>
+          <button class="alert-button" [ngClass]="SimGenbuttonClass">
+            {{ SimGenbuttonMessage }}
+          </button>
+        </div>
+        <div class="alert1">
+          <p class="label">Rate Plan</p>
+          <button class="alert-button1" [ngClass]="RatePlanbuttonClass">
             {{ RatePlanbuttonMessage }}
           </button>
-          </div>
         </div>
-        
-        
       </div>
-
-      
     </div>
-    
-    <div class="bottom-container"  *ngIf="billingInfo">
-        <div class="left-container">
-            <div class="card-head">
-                <h1 class="card-heading">Demographics</h1>
-            </div>
-            <div class="card-container">
-                <div class="card1">
-                    <h2 class="heading">Billing Account Name</h2>
-                    <p class="detail">{{billingInfo?.Billing_Account_Name}}</p>
-                    <h2 class="heading">Billing Account Number</h2>
-                    <p class="detail">{{billingInfo?.acct_nbr}}</p>
-                    <h2 class="heading">Billing Address 1</h2>
-                    <p class="detail">{{billingInfo?.Billing_Address_1}}</p>
-                    <h2 class="heading">Billing Address 2</h2>
-                    <p class="detail">{{billingInfo?.Billing_Address_2 || 'NA' }}</p>
-                    
-                </div>
-                <div>
-                    <h2 class="heading">City</h2>
-                    <p class="detail">{{billingInfo?.City}}</p>
-                    <h2 class="heading">State</h2>
-                    <p class="detail">NA</p>
-                    <h2 class="heading">Zip Code</h2>
-                    <p class="detail">NA</p>
-                    <h2 class="heading">Account Email</h2>
-                    <p class="detail">{{billingInfo?.Account_Email || 'NA' }}</p>
-                    <h2 class="heading">Account Contact Number</h2>
-                    <p class="detail">{{billingInfo?.curr_srv_accs_nbr}}</p>
-                </div>
-            </div>
+  </div>
+
+  <div class="bottom-container" *ngIf="billingInfo">
+    <div class="left-container">
+      <div class="card-head">
+        <h1 class="card-heading">Demographics</h1>
+      </div>
+      <div class="card-container">
+        <div class="card1">
+          <h2 class="heading">Billing Account Name</h2>
+          <p class="detail">{{ billingInfo?.Billing_Account_Name }}</p>
+          <h2 class="heading">Billing Account Number</h2>
+          <p class="detail">{{ billingInfo?.acct_nbr }}</p>
+          <h2 class="heading">Billing Address 1</h2>
+          <p class="detail">{{ billingInfo?.Billing_Address_1 }}</p>
+          <h2 class="heading">Billing Address 2</h2>
+          <p class="detail">{{ billingInfo?.Billing_Address_2 || "NA" }}</p>
         </div>
-        <div class="left-container">
-            <div class="card-head">
-                <h1 class="card-heading">Account Info</h1>
-            </div>
-            <div class="card-container">
-                <div class="card1">
-                    <h2 class="heading">Action Needed</h2>
-                    <p class="detail">{{billingInfo?.Action_Needed || 'NA'}}</p>
-                    <!-- <h2  class="heading">Authorized Users</h2>
+        <div>
+          <h2 class="heading">City</h2>
+          <p class="detail">{{ billingInfo?.City }}</p>
+          <h2 class="heading">State</h2>
+          <p class="detail">NA</p>
+          <h2 class="heading">Zip Code</h2>
+          <p class="detail">NA</p>
+          <h2 class="heading">Account Email</h2>
+          <p class="detail">{{ billingInfo?.Account_Email || "NA" }}</p>
+          <h2 class="heading">Account Contact Number</h2>
+          <p class="detail">{{ billingInfo?.curr_srv_accs_nbr }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="left-container">
+      <div class="card-head">
+        <h1 class="card-heading">Account Info</h1>
+      </div>
+      <div class="card-container">
+        <div class="card1">
+          <h2 class="heading">Action Needed</h2>
+          <p class="detail">{{ billingInfo?.Action_Needed || "NA" }}</p>
+          <!-- <h2  class="heading">Authorized Users</h2>
                     <p class="detail">NA</p> -->
-                    <h2 class="heading">Liability Type</h2>
-                    <p class="detail">{{billingInfo?.Libility_Type || 'NA'}}</p>
-                    <h2 class="heading">Account Type</h2>
-                    <p class="detail">{{billingInfo?.Account_Type || 'NA'}}</p>
-                    <h2 class="heading">Billing Cycle</h2>
-                    <p class="detail">{{billingInfo?.Billing_Cycle || 'NA'}}</p>
-                    <h2 class="heading">Preferred Language</h2>
-                    <p class="detail">{{billingInfo?.lang_desc || 'NA' }}</p>
-                    <h2 class="heading">Lines Count</h2>
-                    <p class="detail">{{length}}</p>
-                </div>
-                <div>
-                    <h2 class="heading">Billing Close Date</h2>
-                    <p class="detail">{{billingInfo?.Billing_Close_Date}}</p>
-                    <h2 class="heading">Account Start Date</h2>
-                    <p class="detail">{{billingInfo?.Account_start_date || 'NA' }}</p>
-                    <h2 class="heading">FAN ID</h2>
-                    <p class="detail">{{billingInfo?.fan_id || 'NA'}}</p>
-                    <h2 class="heading">FAN Name</h2>
-                    <p class="detail">{{billingInfo?.fan_nm || 'NA'}}</p>
-                    <h2 class="heading">Service ID</h2>
-                    <p class="detail">{{billingInfo?.Service_ID}}</p>
-                    <h2 class="heading">Service Name</h2>
-                    <p class="detail">NA</p>
-                </div>
-            </div>
+          <h2 class="heading">Liability Type</h2>
+          <p class="detail">{{ billingInfo?.Libility_Type || "NA" }}</p>
+          <h2 class="heading">Account Type</h2>
+          <p class="detail">{{ billingInfo?.Account_Type || "NA" }}</p>
+          <h2 class="heading">Billing Cycle</h2>
+          <p class="detail">{{ billingInfo?.Billing_Cycle || "NA" }}</p>
+          <h2 class="heading">Preferred Language</h2>
+          <p class="detail">{{ billingInfo?.lang_desc || "NA" }}</p>
+          <h2 class="heading">Lines Count</h2>
+          <p class="detail">{{ length }}</p>
         </div>
-    </div>
-    <br>
-    <br>
-
-    <div  *ngIf="!billingInfo" >
-      <h2 class="no-data">No Data Available for searched number</h2>
-    </div>
-    <div class="delay-warn">
-        <p class="delay-content">This data may have a two week delay, please validate current customer information in Opus before making an offer.</p>
+        <div>
+          <h2 class="heading">Billing Close Date</h2>
+          <p class="detail">{{ billingInfo?.Billing_Close_Date }}</p>
+          <h2 class="heading">Account Start Date</h2>
+          <p class="detail">{{ billingInfo?.Account_start_date || "NA" }}</p>
+          <h2 class="heading">FAN ID</h2>
+          <p class="detail">{{ billingInfo?.fan_id || "NA" }}</p>
+          <h2 class="heading">FAN Name</h2>
+          <p class="detail">{{ billingInfo?.fan_nm || "NA" }}</p>
+          <h2 class="heading">Service ID</h2>
+          <p class="detail">{{ billingInfo?.Service_ID }}</p>
+          <h2 class="heading">Service Name</h2>
+          <p class="detail">NA</p>
+        </div>
       </div>
+    </div>
+  </div>
+  <br />
+  <br />
+
+  <div *ngIf="!billingInfo">
+    <h2 class="no-data">No Data Available for searched number</h2>
+  </div>
+  <div class="delay-warn">
+    <p class="delay-content">
+      This data may have a two week delay, please validate current customer
+      information in Opus before making an offer.
+    </p>
+  </div>
 </div>

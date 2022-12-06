@@ -1,96 +1,77 @@
 <div class="bg-container">
-    <div class="heading-container">
-        <div>
-            <h2 class="main-heading">Recommended Portal for Agents</h2>
+  <div class="heading-container">
+    <div>
+      <h2 class="main-heading">Recommended Portal for Agents</h2>
+    </div>
+
+    <div class="alerts" *ngIf="billingInfo">
+      <div class="sub-alert">
+        <div class="alert1">
+          <p class="label">Equipment</p>
+          <button class="alert-button" [ngClass]="DevicebuttonClass">
+            {{ DevicebuttonMessage }}
+          </button>
         </div>
-        
+        <div class="alert1">
+          <p class="label">Device Configuration</p>
+          <button
+            class="alert-button"
+            [ngClass]="migratableBy.includes('Device_Config') ? 'nmg' : 'mg'"
+          >
+            {{
+              migratableBy.includes("Device_Config")
+                ? "Action Required"
+                : "Ready"
+            }}
+          </button>
+        </div>
+      </div>
 
-        <div class="alerts" *ngIf="accountData ">
-
-           
-            <div class="sub-alert">
-                <div class="alert1">
-                    <p class="label">Equipment</p>
-                    <button
-          class="alert-button"
-          [ngClass]="DevicebuttonClass"
-        >
-          {{
-            DevicebuttonMessage
-          }}
-        </button>
-                  </div>
-              <div class="alert1">
-                <p class="label">Device Configuration</p>
-                <button
-                class="alert-button"
-                [ngClass]="migratableBy.includes('Device_Config') ? 'nmg' : 'mg'"
-              >
-                {{
-                  migratableBy.includes("Device_Config") ? "Action Required" : "Ready"
-                }}
-              </button>
-              </div>
-              
-            </div>
-            
-            <div class="sub-alert">
-              <div class="alert1">
-                <p class="label">SIM</p>
-                <button
-          class="alert-button"
-          [ngClass]="SimGenbuttonClass"
-        >
-          {{SimGenbuttonMessage}}
-        </button>
-              </div>
-              <div class="alert1">
-                <p class="label">Rate Plan</p>
-                <button
-                class="alert-button1"
-                [ngClass]="RatePlanbuttonClass"
-              >
-                {{ RatePlanbuttonMessage }}
-              </button>
-              </div>
-            </div>
-            
-            
-          </div>
+      <div class="sub-alert">
+        <div class="alert1">
+          <p class="label">SIM</p>
+          <button class="alert-button" [ngClass]="SimGenbuttonClass">
+            {{ SimGenbuttonMessage }}
+          </button>
+        </div>
+        <div class="alert1">
+          <p class="label">Rate Plan</p>
+          <button class="alert-button1" [ngClass]="RatePlanbuttonClass">
+            {{ RatePlanbuttonMessage }}
+          </button>
+        </div>
+      </div>
     </div>
-    <div *ngIf="billingInfo">
-    <h3>Account #: {{billingInfo?.acct_nbr}}</h3>
-        <h3>Customer Name: {{billingInfo?.Billing_Account_Name}}</h3>
-    </div>
-        <div *ngIf="accountData">
-
-       
-    <div *ngIf="accountData && accountData.length>0 else nodata"   class="rec-tables"> 
-        <table  *ngFor="let tableList of accountData;let i=index;" class="alternate">
-            
-            <thead class="table-head">
-                <td class="border head-font"> 
-                    Group {{i+1}}
-                </td>
-                <td class="head-font">
-                    Current Plan Details
-                </td>
-                <td  class="border1 head-font">
-                    Recommended Plan Details
-                </td>
-            </thead>
-            <tbody class="table-items">
-                <tr>
-                    <td> Rate Plan
-                    </td>
-                    <td>
-                        {{tableList.current_rate_plan}}
-                    </td>
-                    <td>
-                        {{tableList.recommended_plan}}
-                    </td>
-                </tr>
-                <!-- <tr class="odd">
+  </div>
+  <div *ngIf="billingInfo">
+    <h3>Account #: {{ billingInfo?.acct_nbr }}</h3>
+    <h3>Customer Name: {{ billingInfo?.Billing_Account_Name }}</h3>
+  </div>
+  <div *ngIf="accountData">
+    <div
+      *ngIf="accountData && accountData.length > 0; else nodata"
+      class="rec-tables"
+    >
+      <table
+        *ngFor="let tableList of accountData; let i = index"
+        class="alternate"
+      >
+        <thead class="table-head">
+          <td class="border head-font">Group {{ i + 1 }}</td>
+          <td class="head-font">Current Plan Details</td>
+          <td class="border1 head-font">Recommended Plan Details</td>
+        </thead>
+        <tbody class="table-items">
+          <tr>
+            <td>Rate Plan</td>
+            <td>
+              {{ tableList.current_rate_plan }}
+            </td>
+            <td>
+              {{ tableList.recommended_plan }}
+            </td>
+          </tr>
+          <!-- <tr class="odd">
                     <td>
                         Rate Plan Rate
                     </td>
@@ -101,125 +82,118 @@
                         $215
                     </td>
                 </tr> -->
-                <tr>
-                    <td>
-                       <b>LINES</b> 
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
-                </tr>
-                <tr class="odd">
-                    <td class="sub-sub-item">
-                        Handsets
-                    </td>
-                    <td>
-                        {{tableList.handset_lines}}
-                    </td>
-                    <td>
-                        Included in Rate Plan
-                        <ul class="list-group">                            
-                            <li *ngIf="tableList.unl_extra !==0">UNL Extra : {{tableList.unl_extra}}</li>
-                            <li *ngIf="tableList.unl_premium !==0">UNL Premium : {{tableList.unl_premium}}</li>
-                            <li *ngIf="tableList.unl_starter !==0">UNL Starter : {{tableList.unl_starter}}</li>
-                            <li *ngIf="tableList.value_plus_2gb !==0">Value Plus 2gb : {{tableList.value_plus_2gb}}</li>
-                            <li *ngIf="tableList.value_plus_unlimited !==0">Value Plus Unlimited : {{tableList.value_plus_unlimited}}</li>
-                            <li *ngIf="tableList['4gb'] !==0">4gb : {{tableList['4gb']}}</li>
-                            <li *ngIf="tableList['50plus'] !==0">50plus : {{tableList['50plus']}}</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="sub-sub-item">
-                        Tablets
-                    </td>
-                    <td>
-                        {{tableList.curr_tablet_lines}}
-                    </td>
-                    <td>
-                        {{tableList.recc_tablet_lines}}
-      
-                    </td>
-                </tr>
-                <tr class="odd">
-                    <td class="sub-sub-item">
-                        Wearables
-                    </td>
-                    <td>
-                        {{tableList.curr_wearable_lines}}
-                    </td>
-                    <td>
-                        {{tableList.recc_wearable_lines}}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="sub-sub-item">
-                        WHP
-                    </td>
-                    <td>
-                        {{tableList.curr_whp_lines}}
-                    </td>
-                    <td>
-                        {{tableList.recc_whp_lines}}
-                    </td>
-                </tr>
-                <tr class="odd">
-                    <td class="sub-sub-item">
-                        MiFi
-                    </td>
-                    <td>
-                        {{tableList.curr_mifi_lines}}
-                    </td>
-                    <td>        
-                        {{tableList.recc_mifi_lines}}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="sub-sub-item">
-                        Connected Car
-                    </td>
-                    <td>
-                        {{tableList.curr_connected_car}}
-                    </td>
-                    <td>
-                        {{tableList.recc_connected_car}}
-                    </td>
-                </tr>
-                <tr class="odd">
-                    <td>
-                        <b>Bill Before Discount</b>
-                    </td>
-                    <td>
-                        {{tableList.curr_mrc_before_discounts}}
-                    </td>
-                    <td>
-                        {{tableList.recc_mrc_before_discount}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Discounts</b>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr class="odd">
-                    <td class="sub-sub-item">
-                        Auto Bill Pay
-                    </td>
-                    <td>
-                        {{tableList.curr_abp_discount }}
-                    </td>
-                    <td>
-                        {{tableList.recc_abp_discount}}
-                    </td>
-                </tr>
-                <!-- <tr>
+          <tr>
+            <td>
+              <b>LINES</b>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr class="odd">
+            <td class="sub-sub-item">Handsets</td>
+            <td>
+              {{ tableList.handset_lines }}
+            </td>
+            <td>
+              Included in Rate Plan
+              <ul class="list-group">
+                <li *ngIf="tableList.unl_extra !== 0">
+                  UNL Extra : {{ tableList.unl_extra }}
+                </li>
+                <li *ngIf="tableList.unl_premium !== 0">
+                  UNL Premium : {{ tableList.unl_premium }}
+                </li>
+                <li *ngIf="tableList.unl_starter !== 0">
+                  UNL Starter : {{ tableList.unl_starter }}
+                </li>
+                <li *ngIf="tableList.value_plus_2gb !== 0">
+                  Value Plus 2gb : {{ tableList.value_plus_2gb }}
+                </li>
+                <li *ngIf="tableList.value_plus_unlimited !== 0">
+                  Value Plus Unlimited : {{ tableList.value_plus_unlimited }}
+                </li>
+                <li *ngIf="tableList['4gb'] !== 0">
+                  4gb : {{ tableList["4gb"] }}
+                </li>
+                <li *ngIf="tableList['50plus'] !== 0">
+                  50plus : {{ tableList["50plus"] }}
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="sub-sub-item">Tablets</td>
+            <td>
+              {{ tableList.curr_tablet_lines }}
+            </td>
+            <td>
+              {{ tableList.recc_tablet_lines }}
+            </td>
+          </tr>
+          <tr class="odd">
+            <td class="sub-sub-item">Wearables</td>
+            <td>
+              {{ tableList.curr_wearable_lines }}
+            </td>
+            <td>
+              {{ tableList.recc_wearable_lines }}
+            </td>
+          </tr>
+          <tr>
+            <td class="sub-sub-item">WHP</td>
+            <td>
+              {{ tableList.curr_whp_lines }}
+            </td>
+            <td>
+              {{ tableList.recc_whp_lines }}
+            </td>
+          </tr>
+          <tr class="odd">
+            <td class="sub-sub-item">MiFi</td>
+            <td>
+              {{ tableList.curr_mifi_lines }}
+            </td>
+            <td>
+              {{ tableList.recc_mifi_lines }}
+            </td>
+          </tr>
+          <tr>
+            <td class="sub-sub-item">Connected Car</td>
+            <td>
+              {{ tableList.curr_connected_car }}
+            </td>
+            <td>
+              {{ tableList.recc_connected_car }}
+            </td>
+          </tr>
+          <tr class="odd">
+            <td>
+              <b>Bill Before Discount</b>
+            </td>
+            <td>
+              {{ tableList.curr_mrc_before_discounts }}
+            </td>
+            <td>
+              {{ tableList.recc_mrc_before_discount }}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>Discounts</b>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr class="odd">
+            <td class="sub-sub-item">Auto Bill Pay</td>
+            <td>
+              {{ tableList.curr_abp_discount }}
+            </td>
+            <td>
+              {{ tableList.recc_abp_discount }}
+            </td>
+          </tr>
+          <!-- <tr>
                     <td class="sub-sub-item">
                         FAN Discount
                     </td>
@@ -228,46 +202,43 @@
                     <td>
                     </td>
                 </tr> -->
-                <tr class="odd">
-                    <td class="sub-sub-item">
-                        Signature/Appreciation
-                    </td>
-                    <td>
-                        {{tableList.curr_app_and_sig_discount}}
-                    </td>
-                    <td>
-                        {{tableList.recc_app_and_sig_discount_dollar}}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="border2">
-                       <b>Total Discount</b> 
-                    </td>
-                    <td>
-                        {{tableList.curr_mrc_after_discount}}
-                    </td>
-                    <td class="border3">
-                        {{tableList.recc_mrc_after_discounts}}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+          <tr class="odd">
+            <td class="sub-sub-item">Signature/Appreciation</td>
+            <td>
+              {{ tableList.curr_app_and_sig_discount }}
+            </td>
+            <td>
+              {{ tableList.recc_app_and_sig_discount_dollar }}
+            </td>
+          </tr>
+          <tr>
+            <td class="border2">
+              <b>Total Discount</b>
+            </td>
+            <td>
+              {{ tableList.curr_mrc_after_discount }}
+            </td>
+            <td class="border3">
+              {{ tableList.recc_mrc_after_discounts }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
+  <br />
+  <br />
+  <ng-template #nodata>
+    <div class="no-data">No data Found for the searched criteria.</div>
+  </ng-template>
+  <div *ngIf="!accountData">
+    <h2 class="no-data">No Data Available for searched number</h2>
+  </div>
+  <br />
+  <div class="delay-warn">
+    <p class="delay-content">
+      This data may have a two week delay, please validate current customer
+      information in Opus before making an offer.
+    </p>
+  </div>
 </div>
-<br>
-<br>
-    <ng-template #nodata >
-        <div class="no-data">
-            No data Found for the searched criteria.
-        </div>
-        
-    </ng-template>
-    <div *ngIf="!accountData">
-        <h2  class="no-data">No Data Available for searched number</h2>
-        
-    </div>
-    <br>
-    <div class="delay-warn">
-        <p class="delay-content">This data may have a two week delay, please validate current customer information in Opus before making an offer.</p>
-      </div>
-    </div>

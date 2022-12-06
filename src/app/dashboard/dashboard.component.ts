@@ -36,15 +36,19 @@ export class DashboardComponent implements OnInit {
     this.email = sessionStorage.getItem('userData');
     this.searchednumber = sessionStorage.getItem('searchedNumber');
     if (this.searchednumber) {
-      //this.searchnum();
-      this.searchdeviceandrateplan();
+      console.log("here it called")
+     this.searchnum();
+      //this.searchdeviceandrateplan();
       // this.searchRecommendedPlans();
+      this.router.navigate(['../dashboard'], { relativeTo: this.actRoute })
     }
   }
 
   ngOnInit(): void {
     this.initForm();
   }
+
+ 
 
   initForm() {
     this.formGroup = new FormGroup({
@@ -91,50 +95,45 @@ export class DashboardComponent implements OnInit {
 
  
   searchDetailAndRatePlan() {
-    this.searchdeviceandrateplan();
+    //this.searchdeviceandrateplan();
     this.searchnum();
-    setTimeout(() => {
+    
       this.router.navigate(['../dashboard'], { relativeTo: this.actRoute })
-    }, 1000);
+    
   
-    //this.searchRecommendedPlans();
-    // this.searchRecommendedPlans(this.formGroup.value.search);
   }
 
-  searchdeviceandrateplan() {
-    let num = this.formGroup && this.formGroup.value
-        ? this.formGroup.value
-        : { search: this.searchednumber };
 
-        //console.log("109 search dev and rate ",num)
-    this.apiService.deviceandrateplan(num).subscribe((result) => {
-      this.util.dispatchDeviceRates(result.result);
-      // localStorage.setItem("Length", result.result.length)
-      
-    });
-  }
   searchRecommendedPlans(accountId:string) {
     
     this.apiService.retriveDeviceRecommendedPlan({account_no:accountId}).subscribe((result) => {
-      // this.util.dispatchBillingData(result.result[0]);
-      //console.log("recommended result",result)
+     
       this.util.dispatchRecommendedPlans(result.result);
     });
   
 }
   searchnum() {
-    // if (this.formGroup?.valid) {
+   
       let num = this.formGroup && this.formGroup.value
         ? this.formGroup.value
         : { search: this.searchednumber };
+
+       
+        this.apiService.deviceandrateplan(num).subscribe((result) => {
+          this.util.dispatchDeviceRates(result.result);
+    
+          
+        });
       this.apiService.datasearch(num).subscribe((result) => {
-        //console.log('result for search:',result);
-        //console.log('result for search:', !result.result);
+     
         if(result.success){
           this.errorMsg='';
         this.util.dispatchBillingData(result.result[0]);
-        this.searchRecommendedPlans(result.result[0]?.acct_nbr);
-        this.router.navigate(['../dashboard'], { relativeTo: this.actRoute })
+    
+
+      this.searchRecommendedPlans(result.result[0]?.acct_nbr);
+
+      
         }
       
        if (!result.success){
