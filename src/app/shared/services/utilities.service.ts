@@ -52,6 +52,13 @@ export class UtilitiesService {
     return this.masterArray
   }
 
+  clearSearch()
+{
+  this.recommendedPlansSubject.next('');
+  this.deviceRatesSubject.next('');
+  this.billingSubject.next('');
+}
+
 
 
   jwtTimeInterval() {
@@ -78,6 +85,7 @@ export class UtilitiesService {
     }, environment.SESSION_EXPIRY_TIME * 60 * 1000)
   }
   logout() {
+    this.clearSearch();
     this.clearStorage();
     //console.log('timeinterval is:', this.timeInterVar);
     if (this.timeInterVar) {

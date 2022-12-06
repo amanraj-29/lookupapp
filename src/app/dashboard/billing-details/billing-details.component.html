@@ -74,21 +74,21 @@
       <div class="card-container">
         <div class="card1">
           <h2 class="heading">Billing Account Name</h2>
-          <p class="detail">{{ billingInfo?.Billing_Account_Name }}</p>
+          <p class="detail">{{ billingInfo?.Billing_Account_Name || "NA"}}</p>
           <h2 class="heading">Billing Account Number</h2>
-          <p class="detail">{{ billingInfo?.acct_nbr }}</p>
+          <p class="detail">{{ billingInfo?.acct_nbr || "NA" }}</p>
           <h2 class="heading">Billing Address 1</h2>
-          <p class="detail">{{ billingInfo?.Billing_Address_1 }}</p>
+          <p class="detail">{{ billingInfo?.Billing_Address_1 || "NA" }}</p>
           <h2 class="heading">Billing Address 2</h2>
           <p class="detail">{{ billingInfo?.Billing_Address_2 || "NA" }}</p>
         </div>
         <div>
           <h2 class="heading">City</h2>
-          <p class="detail">{{ billingInfo?.City }}</p>
+          <p class="detail">{{ billingInfo?.City || "NA" }}</p>
           <h2 class="heading">State</h2>
-          <p class="detail">NA</p>
+          <p class="detail">{{ billingInfo?.state  || "NA"}}</p>
           <h2 class="heading">Zip Code</h2>
-          <p class="detail">NA</p>
+          <p class="detail">{{ billingInfo?.zip_cd || "NA"}}</p>
           <h2 class="heading">Account Email</h2>
           <p class="detail">{{ billingInfo?.Account_Email || "NA" }}</p>
           <h2 class="heading">Account Contact Number</h2>
