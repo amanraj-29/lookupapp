@@ -9,7 +9,8 @@ import {
 import { ApisService } from '../shared/services/apis.service';
 import { HttpClient } from '@angular/common/http';
 import { UtilitiesService } from '../shared/services/utilities.service';
-
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { SearchPopupComponent } from '../shared/search-popup/search-popup.component';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -21,13 +22,14 @@ export class SearchComponent implements OnInit {
   failureSearchMessage: any = null;
   failureSearchMessage1: any = null;
   maxLength:number=15;
-
+  searchednumber: any;
   constructor(
     private router: Router,
     private actRoute: ActivatedRoute,
     private apiService: ApisService,
     private http: HttpClient,
     private utils: UtilitiesService,
+    public dialog: MatDialog
   ) {
     this.email = sessionStorage.getItem('userData');
   }
@@ -45,6 +47,27 @@ export class SearchComponent implements OnInit {
         Validators.pattern('^[0-9]*$'),
       ]),
     });
+  }
+
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    if(this.searchednumber!==this.formGroup.value.search){
+   let searchPop= this.dialog.open(SearchPopupComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+    searchPop.afterClosed().subscribe(val=>{
+      //console.log('popup close event:',val);
+      if(val==="yes"){
+        this.searchednumber=this.formGroup.value.search;
+        this.apiService.setDataInLocalStorage(
+          'searchedNumber',
+          this.formGroup.value.search
+        );
+        this.search()
+      }
+    })
+  }
   }
 
   Space(e: any) {
@@ -74,10 +97,7 @@ export class SearchComponent implements OnInit {
 
 
 
-          this.apiService.setDataInLocalStorage(
-            'searchedNumber',
-            this.formGroup.value.search
-          );
+        
         
            
         

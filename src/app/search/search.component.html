@@ -1,6 +1,6 @@
 <div class="content-align-middle dp-flex">
   <div class="pad">
-    <form [formGroup]="formGroup" (ngSubmit)="formGroup.valid && search()">
+    <form [formGroup]="formGroup" (ngSubmit)="formGroup.valid && openDialog('0ms', '0ms')">
       <div class="text-center search-text">
         <h2 class="welcome-email">Hi {{ email }}!
           <!-- <span class="welcome-msg"> Welcome to the</span> -->
