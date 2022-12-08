@@ -78,16 +78,16 @@ export class BillingDetailsComponent implements OnInit {
             this.migratableBy.push('Sim');
           }
 
-          if (inrVal?.Migratable_by_rate_plan == 'Possible_Action_Required') {
+          if (inrVal?.Migratable_by_rate_plan === 'Possible_Action_Required') {
             this.migratableBy.push('Rate_mgar');
           }
           if (
-            inrVal?.Migratable_By_Device_message == 'Possible_Action_Required'
+            inrVal?.Migratable_By_Device === 'Possible_Action_Required'
           ) {
             this.migratableBy.push('Device_mgar');
           }
 
-          if (inrVal?.SIM_Gen_Status == 'Possible_Action_Required') {
+          if (inrVal?.SIM_Gen_Status === 'Possible_Action_Required') {
             this.migratableBy.push('Sim_mgar');
           }
         });
