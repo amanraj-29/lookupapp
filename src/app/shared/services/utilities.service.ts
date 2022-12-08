@@ -26,6 +26,7 @@ export class UtilitiesService {
   dispatchBillingData(data:any){
     console.log("Billing data ===",data)
     this.billingSubject.next(data);
+    console.log("billingSubject ===",this.billingSubject)
   }
 
   deviceRatesSubject:BehaviorSubject<any>= new BehaviorSubject(null);
@@ -33,6 +34,7 @@ export class UtilitiesService {
   dispatchDeviceRates(data:any){
     console.log("device rates data ===",data)
     this.deviceRatesSubject.next(data);
+    console.log("deviceRatesSubject ===",this.deviceRatesSubject)
   }
 
   recommendedPlansSubject:BehaviorSubject<any>= new BehaviorSubject(null);
@@ -40,6 +42,7 @@ export class UtilitiesService {
   dispatchRecommendedPlans(data:any){
     console.log("recommended data ===",data)
     this.recommendedPlansSubject.next(data);
+    console.log("recommendedPlansSubject ===",this.recommendedPlansSubject)
   }
 
   setData(data: any[]){

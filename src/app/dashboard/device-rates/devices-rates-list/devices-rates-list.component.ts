@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild ,OnChanges} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -43,7 +43,8 @@ export class DevicesRatesListComponent implements OnInit {
   constructor(
     private util: UtilitiesService,
     private router: Router,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    
   ) {
     this.util.deviceRatesObservable$.subscribe((val) => {
       // //console.log('  deviceRatesObservable$ :', val);
@@ -179,6 +180,8 @@ export class DevicesRatesListComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+ 
 
   nextscreen(item: any) {
     this.router.navigate([`../details/${item.sno}`], {

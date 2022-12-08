@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
     this.email = sessionStorage.getItem('userData');
     this.searchednumber = sessionStorage.getItem('searchedNumber');
     if (this.searchednumber) {
-      console.log("here it called")
+    //  console.log("here it called")
      this.searchnum();
       //this.searchdeviceandrateplan();
       // this.searchRecommendedPlans();
@@ -46,6 +46,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    this.router.navigate(['../dashboard'], { relativeTo: this.actRoute })
   }
 
  
@@ -113,7 +114,7 @@ export class DashboardComponent implements OnInit {
   
 }
   searchnum() {
-   this.util.clearSearch
+  // this.util.clearSearch
       let num = this.formGroup && this.formGroup.value
         ? this.formGroup.value
         : { search: this.searchednumber };
