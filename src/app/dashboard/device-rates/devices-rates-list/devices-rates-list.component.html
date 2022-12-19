@@ -60,15 +60,18 @@
 
 
 
+<br>
 
-
-  <h1 class="count">Total Lines : {{ length }}</h1>
+ 
   <div>
     <div
       class="mat-elevation-z8 overflow"
       *ngIf="isLoaded && dataSource.data && dataSource.data.length > 0"
     >
-      <table mat-table [dataSource]="dataSource">
+
+    <div *ngIf="HidePhoneNumberTable=='show'">
+      <table mat-table [dataSource]="dataSourcebyNum">
+        <div>
         <!-- Billing_Account_Name Column -->
         <ng-container matColumnDef="Billing_Account_Name">
           <th mat-header-cell *matHeaderCellDef class="header-bg border-rad">
@@ -152,8 +155,107 @@
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </div>
       </table>
 
+      
+      <div *ngIf="BANtableData" class="ban-data">
+        <div class="count1">Other Accounts Associated Within Acc Number</div> 
+        <div class="count">Total Lines : {{ length }}</div>
+      </div>
+    </div>
+
+   
+   <div *ngIf="BANtableData">
+      <table mat-table [dataSource]="dataSource">
+        <div>
+        <!-- Billing_Account_Name Column -->
+        <ng-container matColumnDef="Billing_Account_Name">
+          <th mat-header-cell *matHeaderCellDef class="header-bg border-rad">
+            Billing Account Info
+          </th>
+          <td mat-cell *matCellDef="let element" class="row-bg">
+            {{ element.Billing_Account_Name }}
+          </td>
+        </ng-container>
+
+        <!-- phone_number Column -->
+        <ng-container matColumnDef="phone_number">
+          <th mat-header-cell *matHeaderCellDef class="header-bg">CTN</th>
+          <td mat-cell *matCellDef="let element" class="row-bg">
+            {{ element.phone_number }}
+          </td>
+        </ng-container>
+
+        <!-- Effective_Date Column -->
+        <ng-container matColumnDef="Effective_Date">
+          <th mat-header-cell *matHeaderCellDef class="header-bg">
+            Effective Date
+          </th>
+          <td mat-cell *matCellDef="let element" class="row-bg">
+            {{ element.Effective_Date }}
+          </td>
+        </ng-container>
+
+       
+
+
+        <ng-container matColumnDef="Migratable_By_Device_status_code">
+          <th mat-header-cell *matHeaderCellDef class="header-bg">
+            Equipment Migration Status
+          </th>
+        
+          <td mat-cell *matCellDef="let element" class="row-bg">
+            <div [ngSwitch]=element.Migratable_By_Device_status_code>
+              <div *ngSwitchCase="'0'"><button class="alert-button status-margin nmg">Action Required</button></div>
+      <div *ngSwitchCase="'1'"><button class="alert-button status-margin mg">Ready</button></div>
+      <div *ngSwitchCase="'2'"><button class="alert-button status-margin mgar">Possible Action Required</button></div>
+      <div *ngSwitchCase="'3'"><button class="alert-button status-margin nmg">Action Required</button></div>
+      <div *ngSwitchCase="'P_ACT_REQ'"><button class="alert-button status-margin mgar">Possible Action Required</button></div>
+            </div>
+
+          
+          </td>
+        
+
+
+        </ng-container>
+       
+        <!-- device Column -->
+        <ng-container matColumnDef="device">
+          <th mat-header-cell *matHeaderCellDef class="header-bg">Device</th>
+          <td mat-cell *matCellDef="let element" class="row-bg">
+           <div *ngIf="!element.dvc_make">
+            {{  element.dvc_model }}
+           </div>
+           <div *ngIf="!element.dvc_model">
+            {{  element.dvc_make }}
+           </div>
+           <div *ngIf="element.dvc_model && element.dvc_make">
+              {{element.dvc_make + " " + element.dvc_model}}
+           </div>
+           <div *ngIf="!element.dvc_model && !element.dvc_make">
+            NA
+         </div>
+          </td>
+        </ng-container>
+
+        <!-- button Column -->
+        <ng-container matColumnDef="button">
+          <th mat-header-cell *matHeaderCellDef class="header-bg border-rad1"></th>
+          <td mat-cell *matCellDef="let element" class="row-bg">
+            <button class="common-btn" (click)="nextscreen(element)" mat-button>
+              More Details
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </div>
+      </table>
+    </div>
+    
       <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                            showFirstLastButtons 
                            aria-label="Select page of periodic elements">
@@ -168,6 +270,8 @@
     <!-- isLoaded:{{isLoaded}} -->
     <ng-container  *ngIf="!isLoaded && dataSource.data.length < 0"> <h3 class="heading">Loading Data...</h3> </ng-container>
   </div>
+
+  
   <div class="delay-warn">
     <p class="delay-content">
       This data may have a two week delay, please validate current customer

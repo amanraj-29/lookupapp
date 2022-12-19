@@ -89,7 +89,7 @@ export class DeviceRateDetailsComponent implements OnInit {
     });
   }
   goBack() {
-    this.location.back();
+    this.router.navigate(['../dashboard'])
   }
   ngOnInit(): void {}
 }

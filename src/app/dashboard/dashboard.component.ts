@@ -134,7 +134,10 @@ export class DashboardComponent implements OnInit {
 
       this.searchRecommendedPlans(result.result[0]?.acct_nbr);
 
-      
+      sessionStorage.setItem("acct_nbr",result.result[0]?.acct_nbr)
+          sessionStorage.setItem("curr_srv_accs_nbr",result.result[0]?.curr_srv_accs_nbr)
+
+    
         }
       
        if (!result.success){

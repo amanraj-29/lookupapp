@@ -25,6 +25,7 @@ export class DevicesRatesListComponent implements OnInit {
   ];
   dataSource = new MatTableDataSource<deviceRatesState>(ELEMENT_DATA);
 
+  dataSourcebyNum = new MatTableDataSource<deviceRatesState>(ELEMENT_DATA);
   isLoaded = false;
   length!: number;
 
@@ -36,16 +37,30 @@ export class DevicesRatesListComponent implements OnInit {
 
   RatePlanbuttonClass: any;
   RatePlanbuttonMessage: any;
+  filteredDataByNumber:any;
+  HidePhoneNumberTable: any='show';
 
+acct_nbr:any;
+curr_srv_accs_nbr: any;
+searchedNumber:any;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   migratableBy: Array<string> = [];
+  BANtableData: Boolean=true;
+ 
+  
+
   constructor(
     private util: UtilitiesService,
     private router: Router,
     private actRoute: ActivatedRoute,
     
   ) {
+  
+
+
+   
+   
     this.util.deviceRatesObservable$.subscribe((val) => {
       // //console.log('  deviceRatesObservable$ :', val);
 
@@ -62,10 +77,20 @@ export class DevicesRatesListComponent implements OnInit {
         );
         this.dataSource = new MatTableDataSource<deviceRatesState>(val);
         //console.log('this val', val);
-        console.log("Line 65",this.dataSource)
+       // console.log("Line 65",this.dataSource.filteredData)
+        this.filteredDataByNumber=(this.dataSource.filteredData).filter(data=> data.phone_number == this.curr_srv_accs_nbr);
+        this.dataSourcebyNum = new MatTableDataSource<deviceRatesState>(this.filteredDataByNumber);
+        console.log("lineNumber83",this.filteredDataByNumber)
+       // console.log("line 74",val.length)
+
+    
+       // console.log("line number 73",this.filteredDataByNumber)
         this.dataSource.paginator = this.paginator;
         this.length = val.length;
+        console.log("length of this 88",this.length)
 
+
+       
         val.map((inrVal: any) => {
           if (
             inrVal?.Migratable_By_Device_Config === 'Non-Migratable' ||
@@ -102,7 +127,7 @@ export class DevicesRatesListComponent implements OnInit {
         var uniqueMigratableBy = this.migratableBy.filter(
           (v, i, a) => a.indexOf(v) === i
         );
-        console.log('Inside array of filter', uniqueMigratableBy);
+        //console.log('Inside array of filter', uniqueMigratableBy);
 
  
 
@@ -176,10 +201,37 @@ export class DevicesRatesListComponent implements OnInit {
         this.length = 0;
       }
     });
+
+   
+  }
+  ngOnInit(): void {
+  
   }
 
-  ngOnInit(): void {}
+  ngDoCheck(){
+    this.acct_nbr= sessionStorage.getItem('acct_nbr');
+    this.curr_srv_accs_nbr=sessionStorage.getItem('curr_srv_accs_nbr')
+    this.searchedNumber=sessionStorage.getItem('searchedNumber')
+    this.filteredDataByNumber=(this.dataSource.filteredData).filter(data=> data.phone_number == this.curr_srv_accs_nbr);
+    this.dataSourcebyNum = new MatTableDataSource<deviceRatesState>(this.filteredDataByNumber);
 
+ if(this.searchedNumber===this.curr_srv_accs_nbr){
+console.log("MOBILE NUMBER IS SEARCHED RIGHT NOW")
+this.HidePhoneNumberTable='show'
+ }
+ if(this.searchedNumber===this.acct_nbr){
+  console.log("ACCT NUMBER IS SEARCHED RIGHT NOW")
+  this.HidePhoneNumberTable='hide'
+   }
+
+   if(this.length==1){
+    this.BANtableData=false;
+   }
+
+
+  }
+
+ 
  
 
   nextscreen(item: any) {
