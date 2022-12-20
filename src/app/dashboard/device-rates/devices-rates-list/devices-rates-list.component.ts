@@ -224,7 +224,7 @@ this.HidePhoneNumberTable='show'
   this.HidePhoneNumberTable='hide'
    }
 
-   if(this.length==1){
+   if(this.length==1&& this.searchedNumber===this.curr_srv_accs_nbr){
     this.BANtableData=false;
    }
 
