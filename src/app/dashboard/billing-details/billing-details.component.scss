@@ -131,7 +131,7 @@ justify-content: space-between;
         margin-bottom: 25px;
      }
      @media (min-width: 601px) and (max-width: 900px){
-        height: 450px;
+        height: 500px;
         padding: 5px 15px 5px 15px;
      }
 }
@@ -152,8 +152,10 @@ justify-content: space-between;
 .detail{
     font-size: 15px;
     font-family: 'Gilroy-Regular';
+    word-break: break-word;
     @media (min-width: 577px) and (max-width: 900px){
         font-size: 14px;
+        word-break: break-word;
      }
 }
 .card1{
