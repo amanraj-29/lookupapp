@@ -91,7 +91,10 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  
+  goBack() {
+    this.router.navigate(['../search'])
+    }
+    
 
 
  
@@ -152,3 +155,6 @@ export class DashboardComponent implements OnInit {
   }
 
 }
+
+
+
