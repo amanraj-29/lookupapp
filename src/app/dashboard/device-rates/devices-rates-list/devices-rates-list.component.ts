@@ -69,12 +69,17 @@ searchedNumber:any;
 
         this.isLoaded = true;
 
+        console.log("****pre sort****",val)
         //Complete Migratable //Non-Migratable by SIM Status //Non Migratable by Rate Plan //Non Migratable by Device //NMG By Both Device and Rate Plan
         val?.sort((a: any, b: any) =>
-          a.Migratable_By_Device_message > b.Migratable_By_Device_message
-            ? 1
-            : -1
-        );
+        a.Migratable_By_Device_message > b.Migratable_By_Device_message
+          ? 1
+          : -1
+      );
+
+        console.log("***post sort after *****",val)
+       
+
         this.dataSource = new MatTableDataSource<deviceRatesState>(val);
         //console.log('this val', val);
        // console.log("Line 65",this.dataSource.filteredData)
@@ -235,6 +240,8 @@ this.HidePhoneNumberTable='show'
  
 
   nextscreen(item: any) {
+
+    console.log("**************here ",item)
     this.router.navigate([`../details/${item.sno}`], {
       relativeTo: this.actRoute,
     });

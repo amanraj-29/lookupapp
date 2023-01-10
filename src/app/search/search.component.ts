@@ -11,6 +11,9 @@ import { HttpClient } from '@angular/common/http';
 import { UtilitiesService } from '../shared/services/utilities.service';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { SearchPopupComponent } from '../shared/search-popup/search-popup.component';
+import { LoaderService } from '../shared/services/loader.service';
+
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -29,7 +32,8 @@ export class SearchComponent implements OnInit {
     private apiService: ApisService,
     private http: HttpClient,
     private utils: UtilitiesService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private loaderService:LoaderService
   ) {
     this.email = sessionStorage.getItem('userData');
   }
@@ -99,7 +103,7 @@ export class SearchComponent implements OnInit {
 
         
         
-           
+      this.loaderService.showLoader(); 
         
          setTimeout(() => {
           this.router.navigate(['../dashboard'], { relativeTo: this.actRoute })
