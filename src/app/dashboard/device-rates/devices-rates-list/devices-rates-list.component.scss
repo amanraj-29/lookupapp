@@ -2,7 +2,7 @@
 @import "../../../../assets/scss/common";
 
 .container {
-  padding: 20px;
+  padding: 20px 20px 50px 20px;
   @media (max-width: 576px) {
     padding: 10px;
   }
@@ -12,12 +12,11 @@ table {
 }
 
 .header-bg {
-  // background-color: #507bc5;
-  // background-color: #0034c2;
   background-color: #003bdc;
   color: #fff;
   font-size: 15px;
   font-family: "Gilroy-SemiBold";
+  text-align: center;
   @media (max-width: 576px) {
     padding-left: 10px !important;
     padding-top: 10px;
@@ -44,6 +43,7 @@ table {
   font-family: "Gilroy-SemiBold";
   padding: 10px 0px 10px 0px;
   width: 14%;
+  text-align: center;
   @media (max-width: 576px) {
     padding-left: 10px !important;
     font-size: 14px;
@@ -85,47 +85,43 @@ table {
   margin-right: 5px;
   font-size: 15px;
 }
-.alert-button {
-  border-radius: 12px;
-  width: 160px;
-  border-style: hidden;
-  margin-right: 5px;
-  padding: 14px;
-  height: 55px;
-  cursor: pointer;
-  font-family: "Gilroy-Regular";
-  @media (max-width: 576px) {
-    font-size: 12px;
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 125px;
-  }
-  @media (min-width: 577px) and (max-width: 900px) {
-    padding: 10px;
-    width: 135px;
-    margin-bottom: 10px;
-  }
-}
-.alert-button1 {
-  border-radius: 12px;
-  width: 160px;
-  border-style: hidden;
-  cursor: pointer;
-  padding: 14px;
-  height: 55px;
-  font-family: "Gilroy-Regular";
-  @media (max-width: 576px) {
-    font-size: 12px;
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 125px;
-  }
-  @media (min-width: 577px) and (max-width: 900px) {
-    padding: 10px;
-    width: 135px;
-    margin-bottom: 10px;
-  }
-}
+// .alert-button {
+//   border-radius: 12px;
+//   width: 130px;
+//   border-style: hidden;
+//   margin-right: 5px;
+//   height: 45px;
+//   font-family: "Gilroy-Regular";
+//   @media (max-width: 576px) {
+//     font-size: 12px;
+//     padding: 10px;
+//     margin-bottom: 10px;
+//     width: 125px;
+//   }
+//   @media (min-width: 577px) and (max-width: 900px) {
+//     padding: 10px;
+//     width: 135px;
+//     margin-bottom: 10px;
+//   }
+// }
+// .alert-button1 {
+//   border-radius: 12px;
+//   width: 130px;
+//   border-style: hidden;
+//   height: 45px;
+//   font-family: "Gilroy-Regular";
+//   @media (max-width: 576px) {
+//     font-size: 12px;
+//     padding: 10px;
+//     margin-bottom: 10px;
+//     width: 125px;
+//   }
+//   @media (min-width: 577px) and (max-width: 900px) {
+//     padding: 10px;
+//     width: 135px;
+//     margin-bottom: 10px;
+//   }
+// }
 .back-button {
   background-color: nth($white-shade, 1);
   color: nth($orange-shades, 1);
@@ -205,7 +201,7 @@ table {
   text-align: center;
   font-size: 20px;
   line-height: normal;
-  font-family: "Gilroy-Regular";
+  font-family: "Gilroy-SemiBold";
   @media (max-width: 700px) {
     font-size: 17px;
   }

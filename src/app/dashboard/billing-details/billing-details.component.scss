@@ -40,48 +40,48 @@ justify-content: space-between;
     color: #fff;
     margin-right: 5px;
 }
-.alert-button{
-    border-radius: 12px;
-    width:160px;
-    height:55px;
-    border-style: hidden;
-    margin-right: 5px;
-    padding: 14px;
-    cursor: pointer;
-    font-family: 'Gilroy-Regular';
-    @media (max-width: 576px){
-        font-size: 12px;
-        padding: 10px;
-        margin-bottom: 10px;
-        width:125px;
-     }
-     @media (min-width: 577px ) and (max-width: 900px){
-        padding: 10px;
-        width:135px;
-        margin-bottom: 10px;
-     }
-}
+// .alert-button{
+//     border-radius: 12px;
+//     width:160px;
+//     height:55px;
+//     border-style: hidden;
+//     margin-right: 5px;
+//     padding: 14px;
+//     cursor: pointer;
+//     font-family: 'Gilroy-Regular';
+//     @media (max-width: 576px){
+//         font-size: 12px;
+//         padding: 10px;
+//         margin-bottom: 10px;
+//         width:125px;
+//      }
+//      @media (min-width: 577px ) and (max-width: 900px){
+//         padding: 10px;
+//         width:135px;
+//         margin-bottom: 10px;
+//      }
+// }
 
-.alert-button1{
-    border-radius: 12px;
-    width:160px;
-    height: 55px;
-    border-style: hidden;
-    cursor: pointer;
-    padding: 14px;
-    font-family: 'Gilroy-Regular';
-    @media (max-width: 576px){
-        font-size: 12px;
-        padding: 10px;
-        margin-bottom: 10px;
-        width:125px;
-     }
-     @media (min-width: 577px ) and (max-width: 900px){
-        padding: 10px;
-        width:135px;
-        margin-bottom: 10px;
-     }
-}
+// .alert-button1{
+//     border-radius: 12px;
+//     width:160px;
+//     height: 55px;
+//     border-style: hidden;
+//     cursor: pointer;
+//     padding: 14px;
+//     font-family: 'Gilroy-Regular';
+//     @media (max-width: 576px){
+//         font-size: 12px;
+//         padding: 10px;
+//         margin-bottom: 10px;
+//         width:125px;
+//      }
+//      @media (min-width: 577px ) and (max-width: 900px){
+//         padding: 10px;
+//         width:135px;
+//         margin-bottom: 10px;
+//      }
+// }
 
 .bg-container{
     padding: 20px 20px 50px 20px;
@@ -161,6 +161,9 @@ justify-content: space-between;
 .card1{
     margin-right: 25px;
     width:50%;
+    @media (max-width: 576px){
+        width:100%;
+     }
 }
 .main-heading{
     color: #fff;

@@ -1,6 +1,6 @@
 <div class="bg-container">
   <div class="heading-container">
-    <div>
+    <div *ngIf="billingInfo">
       <h2 class="main-heading">Recommended Portal for Agents</h2>
     </div>
 
@@ -43,6 +43,8 @@
       </div>
     </div>
   </div>
+  <br>
+  <br>  
   <div *ngIf="billingInfo">
     <h3>Account #: {{ billingInfo?.acct_nbr }}</h3>
     <h3>Customer Name: {{ billingInfo?.Billing_Account_Name }}</h3>
@@ -91,7 +93,7 @@
           </tr>
           <tr class="odd">
             <td class="sub-sub-item">Handsets</td>
-            <td>
+            <td class="align-right">
               {{ tableList.handset_lines }}
             </td>
             <td>
@@ -123,46 +125,46 @@
           </tr>
           <tr>
             <td class="sub-sub-item">Tablets</td>
-            <td>
+            <td class="align-right">
               {{ tableList.curr_tablet_lines }}
             </td>
-            <td>
+            <td class="align-right">
               {{ tableList.recc_tablet_lines }}
             </td>
           </tr>
           <tr class="odd">
             <td class="sub-sub-item">Wearables</td>
-            <td>
+            <td class="align-right">
               {{ tableList.curr_wearable_lines }}
             </td>
-            <td>
+            <td class="align-right">
               {{ tableList.recc_wearable_lines }}
             </td>
           </tr>
           <tr>
             <td class="sub-sub-item">WHP</td>
-            <td>
+            <td class="align-right">
               {{ tableList.curr_whp_lines }}
             </td>
-            <td>
+            <td class="align-right">
               {{ tableList.recc_whp_lines }}
             </td>
           </tr>
           <tr class="odd">
             <td class="sub-sub-item">MiFi</td>
-            <td>
+            <td class="align-right">
               {{ tableList.curr_mifi_lines }}
             </td>
-            <td>
+            <td class="align-right">
               {{ tableList.recc_mifi_lines }}
             </td>
           </tr>
           <tr>
             <td class="sub-sub-item">Connected Car</td>
-            <td>
+            <td class="align-right">
               {{ tableList.curr_connected_car }}
             </td>
-            <td>
+            <td class="align-right">
               {{ tableList.recc_connected_car }}
             </td>
           </tr>
@@ -170,10 +172,10 @@
             <td>
               <b>Bill Before Discount</b>
             </td>
-            <td>
+            <td class="align-right">
               {{ tableList.curr_mrc_before_discounts }}
             </td>
-            <td>
+            <td class="align-right">
               {{ tableList.recc_mrc_before_discount }}
             </td>
           </tr>
@@ -186,10 +188,10 @@
           </tr>
           <tr class="odd">
             <td class="sub-sub-item">Auto Bill Pay</td>
-            <td>
+            <td class="align-right">
               {{ tableList.curr_abp_discount }}
             </td>
-            <td>
+            <td class="align-right">
               {{ tableList.recc_abp_discount }}
             </td>
           </tr>
@@ -204,10 +206,10 @@
                 </tr> -->
           <tr class="odd">
             <td class="sub-sub-item">Signature/Appreciation</td>
-            <td>
+            <td class="align-right">
               {{ tableList.curr_app_and_sig_discount }}
             </td>
-            <td>
+            <td class="align-right">
               {{ tableList.recc_app_and_sig_discount_dollar }}
             </td>
           </tr>
@@ -215,10 +217,10 @@
             <td class="border2">
               <b>Total Discount</b>
             </td>
-            <td>
+            <td class="align-right">
               {{ tableList.curr_mrc_after_discount }}
             </td>
-            <td class="border3">
+            <td class="border3 align-right">
               {{ tableList.recc_mrc_after_discounts }}
             </td>
           </tr>
@@ -226,15 +228,14 @@
       </table>
     </div>
   </div>
-  <br />
-  <br />
+  <br>
+
   <ng-template #nodata>
-    <div class="no-data">No data Found for the searched criteria.</div>
+    <div class="no-data">No Recommended Plan for searched account number.</div>
   </ng-template>
   <div *ngIf="!accountData">
     <h2 class="no-data">No Data Available for searched number</h2>
   </div>
-  <br />
   <div class="delay-warn">
     <p class="delay-content">
       This data may have a two week delay, please validate current customer
