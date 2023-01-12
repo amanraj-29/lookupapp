@@ -79,6 +79,7 @@
 .detail{
     font-size: 15px;
     font-family: 'Gilroy-Regular';
+    word-break: break-all;
 }
 .back-but{
     color: nth($orange-shades, 1);
@@ -207,3 +208,6 @@
 //     border-width: 0;
 //   }
 
+.btn-center{
+    padding-right: 10px;
+}
