@@ -29,6 +29,14 @@ export class RecommendedPlansComponent implements OnInit {
 
  RatePlanbuttonClass: any;
  RatePlanbuttonMessage: any;
+ displayedAlerts: string[] = [
+
+  'Equipment',
+  'Device_Configuration',
+  'SIM',
+  'Rate_Plan'
+];
+// dataSourcebyNum = new MatTableDataSource<deviceRatesState>(ELEMENT_DATA);
 
 
  @ViewChild(MatPaginator)

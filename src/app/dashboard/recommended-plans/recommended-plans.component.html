@@ -1,47 +1,11 @@
-<div class="bg-container">
-  <div class="heading-container">
+<div class="bg-container ">
+  <app-overallstatus></app-overallstatus>
+  <div class="heading-container" *ngIf="billingInfo">
     <div>
       <h2 class="main-heading">Recommended Portal for Agents</h2>
     </div>
 
-    <div class="alerts" *ngIf="billingInfo">
-      <div class="sub-alert">
-        <div class="alert1">
-          <p class="label">Equipment</p>
-          <button class="alert-button" [ngClass]="DevicebuttonClass">
-            {{ DevicebuttonMessage }}
-          </button>
-        </div>
-        <div class="alert1">
-          <p class="label">Device Configuration</p>
-          <button
-            class="alert-button"
-            [ngClass]="migratableBy.includes('Device_Config') ? 'nmg' : 'mg'"
-          >
-            {{
-              migratableBy.includes("Device_Config")
-                ? "Action Required"
-                : "Ready"
-            }}
-          </button>
-        </div>
-      </div>
-
-      <div class="sub-alert">
-        <div class="alert1">
-          <p class="label">SIM</p>
-          <button class="alert-button" [ngClass]="SimGenbuttonClass">
-            {{ SimGenbuttonMessage }}
-          </button>
-        </div>
-        <div class="alert1">
-          <p class="label">Rate Plan</p>
-          <button class="alert-button1" [ngClass]="RatePlanbuttonClass">
-            {{ RatePlanbuttonMessage }}
-          </button>
-        </div>
-      </div>
-    </div>
+    
   </div>
   <div *ngIf="billingInfo">
     <h3>Account #: {{ billingInfo?.acct_nbr }}</h3>
@@ -90,8 +54,8 @@
             <td></td>
           </tr>
           <tr class="odd">
-            <td class="sub-sub-item">Handsets</td>
-            <td>
+            <td class="sub-sub-item le">Handsets</td>
+            <td class="right-align">
               {{ tableList.handset_lines }}
             </td>
             <td>
@@ -123,57 +87,57 @@
           </tr>
           <tr>
             <td class="sub-sub-item">Tablets</td>
-            <td>
+            <td class="right-align">
               {{ tableList.curr_tablet_lines }}
             </td>
-            <td>
+            <td class="right-align">
               {{ tableList.recc_tablet_lines }}
             </td>
           </tr>
           <tr class="odd">
             <td class="sub-sub-item">Wearables</td>
-            <td>
+            <td class="right-align">
               {{ tableList.curr_wearable_lines }}
             </td>
-            <td>
+            <td class="right-align">
               {{ tableList.recc_wearable_lines }}
             </td>
           </tr>
           <tr>
             <td class="sub-sub-item">WHP</td>
-            <td>
+            <td class="right-align">
               {{ tableList.curr_whp_lines }}
             </td>
-            <td>
+            <td class="right-align">
               {{ tableList.recc_whp_lines }}
             </td>
           </tr>
           <tr class="odd">
             <td class="sub-sub-item">MiFi</td>
-            <td>
+            <td class="right-align">
               {{ tableList.curr_mifi_lines }}
             </td>
-            <td>
+            <td class="right-align">
               {{ tableList.recc_mifi_lines }}
             </td>
           </tr>
           <tr>
             <td class="sub-sub-item">Connected Car</td>
-            <td>
+            <td class="right-align">
               {{ tableList.curr_connected_car }}
             </td>
-            <td>
+            <td class="right-align">
               {{ tableList.recc_connected_car }}
             </td>
           </tr>
           <tr class="odd">
-            <td>
+            <td >
               <b>Bill Before Discount</b>
             </td>
-            <td>
+            <td class="right-align">
               {{ tableList.curr_mrc_before_discounts }}
             </td>
-            <td>
+            <td class="right-align">
               {{ tableList.recc_mrc_before_discount }}
             </td>
           </tr>
@@ -186,10 +150,10 @@
           </tr>
           <tr class="odd">
             <td class="sub-sub-item">Auto Bill Pay</td>
-            <td>
+            <td class="right-align">
               {{ tableList.curr_abp_discount }}
             </td>
-            <td>
+            <td class="right-align">
               {{ tableList.recc_abp_discount }}
             </td>
           </tr>
@@ -204,21 +168,21 @@
                 </tr> -->
           <tr class="odd">
             <td class="sub-sub-item">Signature/Appreciation</td>
-            <td>
+            <td class="right-align">
               {{ tableList.curr_app_and_sig_discount }}
             </td>
-            <td>
+            <td class="right-align">
               {{ tableList.recc_app_and_sig_discount_dollar }}
             </td>
           </tr>
           <tr>
             <td class="border2">
-              <b>Total Discount</b>
+              <b>Bill After Discount</b>
             </td>
-            <td>
+            <td class="right-align">
               {{ tableList.curr_mrc_after_discount }}
             </td>
-            <td class="border3">
+            <td class="border3 right-align">
               {{ tableList.recc_mrc_after_discounts }}
             </td>
           </tr>
@@ -226,10 +190,8 @@
       </table>
     </div>
   </div>
-  <br />
-  <br />
   <ng-template #nodata>
-    <div class="no-data">No data Found for the searched criteria.</div>
+    <div class="no-data">No Recommended Plan for the searched account number.</div>
   </ng-template>
   <div *ngIf="!accountData">
     <h2 class="no-data">No Data Available for searched number</h2>

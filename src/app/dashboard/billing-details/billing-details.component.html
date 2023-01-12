@@ -16,55 +16,16 @@
     </mat-card>
     
 </div> -->
+
 <div class="bg-container">
-  <div class="heading-container">
+  
+  <app-overallstatus></app-overallstatus>
+<div class="heading-container" *ngIf="billingInfo">
     
-    <h2 class="main-heading">Billing Account Information</h2>
-    <!-- <div class="alerts">
-        <p class="alert-text">Alerts</p>
-        <button class="alert-button">SOC</button>
-        <button class="alert-button">SOC</button>
-        <button class="alert-button">SOC</button>
-    </div> -->
-
-    <div class="alerts" *ngIf="billingInfo">
-      <div class="sub-alert">
-        <div class="alert1">
-          <p class="label">Equipment</p>
-          <button class="alert-button" [ngClass]="DevicebuttonClass">
-            {{ DevicebuttonMessage }}
-          </button>
-        </div>
-        <div class="alert1">
-          <p class="label">Device Configuration</p>
-          <button
-            class="alert-button"
-            [ngClass]="migratableBy.includes('Device_Config') ? 'nmg' : 'mg'"
-          >
-            {{
-              migratableBy.includes("Device_Config")
-                ? "Action Required"
-                : "Ready"
-            }}
-          </button>
-        </div>
-      </div>
-
-      <div class="sub-alert">
-        <div class="alert1">
-          <p class="label">SIM</p>
-          <button class="alert-button" [ngClass]="SimGenbuttonClass">
-            {{ SimGenbuttonMessage }}
-          </button>
-        </div>
-        <div class="alert1">
-          <p class="label">Rate Plan</p>
-          <button class="alert-button1" [ngClass]="RatePlanbuttonClass">
-            {{ RatePlanbuttonMessage }}
-          </button>
-        </div>
-      </div>
-    </div>
+    <h2 class="main-heading ">Billing Account Information</h2>
+    
+    
+   
   </div>
 
   <div class="bottom-container" *ngIf="billingInfo">
@@ -135,8 +96,6 @@
       </div>
     </div>
   </div>
-  <br />
-  <br />
 
   <div *ngIf="!billingInfo">
     <h2 class="no-data">No Data Available for searched number</h2>
