@@ -26,10 +26,13 @@
             (keydown)="Space($event)"
             class="large-input accnum-input"
           />
+          <div class="text-center acc-or-mob-input">
+            Account number - 12 digit or Mobile number - 10 digit (Without country code)
+          </div>
           <div class="text-center error-msg"
           *ngIf="formGroup.controls['search'].invalid && (formGroup.controls['search'].dirty || formGroup.controls['search'].touched)">
           <div *ngIf="formGroup.controls['search'].errors">
-            Must be of 10-15 digit
+            Must be of 10-12 digit
             </div>
       </div>
           

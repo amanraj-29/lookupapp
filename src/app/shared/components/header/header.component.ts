@@ -28,8 +28,11 @@ this.showLogin=true;
   }
 
   logout() {
-  
    this.utils.logout();
   }
+
+  home() {
+    this.router.navigate(['../search'])
+   }
 
 }

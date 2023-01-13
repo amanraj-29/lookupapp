@@ -25,9 +25,15 @@
       <p class="headline2">Configuration Portal</p> -->
       <h3 class="headline3">Lookup App</h3>
     </div>
-    <button *ngIf="showLogin" class="logout-btn" mat-button (click)="logout()">
-      Log out
-    </button>
+    <div class="header-buttons">
+      <button *ngIf="showLogin" class="logout-btn" mat-button (click)="home()">
+        Home
+      </button>
+      <button *ngIf="showLogin" class="logout-btn" mat-button (click)="logout()">
+        Log out
+      </button>
+    </div>
+    
   </div>
 
   <div class="innerlayer"></div>
