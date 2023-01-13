@@ -239,7 +239,7 @@
   <div *ngIf="accountData.length==0 && !billingInfo">
     <h2 class="no-data">No Data Available for searched number</h2>
   </div>
-  <div *ngIf="billingInfo">
+  <div *ngIf="billingInfo && accountData.length==0">
     <h2 class="no-data">No Recommended Plan for searched account number.</h2>
   </div>
 
