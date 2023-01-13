@@ -33,7 +33,8 @@ export class SearchComponent implements OnInit {
     private http: HttpClient,
     private utils: UtilitiesService,
     public dialog: MatDialog,
-    private loaderService:LoaderService
+    private loaderService:LoaderService,
+    private util: UtilitiesService
   ) {
     this.email = sessionStorage.getItem('userData');
   }
@@ -101,7 +102,7 @@ export class SearchComponent implements OnInit {
 
 
 
-        
+      this.util.clearSearch()
         
       this.loaderService.showLoader(); 
         

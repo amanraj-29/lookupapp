@@ -117,7 +117,7 @@ export class DashboardComponent implements OnInit {
   
 }
   searchnum() {
-  // this.util.clearSearch
+  this.util.clearSearch()
       let num = this.formGroup && this.formGroup.value
         ? this.formGroup.value
         : { search: this.searchednumber };
