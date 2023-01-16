@@ -37,6 +37,11 @@ export class DevicesRatesListComponent implements OnInit {
 
   RatePlanbuttonClass: any;
   RatePlanbuttonMessage: any;
+
+  DeviceConfigbuttonClass: any;
+  DeviceConfigbuttonMessage:any;
+
+
   filteredDataByNumber:any;
   HidePhoneNumberTable: any='show';
 
@@ -47,6 +52,7 @@ searchedNumber:any;
   paginator!: MatPaginator;
   migratableBy: Array<string> = [];
   BANtableData: Boolean=true;
+
  
   
 
@@ -98,10 +104,28 @@ searchedNumber:any;
        
         val.map((inrVal: any) => {
           if (
-            inrVal?.Migratable_By_Device_Config === 'Non-Migratable' ||
-            inrVal?.Migratable_by_Device_Config === null
+            inrVal?.dvc_config_message
+            === 'Unlock_Assisted'
           ) {
-            this.migratableBy.push('Device_Config');
+            this.migratableBy.push('Device_Config_ua');
+          }
+
+          if (
+            inrVal?.dvc_config_message
+            === 'Unlock_Manual' 
+          ) {
+            this.migratableBy.push('Device_Config_um');
+          }
+
+          if (
+           inrVal?.dvc_config_message
+            === 'Device_Exchange_in_the_tool' 
+          ) {
+            this.migratableBy.push('Device_Config_det');
+          }
+
+          if (inrVal?.dvc_config_message=== 'Possible_Action_Required') {
+            this.migratableBy.push('Device_Config_mgar');
           }
 
           if (inrVal?.Migratable_by_rate_plan === 'Non-Migratable') {
@@ -133,7 +157,55 @@ searchedNumber:any;
           (v, i, a) => a.indexOf(v) === i
         );
         //console.log('Inside array of filter', uniqueMigratableBy);
+        if (uniqueMigratableBy.includes('Device_Config_det') ) {
+          this.DeviceConfigbuttonClass='nmg';
+          this.DeviceConfigbuttonMessage='Device Exchange in the tool';
+          uniqueMigratableBy = uniqueMigratableBy.filter(
+            (e) => e !== 'Device_Config_ua'
+          );
+          uniqueMigratableBy = uniqueMigratableBy.filter(
+            (e) => e !== 'Device_Config_um'
+          );
+          console.log("line 169",uniqueMigratableBy)
+        
+        }
 
+      
+
+        if (uniqueMigratableBy.includes('Device_Config_um') ) {
+          this.DeviceConfigbuttonClass='nmg';
+          this.DeviceConfigbuttonMessage='Unlock Mannual';
+          uniqueMigratableBy = uniqueMigratableBy.filter(
+            (e) => e !== 'Device_Config_ua'
+          );
+        
+        
+          //console.log("line 116",uniqueMigratableBy)
+        
+        }
+
+        if (uniqueMigratableBy.includes('Device_Config_ua') ) {
+          this.DeviceConfigbuttonClass='nmg';
+          this.DeviceConfigbuttonMessage='Unlock Assisted';
+         
+          //console.log("line 116",uniqueMigratableBy)
+        
+        }
+
+
+        if (uniqueMigratableBy.includes('Device_Config_mgar')) {
+          this.DeviceConfigbuttonClass='mgar';
+          this.DeviceConfigbuttonMessage='Possible Action Required';
+          //console.log("line 122",uniqueMigratableBy)
+       
+        
+        }
+        if (!uniqueMigratableBy.includes('Device_Config_mgar') && !uniqueMigratableBy.includes('Device_Config_det')
+        && !uniqueMigratableBy.includes('Device_Config_ua') && !uniqueMigratableBy.includes('Device_Config_um')) {
+          this.DeviceConfigbuttonClass='mg';
+          this.DeviceConfigbuttonMessage='Over-the-air';
+          //console.log("line 129",uniqueMigratableBy)
+        }
  
 
 

@@ -50,7 +50,7 @@ export class BillingDetailsComponent implements OnInit {
         this.migratableBy = [];
         if( this.billingInfo){
           this.billingInfo.Action_Needed= (val.filter((obj:any)=>
-             (obj.Action_Needed).toLowerCase()!=="complete migratable"
+             (obj.Action_Needed)!=="complete migratable"
            ).length>0)?'Non Migratable':'Migratable';
    // //console.log('billing info obj:',this.billingInfo)
          }

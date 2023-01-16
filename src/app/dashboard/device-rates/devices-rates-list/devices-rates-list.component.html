@@ -19,13 +19,11 @@
           <p class="label">Device Configuration</p>
           <button
             class="alert-button"
-            [ngClass]="migratableBy.includes('Device_Config') ? 'nmg' : 'mg'"
+            [ngClass]="DeviceConfigbuttonClass"
           >
-            {{
-              migratableBy.includes("Device_Config")
-                ? "Action Required"
-                : "Ready"
-            }}
+           
+              {{ DeviceConfigbuttonMessage }}
+           
           </button>
         </div>
       </div>
