@@ -21,6 +21,10 @@ export class DeviceRateDetailsComponent implements OnInit {
   RatePlanbuttonClass: any;
   RatePlanbuttonMessage: any;
 
+
+  DeviceConfigbuttonClass:any;
+  DeviceConfigbuttonMessage:any;
+
   constructor(
     private router: Router,
     private location: Location,
@@ -57,6 +61,31 @@ export class DeviceRateDetailsComponent implements OnInit {
         this.DevicebuttonClass = 'mgar';
         this.DevicebuttonMessage = 'Possible Action Required';
       }
+
+
+
+      if (this.deviceDetails?.dvc_config_message == 'Device_Exchange_in_the_tool') {
+        this.DeviceConfigbuttonClass = 'nmg';
+        this.DeviceConfigbuttonMessage = 'Device Exchange in the tool';
+      }
+      if (this.deviceDetails?.dvc_config_message == 'Unlock_Manual') {
+        this.DeviceConfigbuttonClass  = 'nmg';
+        this.DeviceConfigbuttonMessage = 'Unlock Manual';
+      }
+      if (this.deviceDetails?.dvc_config_message == 'Unlock_Assisted') {
+        this.DeviceConfigbuttonClass  = 'nmg';
+        this.DeviceConfigbuttonMessage = 'Unlock Assisted';
+      }
+      if (this.deviceDetails?.dvc_config_message == 'Over-the-air') {
+        this.DeviceConfigbuttonClass  = 'mg';
+        this.DeviceConfigbuttonMessage = 'Over-the-air';
+      }
+      if (this.deviceDetails?.dvc_config_message == 'Possible_Action_Required') {
+        this.DeviceConfigbuttonClass  = 'mgar';
+        this.DeviceConfigbuttonMessage= 'Possible Action Required';
+      }
+
+   
 
 
       if (this.deviceDetails?.SIM_Gen_Status == "Migratable") {

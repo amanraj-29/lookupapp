@@ -16,19 +16,7 @@ const ELEMENT_DATA: any[] = [];
 })
 export class OverallAlertsComponent implements OnInit {
 
-  displayedColumns: string[] = [
-    'Billing_Account_Name',
-    'phone_number',
-    'Effective_Date',
-    'Migratable_By_Device_status_code',
-    'device',
-    'button',
-  ];
-  dataSource = new MatTableDataSource<deviceRatesState>(ELEMENT_DATA);
 
-  dataSourcebyNum = new MatTableDataSource<deviceRatesState>(ELEMENT_DATA);
-  isLoaded = false;
-  length!: number;
 
   DevicebuttonClass: any;
   DevicebuttonMessage: any;
@@ -46,21 +34,14 @@ export class OverallAlertsComponent implements OnInit {
   filteredDataByNumber:any;
   HidePhoneNumberTable: any='show';
 
-acct_nbr:any;
-curr_srv_accs_nbr: any;
-searchedNumber:any;
-  @ViewChild(MatPaginator)
-  paginator!: MatPaginator;
+
   migratableBy: Array<string> = [];
-  BANtableData: Boolean=true;
 
  
   
 
   constructor(
-    private util: UtilitiesService,
-    private router: Router,
-    private actRoute: ActivatedRoute,
+    private util: UtilitiesService
     
   ) {
   
@@ -68,38 +49,14 @@ searchedNumber:any;
       // //console.log('  deviceRatesObservable$ :', val);
 
       if (val?.length > 0) {
-        this.migratableBy = [];
-
-        this.isLoaded = true;
-
-        console.log("****pre sort****",val)
-        //Complete Migratable //Non-Migratable by SIM Status //Non Migratable by Rate Plan //Non Migratable by Device //NMG By Both Device and Rate Plan
-        val?.sort((a: any, b: any) =>
-        a.Migratable_By_Device_message > b.Migratable_By_Device_message
-          ? 1
-          : -1
-      );
-
-        console.log("***post sort after *****",val)
        
+     
 
-        this.dataSource = new MatTableDataSource<deviceRatesState>(val);
-        //console.log('this val', val);
-       // console.log("Line 65",this.dataSource.filteredData)
-        this.filteredDataByNumber=(this.dataSource.filteredData).filter(data=> data.phone_number == this.curr_srv_accs_nbr);
-        this.dataSourcebyNum = new MatTableDataSource<deviceRatesState>(this.filteredDataByNumber);
-        console.log("lineNumber83",this.filteredDataByNumber)
-       // console.log("line 74",val.length)
+   
 
-    
-       // console.log("line number 73",this.filteredDataByNumber)
-        this.dataSource.paginator = this.paginator;
-        this.length = val.length;
-        console.log("length of this 88",this.length)
-
-
-       
-        val.map((inrVal: any) => {
+     
+     
+      val.map((inrVal: any) => {
           if (
             inrVal?.dvc_config_message
             === 'Unlock_Assisted'
@@ -269,11 +226,7 @@ searchedNumber:any;
 
         //console.log('final ', uniqueMigratableBy);
         //console.log("device class",this.DevicebuttonClass)
-      } else {
-        this.dataSource = new MatTableDataSource<deviceRatesState>([]);
-        this.dataSource.paginator = this.paginator;
-        this.length = 0;
-      }
+      } 
     });
 
    
@@ -282,27 +235,6 @@ searchedNumber:any;
   
   }
 
-  ngDoCheck(){
-    this.acct_nbr= sessionStorage.getItem('acct_nbr');
-    this.curr_srv_accs_nbr=sessionStorage.getItem('curr_srv_accs_nbr')
-    this.searchedNumber=sessionStorage.getItem('searchedNumber')
-    this.filteredDataByNumber=(this.dataSource.filteredData).filter(data=> data.phone_number == this.curr_srv_accs_nbr);
-    this.dataSourcebyNum = new MatTableDataSource<deviceRatesState>(this.filteredDataByNumber);
 
- if(this.searchedNumber===this.curr_srv_accs_nbr){
-console.log("MOBILE NUMBER IS SEARCHED RIGHT NOW")
-this.HidePhoneNumberTable='show'
- }
- if(this.searchedNumber===this.acct_nbr){
-  console.log("ACCT NUMBER IS SEARCHED RIGHT NOW")
-  this.HidePhoneNumberTable='hide'
-   }
-
-   if(this.length==1&& this.searchedNumber===this.curr_srv_accs_nbr){
-    this.BANtableData=false;
-   }
-
-
-  }
 
 }
