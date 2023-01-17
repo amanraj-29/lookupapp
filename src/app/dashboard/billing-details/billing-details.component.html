@@ -19,7 +19,7 @@
 <div class="bg-container">
   <div class="heading-container" *ngIf="billingInfo">
     <h2 class="main-heading">Billing Account Information</h2>
-    <div class="alerts" *ngIf="billingInfo">
+    <!-- <div class="alerts" *ngIf="billingInfo">
       <div class="sub-alert">
         <div class="alert1">
           <p class="label">Equipment</p>
@@ -56,8 +56,10 @@
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
+    <app-overall-alerts></app-overall-alerts>
   </div>
+  
 
   <div class="bottom-container" *ngIf="billingInfo">
     <div class="left-container">
@@ -120,7 +122,7 @@
           <h2 class="heading">FAN Name</h2>
           <p class="detail">{{ billingInfo?.fan_nm || "NA" }}</p>
           <h2 class="heading">Service ID</h2>
-          <p class="detail">{{ billingInfo?.Service_ID }}</p>
+          <p class="detail">{{ billingInfo?.Service_ID || "NA" }}</p>
           <h2 class="heading">Service Name</h2>
           <p class="detail">{{ billingInfo?.svid_nm  || "NA"  }}</p>
         </div>

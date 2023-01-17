@@ -104,15 +104,10 @@
           <button
             class="alert-button"
             [ngClass]="
-              deviceDetails?.Migratable_By_Device_Config === 'Migratable'
-                ? 'mg'
-                : 'nmg'
-            "
+            DeviceConfigbuttonClass"
           >
             {{
-              deviceDetails?.Migratable_By_Device_Config === "Migratable"
-                ? "Ready"
-                : "Action Required"
+              DeviceConfigbuttonMessage
             }}
           </button>
         </div>

@@ -14,13 +14,15 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SearchPopupComponent } from './search-popup/search-popup.component';
+import { OverallAlertsComponent } from './components/overall-alerts/overall-alerts.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     LoaderComponent,
-    SearchPopupComponent
+    SearchPopupComponent,
+    OverallAlertsComponent
   ],
   entryComponents: [SearchPopupComponent],
   imports: [
@@ -40,6 +42,6 @@ import { SearchPopupComponent } from './search-popup/search-popup.component';
     MatPaginatorModule,
     MatChipsModule,
     MatCardModule,
-    ReactiveFormsModule,MatButtonModule, MatMenuModule,MatIconModule, MatDialogModule]
+    ReactiveFormsModule,MatButtonModule, MatMenuModule,MatIconModule, MatDialogModule, OverallAlertsComponent]
 })
 export class SharedModule { }

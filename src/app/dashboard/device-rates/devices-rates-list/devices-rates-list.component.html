@@ -3,7 +3,7 @@
     <h2 class="heading" 
     *ngIf="isLoaded && dataSource.data && dataSource.data.length > 0">Subscriber List</h2>
 
-    <div
+    <!-- <div
       class="alerts"
       *ngIf="isLoaded && dataSource.data && dataSource.data.length > 0"
     >
@@ -42,7 +42,8 @@
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
+    <app-overall-alerts></app-overall-alerts>
   </div>
 
   <br />
