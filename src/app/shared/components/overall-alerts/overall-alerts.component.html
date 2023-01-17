@@ -1,0 +1,40 @@
+<div
+      class="alerts"
+      *ngIf="isLoaded && dataSource.data && dataSource.data.length > 0"
+    >
+      <div class="sub-alert">
+        <div class="alert1">
+          <p class="label">Equipment</p>
+          <button class="alert-button" [ngClass]="DevicebuttonClass">
+            {{ DevicebuttonMessage }}
+          </button>
+        </div>
+
+        <div class="alert1">
+          <p class="label">Device Configuration</p>
+          <button
+            class="alert-button"
+            [ngClass]="DeviceConfigbuttonClass"
+          >
+           
+              {{ DeviceConfigbuttonMessage }}
+           
+          </button>
+        </div>
+      </div>
+
+      <div class="sub-alert">
+        <div class="alert1">
+          <p class="label">SIM</p>
+          <button class="alert-button" [ngClass]="SimGenbuttonClass">
+            {{ SimGenbuttonMessage }}
+          </button>
+        </div>
+        <div class="alert1">
+          <p class="label">Rate Plan</p>
+          <button class="alert-button1" [ngClass]="RatePlanbuttonClass">
+            {{ RatePlanbuttonMessage }}
+          </button>
+        </div>
+      </div>
+    </div>
