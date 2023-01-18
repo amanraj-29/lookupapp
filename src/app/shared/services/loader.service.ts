@@ -19,7 +19,7 @@ export class LoaderService {
   constructor() { }
   showLoader(){
     this.isLoading.next(true);
-    setTimeout(()=>this.hideLoader(),5000);
+   // setTimeout(()=>this.hideLoader(),5000);
   }
   hideLoader(){
     this.isLoading.next(false);
