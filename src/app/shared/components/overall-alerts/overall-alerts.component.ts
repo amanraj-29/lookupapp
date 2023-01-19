@@ -113,7 +113,7 @@ export class OverallAlertsComponent implements OnInit {
         //console.log('Inside array of filter', uniqueMigratableBy);
         if (uniqueMigratableBy.includes('Device_Config_det') ) {
           this.DeviceConfigbuttonClass='nmg';
-          this.DeviceConfigbuttonMessage='Device Exchange in the tool';
+          this.DeviceConfigbuttonMessage='Action Required';
           uniqueMigratableBy = uniqueMigratableBy.filter(
             (e) => e !== 'Device_Config_ua'
           );
@@ -128,7 +128,7 @@ export class OverallAlertsComponent implements OnInit {
 
         if (uniqueMigratableBy.includes('Device_Config_um') ) {
           this.DeviceConfigbuttonClass='nmg';
-          this.DeviceConfigbuttonMessage='Unlock Mannual';
+          this.DeviceConfigbuttonMessage='Action Required';
           uniqueMigratableBy = uniqueMigratableBy.filter(
             (e) => e !== 'Device_Config_ua'
           );
@@ -140,7 +140,7 @@ export class OverallAlertsComponent implements OnInit {
 
         if (uniqueMigratableBy.includes('Device_Config_ua') ) {
           this.DeviceConfigbuttonClass='nmg';
-          this.DeviceConfigbuttonMessage='Unlock Assisted';
+          this.DeviceConfigbuttonMessage='Action Required';
          
           //console.log("line 116",uniqueMigratableBy)
         
@@ -157,7 +157,7 @@ export class OverallAlertsComponent implements OnInit {
         if (!uniqueMigratableBy.includes('Device_Config_mgar') && !uniqueMigratableBy.includes('Device_Config_det')
         && !uniqueMigratableBy.includes('Device_Config_ua') && !uniqueMigratableBy.includes('Device_Config_um')) {
           this.DeviceConfigbuttonClass='mg';
-          this.DeviceConfigbuttonMessage='Over-the-air';
+          this.DeviceConfigbuttonMessage='Ready';
           //console.log("line 129",uniqueMigratableBy)
         }
  
