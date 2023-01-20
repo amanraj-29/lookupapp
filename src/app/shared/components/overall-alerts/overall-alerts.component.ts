@@ -57,6 +57,7 @@ export class OverallAlertsComponent implements OnInit {
      
      
       val.map((inrVal: any) => {
+        console.log("inr value",inrVal);
           if (
             inrVal?.dvc_config_message
             === 'Unlock_Assisted'
@@ -81,7 +82,6 @@ export class OverallAlertsComponent implements OnInit {
           if (inrVal?.dvc_config_message=== 'Possible_Action_Required') {
             this.migratableBy.push('Device_Config_mgar');
           }
-
           if (inrVal?.Migratable_by_rate_plan === 'Non-Migratable') {
             this.migratableBy.push('Rate');
           }
@@ -125,6 +125,7 @@ export class OverallAlertsComponent implements OnInit {
         }
 
       
+//Device_Config_det,===Device_Config_mgar
 
         if (uniqueMigratableBy.includes('Device_Config_um') ) {
           this.DeviceConfigbuttonClass='nmg';
@@ -145,14 +146,30 @@ export class OverallAlertsComponent implements OnInit {
           //console.log("line 116",uniqueMigratableBy)
         
         }
-
-
         if (uniqueMigratableBy.includes('Device_Config_mgar')) {
           this.DeviceConfigbuttonClass='mgar';
           this.DeviceConfigbuttonMessage='Possible Action Required';
           //console.log("line 122",uniqueMigratableBy)
        
         
+        }
+        if (uniqueMigratableBy.includes('Device_Config_mgar') && uniqueMigratableBy.includes('Device_Config_det')
+       ) {
+          this.DeviceConfigbuttonClass='nmg';
+          this.DeviceConfigbuttonMessage='Action Required';
+          //console.log("line 129",uniqueMigratableBy)
+        }
+        if (uniqueMigratableBy.includes('Device_Config_mgar') && uniqueMigratableBy.includes('Device_Config_ua')
+       ) {
+          this.DeviceConfigbuttonClass='nmg';
+          this.DeviceConfigbuttonMessage='Action Required';
+          //console.log("line 129",uniqueMigratableBy)
+        }
+        if (uniqueMigratableBy.includes('Device_Config_mgar') && uniqueMigratableBy.includes('Device_Config_um')
+       ) {
+          this.DeviceConfigbuttonClass='nmg';
+          this.DeviceConfigbuttonMessage='Action Required';
+          //console.log("line 129",uniqueMigratableBy)
         }
         if (!uniqueMigratableBy.includes('Device_Config_mgar') && !uniqueMigratableBy.includes('Device_Config_det')
         && !uniqueMigratableBy.includes('Device_Config_ua') && !uniqueMigratableBy.includes('Device_Config_um')) {
