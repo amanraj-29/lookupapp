@@ -10,6 +10,7 @@ export interface deviceRatesState{
     Effective_Date: string;
     Action_Needed: string;
     device ?: string;
+    unlockFromImec:string;
 }
 
 @Injectable({

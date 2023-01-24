@@ -2,46 +2,7 @@
   <div class="heading-container" *ngIf="isLoaded && dataSource.data && dataSource.data.length > 0">
     <h2 class="heading">Subscriber List</h2>
 
-    <!-- <div
-      class="alerts"
-      *ngIf="isLoaded && dataSource.data && dataSource.data.length > 0"
-    >
-      <div class="sub-alert">
-        <div class="alert1">
-          <p class="label">Equipment</p>
-          <button class="alert-button" [ngClass]="DevicebuttonClass">
-            {{ DevicebuttonMessage }}
-          </button>
-        </div>
 
-        <div class="alert1">
-          <p class="label">Device Configuration</p>
-          <button
-            class="alert-button"
-            [ngClass]="DeviceConfigbuttonClass"
-          >
-           
-              {{ DeviceConfigbuttonMessage }}
-           
-          </button>
-        </div>
-      </div>
-
-      <div class="sub-alert">
-        <div class="alert1">
-          <p class="label">SIM</p>
-          <button class="alert-button" [ngClass]="SimGenbuttonClass">
-            {{ SimGenbuttonMessage }}
-          </button>
-        </div>
-        <div class="alert1">
-          <p class="label">Rate Plan</p>
-          <button class="alert-button1" [ngClass]="RatePlanbuttonClass">
-            {{ RatePlanbuttonMessage }}
-          </button>
-        </div>
-      </div>
-    </div> -->
     <app-overall-alerts></app-overall-alerts>
   </div>
 
@@ -65,6 +26,29 @@
               </th>
               <td mat-cell *matCellDef="let element" class="row-bg">
                 {{ element.Billing_Account_Name }}
+              </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="unlockFromImec">
+              <th
+                mat-header-cell
+                *matHeaderCellDef
+                class="header-bg border-rad"
+              >
+             IMEC Unlock Status
+              </th>
+              <td mat-cell *matCellDef="let element" class="row-bg">
+                <div [ngSwitch]="element.unlockFromImec">
+                  <div *ngSwitchCase="'uncompleted'">
+                    <button class="alert-button status-margin nmg">
+                      Action Required
+                    </button>
+                  </div>
+                  <div *ngSwitchCase="'completed'">
+                    <button class="alert-button status-margin mg">Ready</button>
+                  </div>
+                </div>
               </td>
             </ng-container>
 
@@ -255,6 +239,31 @@
                 <div *ngIf="!element.dvc_model && !element.dvc_make">NA</div>
               </td>
             </ng-container>
+
+            <ng-container matColumnDef="unlockFromImec">
+              <th
+                mat-header-cell
+                *matHeaderCellDef
+                class="header-bg border-rad"
+              >
+             IMEC Unlock Status
+              </th>
+              <td mat-cell *matCellDef="let element" class="row-bg">
+                <div [ngSwitch]="element.unlockFromImec">
+                  <div *ngSwitchCase="'uncompleted'">
+                    <button class="alert-button status-margin nmg">
+                      Action Required
+                    </button>
+                  </div>
+                  <div *ngSwitchCase="'completed'">
+                    <button class="alert-button status-margin mg">Ready</button>
+                  </div>
+                </div>
+              </td>
+            </ng-container>
+
+           
+
 
             <!-- button Column -->
             <ng-container matColumnDef="button">

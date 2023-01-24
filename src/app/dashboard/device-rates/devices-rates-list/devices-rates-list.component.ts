@@ -21,11 +21,13 @@ export class DevicesRatesListComponent implements OnInit {
     'Effective_Date',
     'Migratable_By_Device_status_code',
     'device',
+    'unlockFromImec',
     'button',
   ];
   dataSource = new MatTableDataSource<deviceRatesState>(ELEMENT_DATA);
 
   dataSourcebyNum = new MatTableDataSource<deviceRatesState>(ELEMENT_DATA);
+  
   isLoaded = false;
   length!: number;
 
