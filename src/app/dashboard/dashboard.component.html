@@ -1,165 +1,80 @@
 <div class="dashboard-bar text-center dashboard-bg aaa">
-  <form
-    class="dp-flex mobile-search"
-    [formGroup]="formGroup"
-    (ngSubmit)="formGroup.valid && openDialog('0ms', '0ms')"  d-align-center
-  >
+  <form class="dp-flex mobile-search" [formGroup]="formGroup" (ngSubmit)="formGroup.valid && openDialog('0ms', '0ms')"
+    d-align-center>
     <div>
       <p class="acc-num"><b>Enter Account / Mobile Number</b></p>
-
-      <!-- <mat-form-field> -->
-      <input
-        class="large-input"
-        type="search"
-        type="number"
-        id="search"
-        formControlName="search"
-        placeholder="Account/Mobile Number"
-        (keydown)="Space($event)"
-        required
-      />
-      <!-- </mat-form-field> -->
-      
-      <div
-      class="text-center error-msg mobile-warn"
-      *ngIf="
+      <input class="large-input" type="search" type="number" id="search" formControlName="search"
+        placeholder="Account/Mobile Number" (keydown)="Space($event)" required />
+      <div class="text-center error-msg mobile-warn" *ngIf="
         formGroup.controls['search'].invalid &&
         (formGroup.controls['search'].dirty ||
           formGroup.controls['search'].touched)
-      "
-    >
-      <div *ngIf="formGroup.controls['search'].errors" class="warn-msg">
-        Must be of 10-15 digit
+      ">
+        <div *ngIf="formGroup.controls['search'].errors" class="warn-msg">
+          Must be of 10-15 digit
+        </div>
+
       </div>
-      
-    </div>
-    
-    <div class="mobile-warn">
-      <div *ngIf="errorMsg" class="warn-msg">
-        {{errorMsg}}
-       </div>
-    </div>
-    
-    
-    
-      <!-- <mat-form-field> -->
-        <!-- <input
-          
-        class="large-input"
-        type="search"
-        
-        type="number"
-          id="search"
-          formControlName="search"
-          placeholder="Account/Mobile Number"
-          (keydown)="Space($event)"
-          required
-        /> -->
-      <!-- </mat-form-field> -->
+
+      <div class="mobile-warn">
+        <div *ngIf="errorMsg" class="warn-msg">
+          {{errorMsg}}
+        </div>
+      </div>
     </div>
 
     <div class="example-button-row text-center centre">
-      <button
-        type="submit"
-        class="common-btn width"
-        mat-button
-        color="primary"
-        [disabled]="formGroup.invalid"
-      >
+      <button type="submit" class="common-btn width" mat-button color="primary" [disabled]="formGroup.invalid">
         Search
       </button>
     </div>
   </form>
-  <div
-      class="text-center error-msg desktop-warn"
-      *ngIf="
+  <div class="text-center error-msg desktop-warn" *ngIf="
         formGroup.controls['search'].invalid &&
         (formGroup.controls['search'].dirty ||
           formGroup.controls['search'].touched)
-      "
-    >
-      <div *ngIf="formGroup.controls['search'].errors" class="warn-msg">
-        Must be of 10-15 digit
-      </div>
-      
+      ">
+    <div *ngIf="formGroup.controls['search'].errors" class="warn-msg">
+      Must be of 10-15 digit
     </div>
 
-    <div class="desktop-warn">
-      <div *ngIf="errorMsg"  class="warn-msg">
-        {{errorMsg}}
-       </div>
+  </div>
+
+  <div class="desktop-warn">
+    <div *ngIf="errorMsg" class="warn-msg">
+      {{errorMsg}}
     </div>
-    
+  </div>
+
 </div>
-
-
-<!-- Mobile Menu bar -->
 <div class="mobile-menu">
-  <button
-    mat-icon-button
-    [matMenuTriggerFor]="menu"
-    aria-label="Example icon-button with a menu"
-  >
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
     <div class="menu-bar">
       <span class="menu-text">Menu</span>
       <mat-icon>list</mat-icon>
     </div>
   </button>
   <mat-menu #menu="matMenu">
-    <button
-      mat-menu-item
-      [routerLink]="'./deviceRates'"
-      routerLinkActive="active"
-      class="inr-tab before menu"
-    >
+    <button mat-menu-item [routerLink]="'./deviceRates'" routerLinkActive="active" class="inr-tab before menu">
       Device
     </button>
-    <button
-      mat-menu-item
-      [routerLink]="'./recPlans'"
-      routerLinkActive="active"
-      class="inr-tab before menu"
-    >
+    <button mat-menu-item [routerLink]="'./recPlans'" routerLinkActive="active" class="inr-tab before menu">
       Rate Plans
     </button>
-    <button
-      mat-menu-item
-      [routerLink]="'./billing'"
-      routerLinkActive="active"
-      class="inr-tab menu"
-    >
+    <button mat-menu-item [routerLink]="'./billing'" routerLinkActive="active" class="inr-tab menu">
       Billing Details
     </button>
   </mat-menu>
 </div>
-
-<!-- Desktop Menu bar -->
 <div class="tab-container wd-100">
-  <button
-    [routerLink]="'./deviceRates'"
-    routerLinkActive="active"
-    class="inr-tab before"
-  >
+  <button [routerLink]="'./deviceRates'" routerLinkActive="active" class="inr-tab before">
     Device
   </button>
-  <!-- recPlans -->
-  <button
-    [routerLink]="'./recPlans'"
-    routerLinkActive="active"
-    class="inr-tab before"
-  >
+  <button [routerLink]="'./recPlans'" routerLinkActive="active" class="inr-tab before">
     Rate Plans
   </button>
   <button [routerLink]="'./billing'" routerLinkActive="active" class="inr-tab">
     Billing Details
   </button>
-  <!-- <button [routerLink]="'./deviceRateDetails'" routerLinkActive="active" class="inr-tab">Agreement Details</button> -->
 </div>
-
-<!-- <mat-tab-group mat-align-tabs="start">
-    <mat-tab label="First" [routerLink]="'./billing'">Billing Details</mat-tab>
-    <mat-tab label="Second" [routerLink]="'./deviceRateList'">Device and Rates List</mat-tab>
-    <mat-tab label="Third" [routerLink]="'./deviceRateDetails'">Device and Rates Details</mat-tab>
-  </mat-tab-group> -->
-
 <router-outlet></router-outlet>
