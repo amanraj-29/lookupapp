@@ -1,95 +1,55 @@
 <div class="content-align-middle  dp-flex">
-  <form
-    class=""
-    [formGroup]="formGroup"
-    (ngSubmit)="formGroup.valid && loginProcess()"
-  >
+  <form class="" [formGroup]="formGroup" (ngSubmit)="formGroup.valid && loginProcess()">
     <ul>
       <div *ngIf="errormgs" disabled class="errorlogin">
         <img src="/assets/Warning ICON.png" width="20px" height="20px" />
-        <span
-          ><h2 class="errormessage">{{ message }}</h2></span
-        >
+        <span>
+          <h2 class="errormessage">{{ message }}</h2>
+        </span>
       </div>
       <br />
-      <div
-        class="errorlogin"
-        *ngIf="
+      <div class="errorlogin" *ngIf="
           formGroup.controls['email'].invalid &&
           (formGroup.controls['email'].dirty ||
             formGroup.controls['email'].touched)
-        "
-      >
+        ">
         <div *ngIf="formGroup.controls['email'].errors">
           <div class="enterMail">
-            <img
-              src="/assets/Warning ICON.png"
-              width="20px"
-              height="20px"
-              class="errImg"
-            />
+            <img src="/assets/Warning ICON.png" width="20px" height="20px" class="errImg" />
             <br>
-            <span><h2 class="errormessage">Please Enter Valid Email</h2></span>
+            <span>
+              <h2 class="errormessage">Please Enter Valid Email</h2>
+            </span>
           </div>
         </div>
       </div>
       <br />
 
-      <div
-        class="errorlogin"
-        *ngIf="
+      <div class="errorlogin" *ngIf="
           formGroup.controls['password'].invalid &&
           (formGroup.controls['password'].dirty ||
             formGroup.controls['password'].touched)
-        "
-      >
+        ">
         <div *ngIf="formGroup.controls['password'].errors">
           <div class="enterMail">
-            <img
-              src="/assets/Warning ICON.png"
-              width="20px"
-              height="20px"
-              class="errImg"
-            />
+            <img src="/assets/Warning ICON.png" width="20px" height="20px" class="errImg" />
             <br>
-            <span><h2 class="errormessage">Please Enter Password</h2></span>
+            <span>
+              <h2 class="errormessage">Please Enter Password</h2>
+            </span>
           </div>
         </div>
       </div>
       <br>
       <div class="fields">
-        <!-- <mat-form-field > -->
-          <!-- <mat-label>Email</mat-label> -->
-          <input
-            formControlName="email"
-            placeholder="Email"
-            email
-            required
-            class="large-input"
-          />
-        <!-- </mat-form-field> -->
-        <!-- <mat-form-field> -->
-          <input
-            type="password"
-            placeholder="Password"
-            formControlName="password"
-            class="large-input"
-          />
-        <!-- </mat-form-field> -->
+        <input formControlName="email" placeholder="Email" email required class="large-input" />
+        <input type="password" placeholder="Password" formControlName="password" class="large-input" />
       </div>
     </ul>
-
     <div class="example-button-row text-center">
-      <button
-        class="common-btn"
-        mat-button
-        color="primary"
-        [disabled]="formGroup.invalid"
-      >
+      <button class="common-btn" mat-button color="primary" [disabled]="formGroup.invalid">
         Log in
       </button>
     </div>
   </form>
- 
- 
 </div>

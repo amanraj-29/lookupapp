@@ -1,66 +1,8 @@
-<!-- <div style="display: flex;">
-    <mat-card style="flex: 1 1 auto;">
-     <h2>     Billing_Account_Name: {{billingInfo?.Billing_Account_Name}}</h2>
-     <h2>     curr_srv_accs_nbr: {{billingInfo?.curr_srv_accs_nbr}}</h2>
-     <h2>     Libility_Type: {{billingInfo?.Libility_Type}}</h2>
-     <h2>     Billing_Address_1: {{billingInfo?.Billing_Address_1}}</h2>
-     <h2>     Billing_Address_2: {{billingInfo?.Billing_Address_2}}</h2>
-     <h2>     City: {{billingInfo?.City}}</h2>
-     <h2>     Effective_Date: {{billingInfo?.Effective_Date}}</h2>
-     <h2>     Service_ID: {{billingInfo?.Service_ID}}</h2>
-     <h2>     Account_Type: {{billingInfo?.Account_Type}}</h2>
-     <h2>     Account_Email: {{billingInfo?.Account_Email}}</h2>
-     <h2>     Account_start_date: {{billingInfo?.Account_start_date}}</h2>
-     <h2>     Billing_Cycle: {{billingInfo?.Billing_Cycle}}</h2>
-     <h2>     Billing_Close_Date: {{billingInfo?.Billing_Close_Date}}</h2>
-    </mat-card>
-    
-</div> -->
 <div class="bg-container">
   <div class="heading-container" *ngIf="billingInfo">
     <h2 class="main-heading">Billing Account Information</h2>
-    <!-- <div class="alerts" *ngIf="billingInfo">
-      <div class="sub-alert">
-        <div class="alert1">
-          <p class="label">Equipment</p>
-          <button class="alert-button" [ngClass]="DevicebuttonClass">
-            {{ DevicebuttonMessage }}
-          </button>
-        </div>
-        <div class="alert1">
-          <p class="label">Device Configuration</p>
-          <button
-            class="alert-button"
-            [ngClass]="migratableBy.includes('Device_Config') ? 'nmg' : 'mg'"
-          >
-            {{
-              migratableBy.includes("Device_Config")
-                ? "Action Required"
-                : "Ready"
-            }}
-          </button>
-        </div>
-      </div>
-
-      <div class="sub-alert">
-        <div class="alert1">
-          <p class="label">SIM</p>
-          <button class="alert-button" [ngClass]="SimGenbuttonClass">
-            {{ SimGenbuttonMessage }}
-          </button>
-        </div>
-        <div class="alert1">
-          <p class="label">Rate Plan</p>
-          <button class="alert-button1" [ngClass]="RatePlanbuttonClass">
-            {{ RatePlanbuttonMessage }}
-          </button>
-        </div>
-      </div>
-    </div> -->
     <app-overall-alerts></app-overall-alerts>
   </div>
-  
-
   <div class="bottom-container" *ngIf="billingInfo">
     <div class="left-container">
       <div class="card-head">
@@ -69,23 +11,23 @@
       <div class="card-container">
         <div class="card1">
           <h2 class="heading">Billing Account Name</h2>
-          <p class="detail">{{ billingInfo?.Billing_Account_Name || "NA"}}</p>
+          <p class="detail">{{ billingInfo?.blng_full_nm || "NA"}}</p>
           <h2 class="heading">Billing Account Number</h2>
           <p class="detail">{{ billingInfo?.acct_nbr || "NA" }}</p>
           <h2 class="heading">Billing Address 1</h2>
-          <p class="detail">{{ billingInfo?.Billing_Address_1 || "NA" }}</p>
+          <p class="detail">{{ billingInfo?.blng_loc_addr_ln_1_txt || "NA" }}</p>
           <h2 class="heading">Billing Address 2</h2>
-          <p class="detail">{{ billingInfo?.Billing_Address_2 || "NA" }}</p>
+          <p class="detail">{{ billingInfo?.blng_loc_addr_ln_2_txt || "NA" }}</p>
         </div>
         <div class="card1">
           <h2 class="heading">City</h2>
-          <p class="detail">{{ billingInfo?.City || "NA" }}</p>
+          <p class="detail">{{ billingInfo?.blng_loc_addr_cty_nm || "NA" }}</p>
           <h2 class="heading">State</h2>
-          <p class="detail">{{ billingInfo?.state  || "NA"}}</p>
+          <p class="detail">{{ billingInfo?.blng_loc_addr_stprov_cd || "NA"}}</p>
           <h2 class="heading">Zip Code</h2>
-          <p class="detail">{{ billingInfo?.zip_cd || "NA"}}</p>
+          <p class="detail">{{ billingInfo?.blng_loc_addr_postl_cd || "NA"}}</p>
           <h2 class="heading">Account Email</h2>
-          <p class="detail">{{ billingInfo?.Account_Email || "NA" }}</p>
+          <p class="detail">{{ billingInfo?.acct_email_addr || "NA" }}</p>
           <h2 class="heading">Account Contact Number</h2>
           <p class="detail">{{ billingInfo?.curr_srv_accs_nbr }}</p>
         </div>
@@ -99,14 +41,12 @@
         <div class="card1">
           <h2 class="heading">Action Needed</h2>
           <p class="detail">{{ billingInfo?.Action_Needed || "NA" }}</p>
-          <!-- <h2  class="heading">Authorized Users</h2>
-                    <p class="detail">NA</p> -->
           <h2 class="heading">Liability Type</h2>
-          <p class="detail">{{ billingInfo?.Libility_Type || "NA" }}</p>
+          <p class="detail">{{ billingInfo?.lblty_type || "NA" }}</p>
           <h2 class="heading">Account Type</h2>
-          <p class="detail">{{ billingInfo?.Account_Type || "NA" }}</p>
+          <p class="detail">{{ billingInfo?.acct_type_cd || "NA" }}</p>
           <h2 class="heading">Billing Cycle</h2>
-          <p class="detail">{{ billingInfo?.Billing_Cycle || "NA" }}</p>
+          <p class="detail">{{ billingInfo?.bl_cyc_cd || "NA" }}</p>
           <h2 class="heading">Preferred Language</h2>
           <p class="detail">{{ billingInfo?.lang_desc || "NA" }}</p>
           <h2 class="heading">Lines Count</h2>
@@ -114,17 +54,17 @@
         </div>
         <div class="card1">
           <h2 class="heading">Billing Close Date</h2>
-          <p class="detail">{{ billingInfo?.Billing_Close_Date }}</p>
+          <p class="detail">{{ billingInfo?.bl_cyc_clos_day }}</p>
           <h2 class="heading">Account Start Date</h2>
-          <p class="detail">{{ billingInfo?.Account_start_date || "NA" }}</p>
+          <p class="detail">{{ billingInfo?.subsrptn_contrct_eff_dt || "NA" }}</p>
           <h2 class="heading">FAN ID</h2>
           <p class="detail">{{ billingInfo?.fan_id || "NA" }}</p>
           <h2 class="heading">FAN Name</h2>
           <p class="detail">{{ billingInfo?.fan_nm || "NA" }}</p>
           <h2 class="heading">Service ID</h2>
-          <p class="detail">{{ billingInfo?.Service_ID || "NA" }}</p>
+          <p class="detail">{{ billingInfo?.acct_type_titl || "NA" }}</p>
           <h2 class="heading">Service Name</h2>
-          <p class="detail">{{ billingInfo?.svid_nm  || "NA"  }}</p>
+          <p class="detail">{{ billingInfo?.svid_nm || "NA" }}</p>
         </div>
       </div>
     </div>
