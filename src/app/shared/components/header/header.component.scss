@@ -18,6 +18,7 @@
 }
 
 .content-header1 {
+  display: flex;
   border-top-left-radius: 50px;
   justify-content: space-between;
 }
@@ -68,6 +69,7 @@
   cursor: pointer;
   padding: 0px;
 }
+.logout-btn:hover{text-decoration: underline;}
 
 .headline3,
 .logout-btn {
