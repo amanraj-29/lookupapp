@@ -1,7 +1,6 @@
 <div class="container">
-  <div class="heading-container">
-    <h2 class="heading" 
-    *ngIf="isLoaded && dataSource.data && dataSource.data.length > 0">Subscriber List</h2>
+  <div class="heading-container" *ngIf="isLoaded && dataSource.data && dataSource.data.length > 0">
+    <h2 class="heading">Subscriber List</h2>
     <app-overall-alerts></app-overall-alerts>
   </div>
   <br />
