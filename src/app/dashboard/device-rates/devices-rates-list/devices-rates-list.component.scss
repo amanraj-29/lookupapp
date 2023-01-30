@@ -96,6 +96,12 @@ justify-content: space-between;
   text-align: center;
 
 }
+@media (max-width:800px) {
+  .overflow{
+    overflow-x: scroll;
+  }
+  
+}
 @media (max-width: 700px) {
   .sub-alert {
   flex-direction: column;
@@ -154,4 +160,5 @@ justify-content: space-between;
   .row-bg {
     padding-right: 15px;
   }
+
 }

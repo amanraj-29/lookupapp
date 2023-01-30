@@ -6,11 +6,11 @@
   margin: 0 auto;
   display: flex;
 }
-
+.header,.logo-header,.content-header1,.header-buttons { display: flex;}
 .logo-header {
   width: 50%;
   text-align: center;
-  display: flex;
+ display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -44,6 +44,12 @@
   font-family: "Gilroy-Bold";
   font-size: 20px;
   line-height: 30px;
+  vertical-align: top;
+}
+.headline,.headline1,.headline2,.headline3,.headinner {  color: #ffffff;}
+.headline1 {
+  font-family: "Gilroy-Bold";
+  font-size: 20px;
   color: #ffffff;
   vertical-align: top;
 }
@@ -55,7 +61,6 @@
 .headline2 {
   font-family: "Gilroy-Regular";
   font-size: 20px;
-  color: #ffffff;
 }
 .headline3 {
   font-family: "Gilroy-SemiBold";
@@ -72,7 +77,6 @@
   font-family: "Gilroy-Regular";
   line-height: 35px;
   font-weight: 400;
-  color: #ffffff;
   vertical-align: top;
   top: 65px;
   position: absolute;
@@ -109,7 +113,6 @@
   font-family: "Gilroy-SemiBold";
  
 }
-
 .header-buttons {
   display: flex;
 }
