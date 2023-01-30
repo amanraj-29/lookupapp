@@ -4,11 +4,13 @@
   height: 150px;
   width: 100%;
   margin: 0 auto;
+  display: flex;
 }
 .header,.logo-header,.content-header1,.header-buttons { display: flex;}
 .logo-header {
   width: 50%;
   text-align: center;
+ display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -27,6 +29,7 @@
   width: 50%;
   background: #ff5900;
   border-top-left-radius: 50px;
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
@@ -47,6 +50,13 @@
 .headline1 {
   font-family: "Gilroy-Bold";
   font-size: 20px;
+  color: #ffffff;
+  vertical-align: top;
+}
+.headline1 {
+  font-family: "Gilroy-Bold";
+  font-size: 20px;
+  color: #ffffff;
 }
 .headline2 {
   font-family: "Gilroy-Regular";
@@ -55,6 +65,7 @@
 .headline3 {
   font-family: "Gilroy-SemiBold";
   font-size: 30px;
+  color: #ffffff;
   margin-bottom: 0px;
   line-height: normal;
   font-weight: 500;
@@ -101,6 +112,9 @@
   padding: 0px;
   font-family: "Gilroy-SemiBold";
  
+}
+.header-buttons {
+  display: flex;
 }
 @media (max-width: 990px) {
   .headinner {
