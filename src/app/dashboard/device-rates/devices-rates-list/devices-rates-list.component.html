@@ -281,7 +281,7 @@
       <h3 class="heading">Loading Data...</h3>
     </ng-container>
   </div>
-  <div class="delay-warn">
+  <div class="delay-warn" *ngIf="length !== 0">
     <p class="delay-content">
       This data may have a two week delay, please validate current customer
       information in Opus before making an offer.

@@ -244,7 +244,7 @@
     <h2 class="no-data">No Recommended Plan for searched account number.</h2>
   </div>
 
-  <div class="delay-warn">
+  <div class="delay-warn" *ngIf="billingInfo && accountData.length==0">
     <p class="delay-content">
       This data may have a two week delay, please validate current customer
       information in Opus before making an offer.

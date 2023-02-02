@@ -75,7 +75,7 @@
   <div *ngIf="!billingInfo">
     <h2 class="no-data">No Data Available for searched number</h2>
   </div>
-  <div class="delay-warn">
+  <div class="delay-warn" *ngIf="billingInfo">
     <p class="delay-content">
       This data may have a two week delay, please validate current customer
       information in Opus before making an offer.
