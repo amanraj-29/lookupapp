@@ -80,16 +80,16 @@
                     <button class="alert-button status-margin mg">Ready</button>
                   </div>
                   <div *ngSwitchCase="'2'">
-                    <button class="alert-button status-margin mgar">
-                      Possible Action Required
+                    <button class="alert-button status-margin mg">
+                      Ready
                     </button>
                   </div>
-                  <div *ngSwitchCase="'3'">
-                    <button class="alert-button status-margin nmg">
-                      Action Required
+                  <div *ngSwitchCase="'4'">
+                    <button class="alert-button status-margin mg">
+                     Ready
                     </button>
                   </div>
-                  <div *ngSwitchCase="'P_ACT_REQ'">
+                  <div *ngSwitchDefault>
                     <button class="alert-button status-margin mgar">
                       Possible Action Required
                     </button>
@@ -198,11 +198,14 @@
                       Action Required
                     </button>
                   </div>
-                  <div *ngSwitchCase="'P_ACT_REQ'">
-                    <button class="alert-button status-margin mgar">
-                      Possible Action Required
+
+                  <div *ngSwitchCase="'4'">
+                    <button class="alert-button status-margin mg">
+                     Ready
                     </button>
                   </div>
+
+                 
                 </div>
               </td>
             </ng-container>

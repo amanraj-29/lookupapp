@@ -50,42 +50,52 @@ export class DeviceRateDetailsComponent implements OnInit {
         this.DevicebuttonMessage = 'Ready';
       }
       if (this.deviceDetails?.Migratable_By_Device_status_code == 2) {
+        this.DevicebuttonClass = 'mg';
+        this.DevicebuttonMessage = 'Ready';
+      }
+      if (this.deviceDetails?.Migratable_By_Device_status_code == 4) {
+        this.DevicebuttonClass = 'mg';
+        this.DevicebuttonMessage = 'Ready';
+      }
+      if (!this.deviceDetails?.Migratable_By_Device_status_code) {
         this.DevicebuttonClass = 'mgar';
         this.DevicebuttonMessage = 'Possible Action Required';
       }
-      if (this.deviceDetails?.Migratable_By_Device_status_code == 3) {
-        this.DevicebuttonClass = 'nmg';
-        this.DevicebuttonMessage = 'Action Required';
-      }
-      if (this.deviceDetails?.Migratable_By_Device_status_code == 'P_ACT_REQ') {
-        this.DevicebuttonClass = 'mgar';
-        this.DevicebuttonMessage = 'Possible Action Required';
-      }
 
 
 
-      if (this.deviceDetails?.dvc_config_message == 'Device_Exchange_in_the_tool') {
+      if (this.deviceDetails?.lock_sts == 'RSU') {
         this.DeviceConfigbuttonClass = 'nmg';
-        this.DeviceConfigbuttonMessage = 'Device Exchange in the tool';
+        this.DeviceConfigbuttonMessage = 'RSU';
       }
-      if (this.deviceDetails?.dvc_config_message == 'Unlock_Manual') {
+      if (this.deviceDetails?.lock_sts == 'Physical') {
         this.DeviceConfigbuttonClass  = 'nmg';
-        this.DeviceConfigbuttonMessage = 'Unlock Manual';
+        this.DeviceConfigbuttonMessage = 'Action Required';
       }
-      if (this.deviceDetails?.dvc_config_message == 'Unlock_Assisted') {
-        this.DeviceConfigbuttonClass  = 'nmg';
-        this.DeviceConfigbuttonMessage = 'Unlock Assisted';
-      }
-      if (this.deviceDetails?.dvc_config_message == 'Over-the-air') {
+      if (this.deviceDetails?.lock_sts=='Dual lock - AT&T' || this.deviceDetails?.lock_sts=='Dual lock - AT&T - Lab' || this.deviceDetails?.lock_sts=='Dual lock - Lab' ) {
         this.DeviceConfigbuttonClass  = 'mg';
-        this.DeviceConfigbuttonMessage = 'Over-the-air';
+        this.DeviceConfigbuttonMessage = this.deviceDetails?.lock_sts;
       }
-      if (this.deviceDetails?.dvc_config_message == 'Possible_Action_Required') {
-        this.DeviceConfigbuttonClass  = 'mgar';
-        this.DeviceConfigbuttonMessage= 'Possible Action Required';
+      if (this.deviceDetails?.lock_sts=='IMEC - Lab' || this.deviceDetails?.lock_sts=='IMEC - AT&T') {
+        this.DeviceConfigbuttonClass  = 'nmg';
+        this.DeviceConfigbuttonMessage = this.deviceDetails?.lock_sts;
       }
 
-   
+      if (this.deviceDetails?.lock_sts == 'OTA') {
+        this.DeviceConfigbuttonClass  = 'mg';
+        this.DeviceConfigbuttonMessage = 'Ready';
+      }
+      if (this.deviceDetails?.lock_sts == 'Unlocked') {
+        this.DeviceConfigbuttonClass  = 'mg';
+        this.DeviceConfigbuttonMessage = 'Unlocked';
+      }
+      if (this.deviceDetails?.lock_sts == 'Unconfirmed') {
+        this.DeviceConfigbuttonClass  = 'mgar';
+        this.DeviceConfigbuttonMessage= 'Unconfirmed';
+      }
+
+      
+      
 
 
       if (this.deviceDetails?.SIM_Gen_Status == "Migratable") {
