@@ -76,10 +76,18 @@ export class DeviceRateDetailsComponent implements OnInit {
         this.DeviceConfigbuttonClass  = 'mg';
         this.DeviceConfigbuttonMessage = this.deviceDetails?.lock_sts;
       }
-      if (this.deviceDetails?.lock_sts=='IMEC - Lab' || this.deviceDetails?.lock_sts=='IMEC - AT&T') {
+      if (this.deviceDetails?.lock_sts=='IMEC - Lab' || this.deviceDetails?.lock_sts=='IMEC - AT&T' || this.deviceDetails?.lock_sts=='IMEC') {
         this.DeviceConfigbuttonClass  = 'nmg';
         this.DeviceConfigbuttonMessage = this.deviceDetails?.lock_sts;
       }
+
+      
+      if (this.deviceDetails?.lock_sts == 'IP / PC') {
+        this.DeviceConfigbuttonClass  = 'mgg';
+        this.DeviceConfigbuttonMessage = 'IP/PC Replace Device';
+      }
+
+
 
       if (this.deviceDetails?.lock_sts == 'OTA') {
         this.DeviceConfigbuttonClass  = 'mg';
@@ -93,7 +101,10 @@ export class DeviceRateDetailsComponent implements OnInit {
         this.DeviceConfigbuttonClass  = 'mgar';
         this.DeviceConfigbuttonMessage= 'Unconfirmed';
       }
-
+      if (this.deviceDetails?.lock_sts == null) {
+        this.DeviceConfigbuttonClass  = 'mgar';
+        this.DeviceConfigbuttonMessage= 'Possible Action Required';
+      }
       
       
 
