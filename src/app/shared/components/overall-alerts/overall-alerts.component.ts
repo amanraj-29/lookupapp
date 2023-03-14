@@ -64,13 +64,9 @@ export class OverallAlertsComponent implements OnInit {
             === 'RSU' || inrVal?.lock_sts
             === 'Physical' || inrVal?.lock_sts
             === 'IMEC - Lab'  || inrVal?.lock_sts
-            === 'IMEC - AT&T' || inrVal?.lock_sts=='IMEC'
+            === 'IMEC - AT&T' || inrVal?.lock_sts=='IMEC' || inrVal?.lock_sts === 'IP / PC'
           ) {
             this.migratableBy.push('Device_Config_nmg');
-          }
-
-           if (inrVal?.lock_sts === 'IP / PC') {
-            this.migratableBy.push('Device_Config_mgg');
           }
 
 
@@ -114,12 +110,6 @@ export class OverallAlertsComponent implements OnInit {
         //console.log('Inside array of filter', uniqueMigratableBy);
         if (uniqueMigratableBy.includes('Device_Config_nmg') ) {
           this.DeviceConfigbuttonClass='nmg';
-          this.DeviceConfigbuttonMessage='Action Required';
-        
-        }
-
-         if (uniqueMigratableBy.includes('Device_Config_mgg') && !uniqueMigratableBy.includes('Device_Config_nmg') && !uniqueMigratableBy.includes('Device_Config_mgar') ) {
-          this.DeviceConfigbuttonClass='mgg';
           this.DeviceConfigbuttonMessage='Action Required';
         
         }
