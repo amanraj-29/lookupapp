@@ -64,9 +64,13 @@ export class OverallAlertsComponent implements OnInit {
             === 'RSU' || inrVal?.lock_sts
             === 'Physical' || inrVal?.lock_sts
             === 'IMEC - Lab'  || inrVal?.lock_sts
-            === 'IMEC - AT&T'
+            === 'IMEC - AT&T' || inrVal?.lock_sts=='IMEC'
           ) {
             this.migratableBy.push('Device_Config_nmg');
+          }
+
+           if (inrVal?.lock_sts === 'IP / PC') {
+            this.migratableBy.push('Device_Config_mgg');
           }
 
 
@@ -111,38 +115,15 @@ export class OverallAlertsComponent implements OnInit {
         if (uniqueMigratableBy.includes('Device_Config_nmg') ) {
           this.DeviceConfigbuttonClass='nmg';
           this.DeviceConfigbuttonMessage='Action Required';
-       //  uniqueMigratableBy = uniqueMigratableBy.filter(
-       //    (e) => e !== 'Device_Config_ua'
-       //  );
-       //  uniqueMigratableBy = uniqueMigratableBy.filter(
-       //    (e) => e !== 'Device_Config_um'
-       //  );
-       //  console.log("line 169",uniqueMigratableBy)
         
         }
 
-      
-//Device_Config_det,===Device_Config_mgar
+         if (uniqueMigratableBy.includes('Device_Config_mgg') && !uniqueMigratableBy.includes('Device_Config_nmg') && !uniqueMigratableBy.includes('Device_Config_mgar') ) {
+          this.DeviceConfigbuttonClass='mgg';
+          this.DeviceConfigbuttonMessage='Action Required';
+        
+        }
 
-     //  if (uniqueMigratableBy.includes('Device_Config_um') ) {
-     //    this.DeviceConfigbuttonClass='nmg';
-     //    this.DeviceConfigbuttonMessage='Action Required';
-     //    uniqueMigratableBy = uniqueMigratableBy.filter(
-     //      (e) => e !== 'Device_Config_ua'
-     //    );
-     //  
-     //  
-     //    //console.log("line 116",uniqueMigratableBy)
-     //  
-     //  }
-
-     //  if (uniqueMigratableBy.includes('Device_Config_ua') ) {
-     //    this.DeviceConfigbuttonClass='nmg';
-     //    this.DeviceConfigbuttonMessage='Action Required';
-     //   
-     //    //console.log("line 116",uniqueMigratableBy)
-     //  
-     //  }
         if (uniqueMigratableBy.includes('Device_Config_mgar')) {
           this.DeviceConfigbuttonClass='mgar';
           this.DeviceConfigbuttonMessage='Possible Action Required';
@@ -156,18 +137,7 @@ export class OverallAlertsComponent implements OnInit {
           this.DeviceConfigbuttonMessage='Action Required';
           //console.log("line 129",uniqueMigratableBy)
         }
-  //     if (uniqueMigratableBy.includes('Device_Config_mgar') && uniqueMigratableBy.includes('Device_Config_ua')
-  //    ) {
-  //       this.DeviceConfigbuttonClass='nmg';
-  //       this.DeviceConfigbuttonMessage='Action Required';
-  //       //console.log("line 129",uniqueMigratableBy)
-  //     }
-  //     if (uniqueMigratableBy.includes('Device_Config_mgar') && uniqueMigratableBy.includes('Device_Config_um')
-  //    ) {
-  //       this.DeviceConfigbuttonClass='nmg';
-  //       this.DeviceConfigbuttonMessage='Action Required';
-  //       //console.log("line 129",uniqueMigratableBy)
-  //     }
+ 
         if (!uniqueMigratableBy.includes('Device_Config_mgar') && !uniqueMigratableBy.includes('Device_Config_nmg')) {
           this.DeviceConfigbuttonClass='mg';
           this.DeviceConfigbuttonMessage='Ready';
