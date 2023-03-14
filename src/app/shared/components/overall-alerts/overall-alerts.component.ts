@@ -75,7 +75,7 @@ export class OverallAlertsComponent implements OnInit {
 
 
 
-          if (inrVal?.lock_sts=== 'Possible_Action_Required' || inrVal?.lock_sts===null) {
+          if (inrVal?.lock_sts=== 'Possible_Action_Required' || inrVal?.lock_sts===null || inrVal?.lock_sts==='Unconfirmed') {
             this.migratableBy.push('Device_Config_mgar');
           }
 
