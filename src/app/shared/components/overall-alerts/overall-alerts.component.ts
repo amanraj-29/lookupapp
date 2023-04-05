@@ -57,7 +57,7 @@ export class OverallAlertsComponent implements OnInit {
      
      
       val.map((inrVal: any) => {
-        console.log("inr value",inrVal);
+      //  console.log("inr value",inrVal);
 
           if (
             inrVal?.lock_sts
@@ -80,6 +80,7 @@ export class OverallAlertsComponent implements OnInit {
           if (inrVal?.Migratable_by_rate_plan === 'Non-Migratable') {
             this.migratableBy.push('Rate');
           }
+
           if (inrVal?.Migratable_By_Device_status_code == 0) {
             this.migratableBy.push('Device');
           }
@@ -92,7 +93,7 @@ export class OverallAlertsComponent implements OnInit {
             this.migratableBy.push('Rate_mgar');
           }
           if (
-            !inrVal?.Migratable_By_Device_status_code
+            !inrVal?.Migratable_By_Device_status_code || inrVal?.Migratable_By_Device_status_code == 2
           ) {
             this.migratableBy.push('Device_mgar');
           }

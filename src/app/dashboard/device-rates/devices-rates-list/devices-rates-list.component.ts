@@ -295,11 +295,11 @@ searchedNumber:any;
     this.dataSourcebyNum = new MatTableDataSource<deviceRatesState>(this.filteredDataByNumber);
 
  if(this.searchedNumber===this.curr_srv_accs_nbr){
-console.log("MOBILE NUMBER IS SEARCHED RIGHT NOW")
+//console.log("MOBILE NUMBER IS SEARCHED RIGHT NOW")
 this.HidePhoneNumberTable='show'
  }
  if(this.searchedNumber===this.acct_nbr){
-  console.log("ACCT NUMBER IS SEARCHED RIGHT NOW")
+ // console.log("ACCT NUMBER IS SEARCHED RIGHT NOW")
   this.HidePhoneNumberTable='hide'
    }
 
@@ -315,7 +315,7 @@ this.HidePhoneNumberTable='show'
 
   nextscreen(item: any) {
 
-    console.log("**************here ",item)
+   // console.log("**************here ",item)
     this.router.navigate([`../details/${item.sno}`], {
       relativeTo: this.actRoute,
     });

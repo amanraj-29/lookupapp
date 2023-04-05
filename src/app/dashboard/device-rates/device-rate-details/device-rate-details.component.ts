@@ -50,8 +50,8 @@ export class DeviceRateDetailsComponent implements OnInit {
         this.DevicebuttonMessage = 'Ready';
       }
       if (this.deviceDetails?.Migratable_By_Device_status_code == 2) {
-        this.DevicebuttonClass = 'mg';
-        this.DevicebuttonMessage = 'Ready';
+        this.DevicebuttonClass = 'mgar';
+        this.DevicebuttonMessage = 'Possible Action Required';
       }
       if (this.deviceDetails?.Migratable_By_Device_status_code == 4) {
         this.DevicebuttonClass = 'mg';
